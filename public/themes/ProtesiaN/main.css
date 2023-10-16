@@ -1,0 +1,243 @@
+.tabs a.active {
+    background: #07baca;
+    color: #07baca;
+    border-radius: 5px;
+    line-height: 7px;
+    overflow: hidden;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.tab-wrapper .active {
+    display: block;
+}
+
+.slider.round {
+    border-radius: 11px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.my-cont {
+    max-width: 1800px;
+    margin: auto
+}
+
+.primary-button {
+    background-color: #07baca;
+    border: none;
+    border-radius: 15px;
+    height: 50px;
+    width: 240px;
+    padding-top: 0.15em;
+    padding-right: 0.1em;
+}
+
+.shadow-text {
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 3px 1px 2px #000000;
+
+}
+
+.specs-table {
+    table-layout: fixed;
+    width: 100%;
+    height: 65%;
+    border-collapse: collapse;
+}
+
+.price-card {
+    background-image: url("/images/main-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 350px;
+    width: 240px;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid #111827;
+}
+
+.price-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-next::after {
+    font-weight: 900;
+    font-size: 40px;
+    color: #fff;
+}
+
+.swiper-button-prev::after {
+    font-weight: 900;
+    font-size: 40px;
+    color: #fff;
+}
+
+.swiper-button-next {
+    margin-top: 0 !important;
+}
+
+.swiper-button-prev {
+    margin-top: 0 !important;
+}
+
+.spec-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.spec-desc {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-header {
+    color: #9162bd;
+    font-weight: 700;
+    font-size: 25px;
+    text-shadow: 3px 1px 2px #000000;
+}
+
+.spec-count {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-summ {
+    font-size: 25px;
+    font-weight: 700;
+    text-shadow: 3px 1px 2px #000000;
+}
+
+.card-header {
+    text-shadow: rgba(255,255,255,0.92) 0px 0px 10px;
+}
+
+.prices-swiper {
+    width: 60vw;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.cyan-dot {
+    position: relative;
+    display: inline-block;
+}
+.cyan-dot:before,
+.cyan-dot:after {
+    opacity: 1;
+    content: 'i';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font: inherit;
+}
+
+.cyan-dot-large:before {
+    color: #07baca;
+    clip: rect(auto, auto, 0.35em, auto);
+}
+.cyan-dot-large:after {
+    clip: rect(0.35em, auto, auto, auto);
+}
+
+.cyan-dot-small:before {
+    color: #07baca;
+    clip: rect(auto, auto, 0.5em, auto);
+}
+.cyan-dot-small:after {
+    clip: rect(0.5em, auto, auto, auto);
+}
+.cyan-dot i {
+    font: inherit;
+    opacity: 0;
+}
+
+.button-40 {
+    background-color: #111827;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    line-height: 1.25rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    width: auto;
+}
+  
+.button-40:hover {
+    background-color: #374151;
+}
+  
+.button-40:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.linestyle {
+    -webkit-box-shadow: 0px 10px 0px -8px rgba(7, 186, 202, 1);
+    -moz-box-shadow: 0px 10px 0px -8px rgba(7, 186, 202, 1);
+    box-shadow: 0px 10px 0px -8px rgba(7, 186, 202, 1);
+}
+
+@media only screen and (max-width: 1024px) {
+    .price-card {
+        height: 320px;
+        width: 200px;
+        text-align: center;
+        border-radius: 15px;
+    }
+
+    .swiper-button-next::after {
+        font-weight: 900;
+        font-size: 30px;
+        color: #fff;
+    }
+    
+    .swiper-button-prev::after {
+        font-weight: 900;
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .spec-header {
+        font-size: 22px;
+    }
+
+    .spec-count {
+        font-size: 18px;
+    }
+
+    .card-summ {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
+        right: calc((100vw - 1765px)/2);
+        top: 50%;
+        transform: translate3d(0px,-50%,0);
+    }
+}

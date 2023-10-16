@@ -1,0 +1,6 @@
+.env
+storage/logs/**
+storage/files/**
+vendor/**
+transferusers.php
+install.lock

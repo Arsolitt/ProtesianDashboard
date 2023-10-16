@@ -1,0 +1,11 @@
+@import "default.css";
+
+.layout-fixed .wrapper .sidebar {
+    height: calc(100vh - 3.5rem - 1px);
+    background: radial-gradient(#061b29, black);
+}
+
+body:not(.sidebar-mini-md) .content-wrapper {
+    transition: margin-left 0.3s ease-in-out;
+    background: radial-gradient(#061b29, black);
+}
