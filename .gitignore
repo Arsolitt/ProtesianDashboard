@@ -4,3 +4,5 @@ storage/files/**
 vendor/**
 transferusers.php
 install.lock
+public/install/logs/**
+public/storage
