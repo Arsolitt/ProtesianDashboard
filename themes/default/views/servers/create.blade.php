@@ -255,7 +255,7 @@
                                     :disabled="product.minimum_credits > user.credits || product.doesNotFit == true || submitClicked"
                                     :class="product.minimum_credits > user.credits || product.doesNotFit == true || submitClicked ? 'disabled' : ''"
                                     @click="setProduct(product.id)"
-                                    x-text="product.doesNotFit == true ? '{{ __("Server cannot fit on this node" }}' : (product.minimum_credits > user.credits ? '{{ __('Not enough') }} {{ CREDITS_DISPLAY_NAME }}!' : '{{ __('Create Server') }}')"
+                                    x-text="product.doesNotFit == true ? '{{ __("Server can\'t fit on this node") }}' : (product.minimum_credits > user.credits ? '{{ __('Not enough') }} {{ CREDITS_DISPLAY_NAME }}!' : '{{ __('Create Server') }}')"
                                     class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 </button>
                             </div>

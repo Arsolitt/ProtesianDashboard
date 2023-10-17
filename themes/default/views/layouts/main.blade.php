@@ -93,9 +93,7 @@ if (!empty($_COOKIE['theme'])) {
                 <footer
                     class="p-4 mt-4 bg-white shadow-md dark:bg-gray-800 flex flex-col sm:flex-row justify-between items-center">
                     <div>
-                        Copyright &copy; 2021-{{ date('Y') }} <a
-                            href="{{ url('/') }}">{{ env('APP_NAME', 'Laravel') }}</a>.
-                        All rights reserved.
+                        <a href="{{ url('/') }}">{{ env('APP_NAME', 'Laravel') }}</a> &copy; 2021-{{ date('Y') }} {{ __('All rights reserved') }}.
                     </div>
                     <div>
                         <x-information />

@@ -36,11 +36,10 @@
                                     {{ $product->formatToCurrency($product->price) }}
                                 </th>
                                 <td class="py-4 px-6">
-                                    {{ strtolower($product->type) == 'credits' ? CREDITS_DISPLAY_NAME : $product->type }}
+                                    {{ strtolower($product->type) == 'credits' ? __('Balance') : $product->type }}
                                 </td>
                                 <td class="py-4 px-6">
                                     {{ $product->display }}
-                                    {{ strtolower($product->type) == 'credits' ? CREDITS_DISPLAY_NAME : '' }}
                                 </td>
                                 <td class="py-4 px-6">
                                     <a href="{{ route('checkout', $product->id) }}"

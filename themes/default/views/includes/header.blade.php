@@ -154,7 +154,7 @@
                                     d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <span>{{ config('SETTINGS::SYSTEM:CREDITS_DISPLAY_NAME') }}:
+                            <span>{{ __(config('SETTINGS::SYSTEM:CREDITS_DISPLAY_NAME')) }}:
                                 {{ Auth::user()->credits() }}</span>
                         </p>
                     </li>
@@ -215,7 +215,7 @@
                                         d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
                                     </path>
                                 </svg>
-                                <span>Log out</span>
+                                <span>{{ __('Logout') }}</span>
 
                             </button>
                         </form>

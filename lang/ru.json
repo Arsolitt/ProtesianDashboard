@@ -304,7 +304,7 @@
     "Content": "Содержание",
     "Server limit": "Лимит серверов",
     "Discord": "Дискорд",
-    "Usage": "Использование",
+    "Expenses": "Расходы",
     "IP": "IP",
     "Referals": "Referals",
     "Vouchers": "Подарочные сертификаты",
@@ -506,10 +506,15 @@
     "updated": "обновлён",
     "created": "создан",
     "Created": "Создан",
-    "Redeemed": "Куплен",
+    "Redeemed": "Активирован",
     "Deleted": "Удалён",
     "Gained": "Получен",
     "Updated": "Обновлён",
     "Required": "Требуется",
-    "Server cannot fit on this node": "Сервер не может быть размещён на этой ноде"
+    "Server can't fit on this node": "Сервер не может быть размещён на этой ноде",
+    "Voucher": "Промокод",
+    "redeemed": "активирован",
+    "Redeem Code": "Активировать код",
+    "Coin": "Монет",
+    "All rights reserved": "Все права защищены"
 }
