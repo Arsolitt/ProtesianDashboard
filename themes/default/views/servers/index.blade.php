@@ -125,7 +125,7 @@
             @empty
                 <div class="min-w-0 p-4 bg-white rounded-lg shadow-sm dark:bg-gray-800">
                     <h4 class="font-semibold text-gray-600 dark:text-gray-300">
-                        No Servers Found!
+                    {{ __('No Servers Found') }}!
                     </h4>
                 </div>
             @endforelse

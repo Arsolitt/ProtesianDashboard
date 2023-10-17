@@ -6,7 +6,7 @@
 
             <div class="w-full overflow-hidden  shadow-sm col-span-2">
                 <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                    {{ __('Ticket') }}
+                    {{ __('Tickets') }}
                 </h2>
                 <div class="w-full overflow-hidden rounded-lg ">
                     <div class="w-full overflow-x-auto">
@@ -37,12 +37,10 @@
                 </h2>
                 <div class="p-4 bg-white rounded-lg shadow-sm dark:bg-gray-800">
 
-                    <p class="mb-2">Can't start your server? Need an additional port? Do you have any other questions? Let
-                        us
-                        know!</p>
+                    <p class="mb-2">{{ __("Can't start your server? Need an additional port? Do you have any other questions? Let us know!") }}</p>
                     <a href="{{ route('ticket.new') }}"
-                        class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Create
-                        Ticket</a>
+                        class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                        {{ __('Create Ticket') }}</a>
                 </div>
             </div>
         </div>
@@ -66,7 +64,7 @@
                     "targets": "_all"
                 }],
                 columns: [{
-                        data: 'title',
+                        data: 'title'
                     },
                     {
                         data: 'category'

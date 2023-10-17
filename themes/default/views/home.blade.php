@@ -108,7 +108,7 @@
         <div class="grid gap-6 mb-8 @if (config('SETTINGS::REFERRAL::ENABLED') || config('SETTINGS::SYSTEM:USEFULLINKS_ENABLED')) md:grid-cols-3 @endif">
             <div class="w-full overflow-hidden col-span-2 md:col-span-1">
                 @if (config('SETTINGS::SYSTEM:USEFULLINKS_ENABLED') == 'true')
-                    <x-card title="Useful Links">
+                    <x-card title="{{ __('Useful Links') }}">
                         @foreach ($useful_links_dashboard as $useful_link)
                             <div class="mb-2">
                                 <a class="underline text-gray-700 dark:text-gray-200 font-semibold" target="__blank"
@@ -123,26 +123,26 @@
                     </x-card>
                 @endif
                 @if (config('SETTINGS::REFERRAL::ENABLED'))
-                    <x-card title="Partner Program">
+                    <x-card title="{{ __('Partner Program') }}">
                         @if ((config('SETTINGS::REFERRAL::ALLOWED') == 'client' && Auth::user()->role != 'member') ||
                             config('SETTINGS::REFERRAL::ALLOWED') == 'everyone')
                             <div>
                                 <li
                                     class="text-gray-700 dark:text-gray-200  relative block leading-normal bg-white dark:bg-gray-800 border-0 border-t-0 text-sm text-inherit">
 
-                                    <strong class="">Referral Code:</strong>
+                                    <strong class="">{{ __('Referral Code') }}:</strong>
                                     <span class="cursor-copy hover:text-gray-600 hover:dark:text-gray-400"
-                                        data-content="Click to Copy URL" data-toggle="popover" data-trigger="hover"
+                                        data-content="{{ __('Click to Copy URL') }}" data-toggle="popover" data-trigger="hover"
                                         data-placement="top"
                                         onclick="onClickCopy('{{ route('register') }}?ref={{ Auth::user()->referral_code }}')">
-                                        {{ Auth::user()->referral_code }} (Click to Copy URL)</span>
+                                        {{ Auth::user()->referral_code }} ({{ __('Click to Copy URL') }})</span>
 
                                 </li>
 
                                 <li
                                     class="text-gray-700 dark:text-gray-200  relative block leading-normal bg-white dark:bg-gray-800 border-0 border-t-0 text-sm text-inherit">
 
-                                    <strong class="">Referred Users: </strong>
+                                    <strong class="">{{ __('Referred Users') }}: </strong>
                                     <span>{{ $numberOfReferrals }}</span>
 
                                 </li>
@@ -264,8 +264,8 @@
                                     <td class="px-4 py-3">
                                         <div class="flex items-center text-sm">
                                             <p class="font-semibold">
-                                                {{ explode('\\', $log->subject_type)[2] }}
-                                                {{ $log->description }}
+                                                {{ __(explode('\\', $log->subject_type)[2]) }}
+                                                {{ __($log->description) }}
                                                 @php $first=true @endphp
                                                 @foreach (json_decode($log->properties, true) as $properties)
                                                     @if ($first)
@@ -286,27 +286,27 @@
                                         @if (str_starts_with($log->description, 'created'))
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-500 dark:bg-green-500/20">
-                                                Created
+                                                {{ __('Created') }}
                                             </span>
                                         @elseif(str_starts_with($log->description, 'redeemed'))
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-blue-700 bg-blue-100 rounded-full dark:text-blue-500 dark:bg-blue-500/20">
-                                                Redeemed
+                                                {{ __('Redeemed') }}
                                             </span>
                                         @elseif(str_starts_with($log->description, 'deleted'))
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-500 dark:bg-red-500/20">
-                                                Deleted
+                                                {{ __('Deleted') }}
                                             </span>
                                         @elseif(str_starts_with($log->description, 'gained'))
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-lime-700 bg-lime-100 rounded-full dark:text-lime-500 dark:bg-lime-500/20">
-                                                Gained
+                                                {{ __('Gained') }}
                                             </span>
                                         @elseif(str_starts_with($log->description, 'updated'))
                                             <span
                                                 class="px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 dark:text-yellow-500 dark:bg-yellow-500/20 rounded-full">
-                                                Updated
+                                                {{ __('Updated') }}
                                             </span>
                                         @endif
                                     </td>

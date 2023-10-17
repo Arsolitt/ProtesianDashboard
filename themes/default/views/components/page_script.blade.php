@@ -7,10 +7,10 @@
         let table = window.table || $('#datatable')
         let info = table.page.info();
 
-        $('#table_footer_text').html('Showing page ' + (info.page + 1) + ' of ' + (info.pages + 1));
+        $('#table_footer_text').html("{{ __('Showing page') }}" + ' ' + (info.page + 1) + ' ' + "{{ __('of') }}" + ' ' + (info.pages + 1));
         table.on('page.dt', function() {
             info = table.page.info();
-            $('#table_footer_text').html('Showing page ' + (info.page + 1) + ' of ' + (info.pages + 1));
+            $('#table_footer_text').html("{{ __('Showing page') }}" + ' ' + (info.page + 1) + ' ' + "{{ __('of') }}" + ' ' + (info.pages + 1));
         });
         prev_page_btn.on('click', (e) => {
             table.page(info.page <= 0 ? info.page : info.page - 1).draw(false);
@@ -34,7 +34,7 @@
 
             info = table.page.info();
             console.log(info);
-            $('#table_footer_text').html('Showing page ' + (info.page + 1) + ' of ' + (info.pages + 1));
+            $('#table_footer_text').html("{{ __('Showing page') }}" + ' ' + (info.page + 1) + ' ' + "{{ __('of') }}" + ' ' + (info.pages + 1));
 
             let btns = []
             for (let index = 0; index < info.pages; index++) {

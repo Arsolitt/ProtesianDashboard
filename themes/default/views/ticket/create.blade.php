@@ -26,7 +26,7 @@
                                     <span class="text-gray-700 dark:text-gray-400">{{ __('Title') }}</span>
                                     <input id="title" name="title" type="text" required="required"
                                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray rounded-md shadow-sm border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        placeholder="Title" value="{{ old('title') }}">
+                                        placeholder="{{ __('Title') }}" value="{{ old('title') }}">
                                 </label>
                                 @if ($servers->count() >= 1)
                                     <label class="block mt-4 text-sm">
@@ -52,9 +52,9 @@
                                     <select
                                         class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-md shadow-sm border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                         id="ticketcategory" required name="ticketcategory" required="required">
-                                        <option value="">{{ __('Select Category') }}</option>
+                                        <option value=>{{ __('Select Category') }}</option>
                                         @foreach ($ticketcategories as $ticketcategory)
-                                            <option value="{{ $ticketcategory->id }}">{{ $ticketcategory->name }}
+                                            <option value="{{ $ticketcategory->id }}">{{ __($ticketcategory->name) }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -66,10 +66,10 @@
                                     <select
                                         class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-md shadow-sm border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                         name="priority" required id="priority">
-                                        <option value="" disabled selected>Select Priority</option>
-                                        <option value="Low">Low</option>
-                                        <option value="Medium">Medium</option>
-                                        <option value="High">High</option>
+                                        <option value="" disabled selected>{{ __('Select Priority') }}</option>
+                                        <option value="Low">{{ __('Низкий') }}</option>
+                                        <option value="Medium">{{ __('Средний') }}</option>
+                                        <option value="High">{{ __('Высокий') }}</option>
                                     </select>
                                 </label>
 
@@ -78,7 +78,7 @@
                         <button type="submit"
                             class="mt-4 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple
                             ticket-once disabled:opacity-50 disabled:cursor-not-allowed">
-                            {{ __('Open Ticket') }}
+                            {{ __('Create Ticket') }}
                         </button>
                     </div>
 

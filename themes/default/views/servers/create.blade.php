@@ -84,7 +84,7 @@
                                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-md shadow-sm border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                     required name="nest" id="nest" x-model="selectedNest" @change="setEggs();">
                                     <option selected disabled hidden value="null">
-                                        {{ count($nests) > 0 ? __('Please select software ...') : __('---') }}</option>
+                                        {{ count($nests) > 0 ? __('Select software ...') : __('---') }}</option>
                                     @foreach ($nests as $nest)
                                         <option value="{{ $nest->id }}">{{ $nest->name }}</option>
                                     @endforeach
@@ -255,7 +255,7 @@
                                     :disabled="product.minimum_credits > user.credits || product.doesNotFit == true || submitClicked"
                                     :class="product.minimum_credits > user.credits || product.doesNotFit == true || submitClicked ? 'disabled' : ''"
                                     @click="setProduct(product.id)"
-                                    x-text="product.doesNotFit == true ? '{{ __("Server can\'t fit on this node") }}' : (product.minimum_credits > user.credits ? '{{ __('Not enough') }} {{ CREDITS_DISPLAY_NAME }}!' : '{{ __('Create Server') }}')"
+                                    x-text="product.doesNotFit == true ? '{{ __("Server cannot fit on this node" }}' : (product.minimum_credits > user.credits ? '{{ __('Not enough') }} {{ CREDITS_DISPLAY_NAME }}!' : '{{ __('Create Server') }}')"
                                     class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 </button>
                             </div>
@@ -430,7 +430,7 @@
                 getNodeInputText() {
                     if (this.fetchedLocations) {
                         if (this.locations.length > 0) {
-                            return '{{ __('Please select a node ...') }}';
+                            return '{{ __('Select node ...') }}';
                         }
                         return '{{ __('No nodes found matching current configuration') }}'
                     }
@@ -440,7 +440,7 @@
                 getProductInputText() {
                     if (this.fetchedProducts) {
                         if (this.products.length > 0) {
-                            return '{{ __('Please select a resource ...') }}';
+                            return '{{ __('Select resource ...') }}';
                         }
                         return '{{ __('No resources found matching current configuration') }}'
                     }
@@ -449,7 +449,7 @@
 
                 getEggInputText() {
                     if (this.selectedNest) {
-                        return '{{ __('Please select a configuration ...') }}';
+                        return '{{ __('Select configuration ...') }}';
                     }
                     return '{{ __('---') }}';
                 },
