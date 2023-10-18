@@ -57,8 +57,7 @@
     </header>
 
     <main class="page-swiper swiper-container">
-        <div class="parallax-bg -z-10 absolute top-0 left-0 bg-cover"
-             data-swiper-parallax=" -20%"></div>
+        <div id="particles-js" class="parallax-bg -z-10 absolute top-0 left-0 bg-cover" data-swiper-parallax=" -20%"></div>
         <div class="page-wrapper w-8/12 ml-auto mr-auto swiper-wrapper">
 
             <section class="mt-auto mb-auto flex justify-center items-center page-slide swiper-slide">
@@ -137,13 +136,13 @@
                     <div class="tab-wrapper">
                         <div id="tabcontent1" data-tab="1" class="tabcontent">
                             <h3 class="text-xl font-bold lg:text-3xl">ПРЕИМУЩЕСТВА</h3>
-                            <p class="lg:text-2xl">Одной из ключевых особенностей хостинга ProtesiaN является безлимитный процессор. 
-                                Это означает, что пользователи не ограничены в использовании ресурсов процессора и могут максимально эффективно запускать и поддерживать свои игровые сервера. 
+                            <p class="lg:text-2xl">Одной из ключевых особенностей хостинга ProtesiaN является безлимитный процессор.
+                                Это означает, что пользователи не ограничены в использовании ресурсов процессора и могут максимально эффективно запускать и поддерживать свои игровые сервера.
                                 </p>
                         </div>
                         <div id="tabcontent2" data-tab="2" class="tabcontent">
                             <h3 class="text-xl font-bold lg:text-3xl">ПОДДЕРЖКА</h3>
-                            <p class="lg:text-2xl">Команда технической поддержки ProtesiaN всегда готова помочь пользователям в случае возникновения любых проблем. 
+                            <p class="lg:text-2xl">Команда технической поддержки ProtesiaN всегда готова помочь пользователям в случае возникновения любых проблем.
                                 Опытные специалисты оперативно отвечают на запросы по любым технические проблемам, а также оказывают консультации для оптимизации работы серверов, что позволяет пользователям полностью сосредоточиться на игровом процессе.</p>
                         </div>
                     </div>
@@ -617,6 +616,8 @@
         <div class="flex flex-col items-center w-5 page-pagination swiper-pagination"></div>
     </main>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src={{ asset('themes/ProtesiaN/particles.js') }}></script>
 <script src={{ asset('themes/ProtesiaN/swiper-bundle.min.js') }}></script>
 <script src={{ asset('themes/ProtesiaN/main.js') }}></script>
 </body>

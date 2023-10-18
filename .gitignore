@@ -6,3 +6,4 @@ transferusers.php
 install.lock
 public/install/logs/**
 public/storage
+/node_modules
