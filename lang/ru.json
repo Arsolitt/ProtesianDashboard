@@ -529,5 +529,6 @@
     "Server will be automatically restarted once upgraded": "Сервер будет автоматически перезагружен после изменения тарифа",
     "Your Product": "Текущий тариф",
     "Select the product": "Выбрать тариф",
-    "Cancel": "Отмена"
+    "Cancel": "Отмена",
+    "Change Product": "Изменить"
 }
