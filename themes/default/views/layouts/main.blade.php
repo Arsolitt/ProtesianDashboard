@@ -75,7 +75,7 @@ if (!empty($_COOKIE['theme'])) {
                     @if (!Auth::user()->hasVerifiedEmail())
                         @if (Auth::user()->created_at->diffInHours(now(), false) > 1 ||
                                 strtolower(config('SETTINGS::USER:FORCE_EMAIL_VERIFICATION')) == 'true')
-                            <x-alert title="You have not yet verified your email address!" type="warn"
+                            <x-alert title="{{ __('You have not yet verified your email address!') }}" type="warn"
                                 class="mt-6 mb-0">
                                 <p>
                                     <a class="text-primary underline"

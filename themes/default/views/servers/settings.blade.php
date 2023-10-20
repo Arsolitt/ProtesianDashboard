@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <x-container title="Server Settings">
+    <x-container title="{{ __('Server Settings') }}">
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
 
             <div class="flex items-center p-4 bg-white rounded-lg shadow-sm dark:bg-gray-800">
@@ -55,13 +55,14 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">Memory
+                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                        RAM
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         @if ($server->product->memory == 0)
                             {{ __('Unlimited') }}
                         @else
-                            {{ $server->product->memory }}MB
+                            {{ $server->product->memory / 1024 }}Gb
                         @endif
                     </p>
                 </div>
@@ -78,13 +79,13 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        STORAGE
+                        SSD
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         @if ($server->product->disk == 0)
                             {{ __('Unlimited') }}
                         @else
-                            {{ $server->product->disk }}MB
+                            {{ $server->product->disk / 1024 }}Gb
                         @endif
                     </p>
                 </div>
@@ -212,13 +213,13 @@
                 </div>
             </div>
             @if (config('SETTINGS::SYSTEM:ENABLE_UPGRADE'))
-                <x-modal title="{{ __('Upgrade/Downgrade Server') }}" btnTitle="{{ __('Upgrade / Downgrade') }}"
+                <x-modal title="{{ __('Upgrade / Downgrade') }}" btnTitle="{{ __('Upgrade / Downgrade') }}"
                     btnClass=" mr-4 bg-purple-600 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                     @slot('content')
-                        <strong>{{ __('FOR DOWNGRADE PLEASE CHOOSE A PLAN BELOW YOUR PLAN') }}</strong>
+                        {{-- <strong>{{ __('FOR DOWNGRADE PLEASE CHOOSE A PLAN BELOW YOUR PLAN') }}</strong>
                         <br>
-                        <br>
-                        <strong>{{ __('YOUR PRODUCT') }} : </strong> {{ $server->product->name }}
+                        <br> --}}
+                        <strong>{{ __('Your Product') }} : </strong> {{ $server->product->name }}
                         <br>
                         <br>
 
@@ -247,7 +248,7 @@
 
                             </x-select>
                             <br>
-                            {{ __('Once the Upgrade button is pressed, we will automatically deduct the amount for the first hour according to the new product from your credits') }}.
+                            {{ __('Once the Change button is pressed, we will automatically deduct the amount for the first hour according to the new product from your credits') }}.
                             <br>{{ __('Server will be automatically restarted once upgraded') }}
                         </form>
                     @endslot
@@ -261,7 +262,7 @@
                     @endslot
                 </x-modal>
             @endif
-            <x-modal title="{{ __('Are you sure?') }}" btnTitle="Delete"
+            <x-modal title="{{ __('Are you sure?') }}" btnTitle="{{ __('Delete') }}"
                 btnClass="bg-red-600 active:bg-red-600 hover:bg-red-700 focus:shadow-outline-red">
                 @slot('content')
                     {{ __('This is an irreversible action, all files of this server will be removed.') }}
