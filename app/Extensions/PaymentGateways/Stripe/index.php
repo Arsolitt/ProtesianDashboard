@@ -26,11 +26,15 @@ function StripePay(Request $request)
     $user = Auth::user();
     $shopProduct = ShopProduct::findOrFail($request->shopProduct);
 
-    // check if the price is valid for stripe
-    if (!checkPriceAmount($shopProduct->getTotalPrice(), strtoupper($shopProduct->currency_code), 'stripe')) {
-        Redirect::route('home')->with('error', __('The product you chose can\'t be purchased with this payment method. The total amount is too small. Please buy a bigger amount or try a different payment method.'))->send();
-        return;
+    if ($shopProduct->currency_code != 'EUR'){
+        return Redirect::route('home')->with('error', __('Try a different payment method. Stripe does not accept RUB'))->send();
     }
+
+    // check if the price is valid for stripe
+    // if (!checkPriceAmount($shopProduct->getTotalPrice(), strtoupper($shopProduct->currency_code), 'stripe')) {
+    //     Redirect::route('home')->with('error', __('The product you chose can\'t be purchased with this payment method. The total amount is too small. Please buy a bigger amount or try a different payment method.'))->send();
+    //     return;
+    // }
 
     $discount = PartnerDiscount::getDiscount();
 

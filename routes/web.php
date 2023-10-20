@@ -34,6 +34,7 @@ use App\Http\Controllers\TranslationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,7 @@ Route::get('download/{filename}', function($filename)
     else
     {
         // Error
-        exit('Requested file does not exist on our server!');
+        exit('Запрошенный файл не существует!');
     }
 })
 ->where('filename', '[A-Za-z0-9\-\_\.]+')->name('download');

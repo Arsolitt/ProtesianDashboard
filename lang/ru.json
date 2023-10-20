@@ -346,7 +346,7 @@
     "Home": "Главная",
     "Language": "Язык",
     "See all Notifications": "Показать все уведомления",
-    "Mark all as read": "Mark all as read",
+    "Mark all as read": "Отметить все прочитанными",
     "Redeem code": "Активировать код",
     "Profile": "Профиль",
     "Log back in": "Вернуться обратно",
@@ -366,8 +366,8 @@
     "Thanks": "Спасибо",
     "Redeem voucher code": "Использовать промокод",
     "Close": "Закрыть",
-    "Redeem": "Получить",
-    "All notifications": "Все уведомления",
+    "Redeem": "Активировать",
+    "All Notifications": "Все уведомления",
     "Required Email verification!": "Требуется подтверждение электронной почты!",
     "Required Discord verification!": "Требуется верификация в Discord!",
     "You have not yet verified your discord account": "Вы еще не подтвердили свою учетную запись в discord",
@@ -530,5 +530,8 @@
     "Your Product": "Текущий тариф",
     "Select the product": "Выбрать тариф",
     "Cancel": "Отмена",
-    "Change Product": "Изменить"
+    "Change Product": "Изменить",
+    "Redeem Voucher": "Активация кода",
+    "You can redeem a code to get coins": "Вы можете активировать промокод для получения средств на баланс",
+    "Try a different payment method. Stripe does not accept RUB": "Попробуйте другую платёжную систему. Stripe не принимает оплату в рублях"
 }

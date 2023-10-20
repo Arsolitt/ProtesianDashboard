@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <x-container title="Notification">
+    <x-container title="{{ __('Notification') }}">
 
         <div class="mb-4 flex justify-between">
 
