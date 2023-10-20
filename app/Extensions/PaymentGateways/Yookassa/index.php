@@ -72,19 +72,19 @@ function YookassaPay(Request $request)
                     "customer" => array(
                         "full_name" => $user->name,
                         "email" => $user->email,
-                    )
-                ),
-                "items" => array(
-                    array(
-                        "description" => "Пополнение баланса ProtesiaN Host",
-                        "quantity" => "1.00",
-                        "amount" => array(
-                            "value" => $shopProduct->price,
-                            "currency" => "RUB"
-                        ),
-                        "vat_code" => "1",
-                        "payment_mode" => "full_payment",
-                        "payment_subject" => "service"
+                    ),
+                    "items" => array(
+                        array(
+                            "description" => "Пополнение баланса ProtesiaN Host",
+                            "quantity" => "1.00",
+                            "amount" => array(
+                                "value" => $shopProduct->price,
+                                "currency" => "RUB"
+                            ),
+                            "vat_code" => "1",
+                            "payment_mode" => "full_payment",
+                            "payment_subject" => "service"
+                        )
                     )
                 )
             ),
