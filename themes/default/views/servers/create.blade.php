@@ -210,7 +210,7 @@
                                             <td class="px-4 py-3 text-sm" x-text="product.allocations">
                                             </td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
@@ -220,17 +220,19 @@
                                             </td>
                                             <td class="px-4 py-3 text-sm" x-text="product.description">
                                             </td>
-                                        </tr>
+                                        </tr> --}}
                                         <tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
-                                                        {{ __('Required') }} {{ CREDITS_DISPLAY_NAME }}
+                                                        {{ __('Required') }}
+                                                        <span
+                                                            class="font-normal dark:text-gray-400/75 text-gray-600">({{ CREDITS_DISPLAY_NAME }})</span>
                                                     </p>
                                                 </div>
                                             </td>
                                             <td class="px-4 py-3 text-sm"
-                                                x-text="product.minimum_credits == -1 ? {{ config('SETTINGS::USER:MINIMUM_REQUIRED_CREDITS_TO_MAKE_SERVER') }} : product.minimum_credits">
+                                                x-text="product.minimum_credits">
                                             </td>
                                         </tr>
                                         <tr>

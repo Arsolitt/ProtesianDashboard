@@ -13,6 +13,9 @@ if (!empty($_COOKIE['theme'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}" property="og:title">
     <meta content="{{ config('SETTINGS::SYSTEM:SEO_DESCRIPTION') }}" property="og:description">
+    <meta property="og:url" content="https://protesian.host"/>
+    <meta property="og:site_name" content="ProtesiaN Host"/>
+    <meta property="og:image" content="{{ asset('images/preview.png') }}"/>
     <meta
         content='{{ \Illuminate\Support\Facades\Storage::disk('public')->exists('logo.png') ? asset('storage/logo.png') : asset('images/controlpanel_logo.png') }}'
         property="og:image">

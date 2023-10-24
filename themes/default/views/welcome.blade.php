@@ -3,8 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:type" content="profile">
     <meta property="og:title" content="{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}"/>
     <meta property="og:description" content="{{ config('SETTINGS::SYSTEM:SEO_DESCRIPTION') }}"/>
     <meta property="og:url" content="https://protesian.host"/>
@@ -29,8 +27,8 @@
         </a>
 
         <div class="flex space-x-5">
-            <a href="{{ route('welcome') }}" class="hidden sm:inline-block button-40 linestyle text-base font-semibold">Главная</a>
-            <a href="{{ route('home') }}" class="hidden sm:inline-block button-40 text-base font-semibold">Панель управления</a>
+            <a href="{{ route('welcome') }}" class="hidden sm:inline-block button-40 linestyle text-base font-semibold">{{ __('Home') }}</a>
+            <a href="{{ route('home') }}" class="hidden sm:inline-block button-40 text-base font-semibold">{{ __('Dashboard') }}</a>
 
             <a href="https://discord.gg/ay76Et2dBh" class="mt-auto mb-auto">
                 <svg class="h-10 w-10" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -64,16 +62,16 @@
                 <article class="flex flex-col items-center">
                     <h1 class="mb-10 text-5xl lg:text-7xl font-bold whitespace-nowrap" data-swiper-parallax="-300">Protes<span class="cyan-dot cyan-dot-large"><i>i</i></span>aN</h1>
                     <h2 class="text-center text-3xl lg:text-4xl font-semibold mb-10" data-swiper-parallax="-200">
-                        Хостинг игровых серверов с <span class="font-bold" style="font-style: italic; color: #07baca;"">БЕЗЛИМИТНЫМ</span> процессором</h2>
+                        {{ __('Game server hosting with') }} <span class="font-bold" style="font-style: italic; color: #07baca; text-transform: uppercase;">{{ __('unlimited') }}</span> {{ __('CPU resources') }}</h2>
 
-                    <a href="{{ route('home') }}" class="sm:hidden button-40 text-base font-semibold">Панель управления</a>
+                    <a href="{{ route('home') }}" class="sm:hidden button-40 text-base font-semibold">{{ __('Dashboard') }}</a>
                 </article>
 
             </section>
 
             <section class="lg:hidden flex flex-col justify-center items-center page-slide swiper-slide">
                 <article class="node-status text-lg font-semibold w-10/12">
-                    <h3 class="text-xl font-bold mb-3">ЗАГРУЗКА СЕРВЕРОВ</h3>
+                    <h3 class="text-xl font-bold mb-3">{{ __('Nodes monitoring') }}</h3>
                     <div class="node flex flex-col mb-3 w-full">
                         <div class="outer-bar-horizontal w-full">
                             <span class="inner-bar-horizontal" style="width: 55%"></span>
@@ -104,7 +102,7 @@
             <section class="page-slide swiper-slide flex justify-center items-center">
 
                 <article class="hidden lg:flex lg:flex-col lg:h-full lg:w-6/12 lg:justify-center node-status text-lg font-semibold">
-                    <h3 class="font-bold lg:text-3xl mb-3">ЗАГРУЗКА СЕРВЕРОВ ХОСТИНГА</h3>
+                    <h3 class="font-bold lg:text-3xl mb-3" style="text-transform: uppercase">{{ __('Nodes monitoring') }}</h3>
                     <div class="node flex flex-col mb-3 w-10/12">
                         <div class="outer-bar-horizontal w-full">
                             <span class="inner-bar-horizontal" style="width: 55%"></span>
@@ -135,23 +133,20 @@
 
                     <div class="tab-wrapper">
                         <div id="tabcontent1" data-tab="1" class="tabcontent">
-                            <h3 class="text-xl font-bold lg:text-3xl">ПРЕИМУЩЕСТВА</h3>
-                            <p class="lg:text-2xl">Одной из ключевых особенностей хостинга ProtesiaN является безлимитный процессор.
-                                Это означает, что пользователи не ограничены в использовании ресурсов процессора и могут максимально эффективно запускать и поддерживать свои игровые сервера.
-                                </p>
+                            <h3 class="text-xl font-bold lg:text-3xl" style="text-transform: uppercase">{{ __('Advantages') }}</h3>
+                            <p class="lg:text-2xl">{{ __('One of the key features of ProtesiaN hosting is unlimited CPU. This means that users are not limited in the use of CPU resources and can run and maintain their game servers as efficiently as possible') }}.</p>
                         </div>
                         <div id="tabcontent2" data-tab="2" class="tabcontent">
-                            <h3 class="text-xl font-bold lg:text-3xl">ПОДДЕРЖКА</h3>
-                            <p class="lg:text-2xl">Команда технической поддержки ProtesiaN всегда готова помочь пользователям в случае возникновения любых проблем.
-                                Опытные специалисты оперативно отвечают на запросы по любым технические проблемам, а также оказывают консультации для оптимизации работы серверов, что позволяет пользователям полностью сосредоточиться на игровом процессе.</p>
+                            <h3 class="text-xl font-bold lg:text-3xl" style="text-transform: uppercase">{{ __('Support') }}</h3>
+                            <p class="lg:text-2xl">{{ __('ProtesiaN technical support team is always ready to help users in case of any problems. Experienced specialists promptly respond to inquiries on any technical problems, as well as provide advice to optimize the servers, which allows users to fully focus on the gameplay process') }}.</p>
                         </div>
                     </div>
 
                     <div class="tabs flex justify-around mt-3 items-center w-full">
                         <a id="tab1" data-tab="1"
-                           class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none">ПРЕИМУЩЕСТВА</a>
+                           class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
                         <a id="tab2" data-tab="2"
-                           class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none">ПОДДЕРЖКА</a>
+                           class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Support') }}</a>
                     </div>
                 </article>
 
@@ -159,9 +154,17 @@
 
             <section class="flex justify-center items-center page-slide swiper-slide">
 
+                @php
+                    if (App::isLocale('ru')) {
+                        $multiplier = 1;
+                    } else {
+                        $multiplier = 100;
+                    }
+                @endphp
+
                 <article class="">
                     <div class="price-content flex flex-col items-center justify-center">
-                        <h3 class="text-xl font-bold lg:text-3xl">ЛИНЕЙКА ТАРИФОВ</h3>
+                        <h3 class="text-xl font-bold lg:text-3xl" style="text-transform: uppercase">{{ __('Tariff line') }}</h3>
                         <div class="prices-swiper swiper">
                             <div class="prices-wrapper swiper-wrapper">
                                 <div class="price-slide swiper-slide">
@@ -205,7 +208,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>75</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 75 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -261,7 +264,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>149</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 149 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -317,7 +320,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>299</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 299 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -373,7 +376,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>449</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 449 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -429,7 +432,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>599</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 599 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -485,7 +488,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>749</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 749 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -541,7 +544,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>899</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>{{ 899 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                                 <div class="price-slide swiper-slide">
@@ -597,7 +600,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <div class="card-summ"><span>???</span> <span class="spec-header">RUB</span></div>
+                                        <div class="card-summ"><span>???</span> <span class="spec-header">{{ __('EUR') }}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -606,7 +609,7 @@
                             <div class="swiper-button-next"></div>
                         </div>
                         <div class="mt-10">
-                            <a href="{{ route('home') }}" class="button-40 sm:text-2xl mbtn mbtn-cyan font-bold">Подробнее</a>
+                            <a href="{{ route('home') }}" class="button-40 sm:text-2xl mbtn mbtn-cyan font-bold">{{ __('Details') }}</a>
                         </div>
                     </div>
                 </article>
