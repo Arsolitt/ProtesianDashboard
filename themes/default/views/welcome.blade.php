@@ -184,7 +184,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">1 Гб</span>
+                                                            <span class="spec-count">1 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -194,7 +194,7 @@
                                                     <div class="spec-ssd spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">10 Гб</span>
+                                                            <span class="spec-count">10 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -231,7 +231,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">2 Гб</span>
+                                                            <span class="spec-count">2 Gb</span>
                                                         </div>
                                                         <div class="spec-bar outer-bar-vertical">
                                                             <span class="inner-bar-vertical" style="height: 15%"></span>
@@ -247,7 +247,7 @@
                                                         </div>
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">20 Гб</span>
+                                                            <span class="spec-count">20 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -287,7 +287,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">4 Гб</span>
+                                                            <span class="spec-count">4 Gb</span>
                                                         </div>
                                                         <div class="spec-bar outer-bar-vertical">
                                                             <span class="inner-bar-vertical" style="height: 30%"></span>
@@ -303,7 +303,7 @@
                                                         </div>
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">40 Гб</span>
+                                                            <span class="spec-count">40 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -343,7 +343,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">6 Гб</span>
+                                                            <span class="spec-count">6 Gb</span>
                                                         </div>
                                                         <div class="spec-bar outer-bar-vertical">
                                                             <span class="inner-bar-vertical" style="height: 45%"></span>
@@ -359,7 +359,7 @@
                                                         </div>
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">60 Гб</span>
+                                                            <span class="spec-count">60 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -399,7 +399,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">8 Гб</span>
+                                                            <span class="spec-count">8 Gb</span>
                                                         </div>
                                                         <div class="spec-bar outer-bar-vertical">
                                                             <span class="inner-bar-vertical" style="height: 60%"></span>
@@ -415,7 +415,7 @@
                                                         </div>
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">80 Гб</span>
+                                                            <span class="spec-count">80 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -455,7 +455,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">10 Гб</span>
+                                                            <span class="spec-count">10 Gb</span>
                                                         </div>
                                                         <div class="spec-bar outer-bar-vertical">
                                                             <span class="inner-bar-vertical" style="height: 75%"></span>
@@ -471,7 +471,7 @@
                                                         </div>
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">100 Гб</span>
+                                                            <span class="spec-count">100 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -511,7 +511,7 @@
                                                     <div class="spec-ram spec-block">
                                                         <div class="spec-desc">
                                                             <span class="spec-header">RAM</span>
-                                                            <span class="spec-count">12 Гб</span>
+                                                            <span class="spec-count">12 Gb</span>
                                                         </div>
                                                         <div class="spec-bar outer-bar-vertical">
                                                             <span class="inner-bar-vertical" style="height: 90%"></span>
@@ -527,7 +527,7 @@
                                                         </div>
                                                         <div class="spec-desc">
                                                             <span class="spec-header">SSD</span>
-                                                            <span class="spec-count">120 Гб</span>
+                                                            <span class="spec-count">120 Gb</span>
                                                         </div>
                                                     </div>
                                                 </td>
