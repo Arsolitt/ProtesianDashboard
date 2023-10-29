@@ -93,25 +93,25 @@
                     <h3 class="text-xl font-bold mb-3">{{ __('Nodes monitoring') }}</h3>
                     <div class="node flex flex-col mb-3 w-full">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 55%"></span>
+                            <span class="inner-bar-horizontal" style="width: 61%"></span>
                         </div>
                         <span class="text-base">FIN-1 i9 9900k</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-full">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 99%"></span>
+                            <span class="inner-bar-horizontal" style="width: 0%"></span>
                         </div>
-                        <span class="text-base">FIN-2 R5 5600x</span>
+                        <span class="text-base">FIN-2 R5 5800x</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-full">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 65%"></span>
+                            <span class="inner-bar-horizontal" style="width: 100%"></span>
                         </div>
                         <span class="text-base">SPB-1 i5 12500</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-full">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 99%"></span>
+                            <span class="inner-bar-horizontal" style="width: 100%"></span>
                         </div>
                         <span class="text-base">SPB-2 i5 12500</span>
                     </div>
@@ -124,25 +124,25 @@
                     <h3 class="font-bold lg:text-3xl mb-3" style="text-transform: uppercase">{{ __('Nodes monitoring') }}</h3>
                     <div class="node flex flex-col mb-3 w-10/12">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 55%"></span>
+                            <span class="inner-bar-horizontal" style="width: 61%"></span>
                         </div>
                         <span class="text-base">FIN-1 i9 9900k</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-10/12">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 99%"></span>
+                            <span class="inner-bar-horizontal" style="width: 0%"></span>
                         </div>
-                        <span class="text-base">FIN-2 R5 5600x</span>
+                        <span class="text-base">FIN-2 R5 5800x</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-10/12">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 60%"></span>
+                            <span class="inner-bar-horizontal" style="width: 100%"></span>
                         </div>
                         <span class="text-base">SPB-1 i5 12500</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-10/12">
                         <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 99%"></span>
+                            <span class="inner-bar-horizontal" style="width: 100%"></span>
                         </div>
                         <span class="text-base">SPB-2 i5 12500</span>
                     </div>
