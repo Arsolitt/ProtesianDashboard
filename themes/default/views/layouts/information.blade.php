@@ -11,8 +11,8 @@ if (!empty($_COOKIE['theme'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}" property="og:title">
-    <meta content="{{ config('SETTINGS::SYSTEM:SEO_DESCRIPTION') }}" property="og:description">
+    <meta content="{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}" property="og:title">
+    <meta content="{{ __(config('SETTINGS::SYSTEM:SEO_DESCRIPTION')) }}" property="og:description">
     <meta property="og:url" content="https://protesian.host"/>
     <meta property="og:site_name" content="ProtesiaN Host"/>
     <meta property="og:image" content="{{ asset('images/preview.png') }}"/>
@@ -20,7 +20,7 @@ if (!empty($_COOKIE['theme'])) {
         content='{{ \Illuminate\Support\Facades\Storage::disk('public')->exists('logo.png') ? asset('storage/logo.png') : asset('images/controlpanel_logo.png') }}'
         property="og:image">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}</title>
+    <title>{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <!-- Styles -->

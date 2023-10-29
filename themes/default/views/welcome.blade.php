@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta property="og:title" content="{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}"/>
-    <meta property="og:description" content="{{ config('SETTINGS::SYSTEM:SEO_DESCRIPTION') }}"/>
+    <meta property="og:title" content="{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}"/>
+    <meta property="og:description" content="{{ __(config('SETTINGS::SYSTEM:SEO_DESCRIPTION')) }}"/>
     <meta property="og:url" content="https://protesian.host"/>
     <meta property="og:site_name" content="ProtesiaN Host"/>
     <meta property="og:image" content="{{ asset('images/preview.png') }}"/>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/slider.css') }}?v8">
     <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/progressLine.css') }}?v6">
     <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
-    <title>{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}</title>
+    <title>{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}</title>
 </head>
 
 <body>

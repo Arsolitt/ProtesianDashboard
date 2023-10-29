@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}"/>
-    <meta property="og:description" content="{{ config('SETTINGS::SYSTEM:SEO_DESCRIPTION') }}"/>
+    <meta property="og:title" content="{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}"/>
+    <meta property="og:description" content="{{ __(config('SETTINGS::SYSTEM:SEO_DESCRIPTION')) }}"/>
     <meta property="og:url" content="https://protesian.host"/>
     <meta property="og:site_name" content="ProtesiaN Host"/>
     <meta property="og:image" content="{{ asset('images/preview.png') }}"/>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/styleDmitron.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
     <script src="https://kit.fontawesome.com/523a8fe7f9.js" crossorigin="anonymous"></script>
-    <title>{{ config('SETTINGS::SYSTEM:SEO_TITLE') }}</title>
+    <title>{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}</title>
 </head>
 
 <body>
