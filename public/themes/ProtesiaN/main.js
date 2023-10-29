@@ -46,7 +46,7 @@ const pricesSwiper = new Swiper('.prices-swiper',{
 //     pagination: {
 //       el: '.swiper-pagination',
 //       clickable: true,
-//       // dynamicBullets: true,  
+//       // dynamicBullets: true,
 //     },
 //     slidesPerView: 1,
 //     spaceBetween: 0,
@@ -56,10 +56,10 @@ const pricesSwiper = new Swiper('.prices-swiper',{
 //     keyboard: {
 //       enabled: true,
 //       onlyInViewport: false,
-//       pageUpDown: true,  
+//       pageUpDown: true,
 //     },
 //     mousewheel: {
-//       sensitivity: 1,  
+//       sensitivity: 1,
 //     },
 //     simulateTouch: false,
 //     speed: 500,
@@ -115,7 +115,7 @@ tabs.forEach(tab => {
 
 
 // Retrieve stored data
-const opentab =  JSON.parse(localStorage.getItem('jstabs-opentab')) || '3'
+const opentab =  JSON.parse(localStorage.getItem('jstabs-opentab')) || '1'
 
 // and..... Action!
 
