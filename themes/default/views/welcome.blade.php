@@ -101,7 +101,7 @@
                         <div class="outer-bar-horizontal w-full">
                             <span class="inner-bar-horizontal" style="width: 0%"></span>
                         </div>
-                        <span class="text-base">FIN-2 R5 5800x</span>
+                        <span class="text-base">FIN-2 R7 5800x</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-full">
                         <div class="outer-bar-horizontal w-full">
@@ -132,7 +132,7 @@
                         <div class="outer-bar-horizontal w-full">
                             <span class="inner-bar-horizontal" style="width: 0%"></span>
                         </div>
-                        <span class="text-base">FIN-2 R5 5800x</span>
+                        <span class="text-base">FIN-2 R7 5800x</span>
                     </div>
                     <div class="node flex flex-col mb-3 w-10/12">
                         <div class="outer-bar-horizontal w-full">
