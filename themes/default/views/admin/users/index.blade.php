@@ -18,18 +18,18 @@
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-600 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                            <th class="px-4 py-3">discordId</th>
-                            <th class="px-4 py-3">ip</th>
-                            <th class="px-4 py-3">pterodactyl_id</th>
-                            <th class="px-4 py-3">{{ __('Avatar') }}</th>
+                            {{-- <th class="px-4 py-3">discordId</th> --}}
+                            {{-- <th class="px-4 py-3">ip</th> --}}
+                            {{-- <th class="px-4 py-3">pterodactyl_id</th> --}}
+                            {{-- <th class="px-4 py-3">{{ __('Avatar') }}</th> --}}
                             <th class="px-4 py-3">{{ __('Name') }}</th>
                             <th class="px-4 py-3">{{ __('Role') }}</th>
-                            <th class="px-4 py-3">{{ __('Email') }}</th>
+                            <th class="px-4 py-3">{{ __('Last seen') }}</th>
                             <th class="px-4 py-3">{{ CREDITS_DISPLAY_NAME }}</th>
                             <th class="px-4 py-3">{{ __('Servers') }}</th>
                             <th class="px-4 py-3">{{ __('Referrals') }}</th>
+                            <th class="px-4 py-3">{{ __('Email') }}</th>
                             <th class="px-4 py-3">{{ __('Verified') }}</th>
-                            <th class="px-4 py-3">{{ __('Last seen') }}</th>
                             <th class="px-4 py-3">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
@@ -57,7 +57,7 @@
                 stateSave: true,
                 ajax: "{{ route('admin.users.datatable') }}",
                 order: [
-                    [11, "asc"]
+                    [2, "desc"]
                 ],
                 paging: true,
                 bInfo: true,
@@ -65,23 +65,25 @@
                     className: "px-4 py-3",
                     "targets": "_all"
                 }],
-                columns: [{
-                        data: 'discordId',
-                        visible: false,
-                        name: 'discordUser.id'
-                    },
-                    {
-                        data: 'pterodactyl_id',
-                        visible: false
-                    },
-                    {
-                        data: 'ip',
-                        visible: false
-                    },
-                    {
-                        data: 'avatar',
-                        sortable: false
-                    },
+                columns: [
+                    // {
+                    //     data: 'discordId',
+                    //     visible: false,
+                    //     name: 'discordUser.id'
+                    // },
+                    // {
+                    //     data: 'pterodactyl_id',
+                    //     visible: false
+                    // },
+                    // {
+                    //     data: 'ip',
+                    //     visible: false
+                    // },
+                    // {
+                    //     data: 'avatar',
+                    //     visible: false,
+                    //     sortable: false
+                    // },
                     {
                         data: 'name'
                     },
@@ -89,8 +91,7 @@
                         data: 'role'
                     },
                     {
-                        data: 'email',
-                        name: 'users.email'
+                        data: 'last_seen',
                     },
                     {
                         data: 'credits',
@@ -105,11 +106,12 @@
                         searchable: false
                     },
                     {
-                        data: 'verified',
-                        sortable: false
+                        data: 'email',
+                        name: 'users.email'
                     },
                     {
-                        data: 'last_seen',
+                        data: 'verified',
+                        sortable: false
                     },
                     {
                         data: 'actions',
