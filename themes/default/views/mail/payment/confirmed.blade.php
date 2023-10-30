@@ -1,6 +1,6 @@
 @component('mail::message')
 # {{__('Thank you for your purchase!')}}
-{{__('Your payment has been confirmed; Your credit balance has been updated.')}}'<br>
+{{__('Your payment has been confirmed. Your credit balance has been updated.')}}<br>
 
 # Details
 ___

@@ -6,7 +6,7 @@ if (!empty($_COOKIE['theme'])) {
 ?>
 
 <!DOCTYPE html>
-<html :class="{ 'dark': dark }" x-data="data" lang="en" id="html" class="<?php echo $themeClass; ?>">
+<html :class="{ 'dark': dark }" x-data="data" lang={{ App::getLocale() }} id="html" class="<?php echo $themeClass; ?>">
 
 <head>
     <meta charset="UTF-8" />

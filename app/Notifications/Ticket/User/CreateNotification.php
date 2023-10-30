@@ -62,7 +62,7 @@ class CreateNotification extends Notification implements ShouldQueue
     {
         return [
             'title' => '[Ticket ID: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
-            'content' => "Your Ticket has been Created With ID : {$this->ticket->ticket_id}",
+            'content' => "Your Ticket has been Created With ID: {$this->ticket->ticket_id}",
         ];
     }
 }
