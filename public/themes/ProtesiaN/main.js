@@ -1,5 +1,5 @@
 const pricesSwiper = new Swiper('.prices-swiper',{
-    loop: false,
+    loop: true,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -7,7 +7,7 @@ const pricesSwiper = new Swiper('.prices-swiper',{
     // slidesPerView: 3,
     // spaceBetween: 0,
     centeredSlides: true,
-    initialSlide: 3,
+    initialSlide: 0,
     // effect: 'cards',
     // cardsEffect: {
     //     slideShadows: false,
