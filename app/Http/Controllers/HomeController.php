@@ -25,25 +25,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /*
-    * TODO: This is commented due to the fact the market is a bad dependency, will be changed later.
-    public function callHome()
-    {
-        if (Storage::exists('callHome')) {
-            return;
-        }
-        Http::asForm()->post('https://market.ctrlpanel.gg/callhome.php', [
-            'id' => Hash::make(URL::current()),
-        ]);
-        Storage::put('callHome', 'This is only used to count the installations of cpgg.');
-    } */
-
-    /**
-     * @description Get the Background Color for the Days-Left-Box in HomeView
-     *
-     * @param  float  $daysLeft
-     * @return string
-     */
     public function getTimeLeftBoxBackground(float $daysLeft): string
     {
         if ($daysLeft >= 15) {

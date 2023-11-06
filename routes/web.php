@@ -31,6 +31,7 @@ use App\Http\Controllers\ServerController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\TranslationController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -70,11 +71,8 @@ Route::get('/svoystalcraft', function () {
     return view('svoystalcraft');
 })->name('svoystalcraft');
 
-
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::post('changelocale', [TranslationController::class, 'changeLocale'])->name('changeLocale');
 
 Auth::routes(['verify' => true]);
 
@@ -130,7 +128,7 @@ Route::middleware(['auth', 'checkSuspended'])->group(function () {
     Route::post('/voucher/redeem', [VoucherController::class, 'redeem'])->middleware('throttle:5,1')->name('voucher.redeem');
 
     //switch language
-    Route::post('changelocale', [TranslationController::class, 'changeLocale'])->name('changeLocale');
+    /*Route::post('changelocale', [TranslationController::class, 'changeLocale'])->name('changeLocale');*/
 
     //ticket user
     if (config('SETTINGS::TICKET:ENABLED')) {

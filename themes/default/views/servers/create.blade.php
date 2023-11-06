@@ -18,6 +18,7 @@
 
                     <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-2">
                         {{ __('Server Configuration') }}
+                    </h2>
 
                         @if (!config('SETTINGS::SYSTEM:CREATION_OF_NEW_SERVERS'))
                             <x-alert title="The creation of new servers has been disabled for regular users" type="danger">
