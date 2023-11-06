@@ -54,7 +54,7 @@
                         </button>
                     </form>
 
-                    <hr class="my-8" />
+                    <hr class="my-8"/>
                     <div class="flex justify-between mt-4">
                         <p>
                             @if (Route::has('password.request'))

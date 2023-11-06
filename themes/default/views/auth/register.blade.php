@@ -63,7 +63,7 @@
                                     <span class="text-gray-700 dark:text-gray-400">
                                         {{ __('Referral сode') }}
                                     </span>
-                                    <x-input placeholder="{{ __('optional') }}" type="text" name="referral_code"
+                                    <x-input placeholder="{{ __('Optional') }}" type="text" name="referral_code"
                                         value="{{ \Request::get('ref') }}" />
 
                                 </label>

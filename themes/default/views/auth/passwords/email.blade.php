@@ -40,13 +40,20 @@
                 </form>
 
                 <hr class="my-8" />
-                <p class="mt-4">
-                    <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                        href="{{ route('login') }}">
-                        {{ __('Login') }}
-                    </a>
-
-                </p>
+                <div class="flex justify-between mt-4">
+                    <p>
+                        <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+                           href="{{ route('login') }}">
+                            {{ __('Login') }}
+                        </a>
+                    </p>
+                    <p>
+                        <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+                           href="{{ route('register') }}">
+                            {{ __('Create account') }}
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
 

@@ -23,6 +23,11 @@ if (!empty($_COOKIE['theme'])) {
         rel="stylesheet" />
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/swiper-bundle.min.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/slider.css') }}?v8">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/progressLine.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
 
     <style>
         [x-cloak] {
@@ -42,6 +47,8 @@ if (!empty($_COOKIE['theme'])) {
     @if (config('SETTINGS::RECAPTCHA:ENABLED') == 'true')
         {!! htmlScriptTagJsApi() !!}
     @endif
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v6">
 </head>
 
 <body>
@@ -63,9 +70,11 @@ if (!empty($_COOKIE['theme'])) {
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/95399310" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<div id="particles-js" class="parallax-bg -z-10 absolute top-0 left-0 bg-cover" data-swiper-parallax=" -20%"></div>
+    <div class="flex-col my-cont p-1 min-h-screen text-gray-300">
+        <x-guest-header active="dashboard"></x-guest-header>
+        <div class="mt-28">@yield('content')</div>
 
-    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900 dark:text-gray-300 text-gray-700">
-        @yield('content')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.14.1/dist/sweetalert2.all.min.js"></script>
     <script>
@@ -94,7 +103,10 @@ if (!empty($_COOKIE['theme'])) {
             })
         @endif
     </script>
-
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src={{ asset('themes/ProtesiaN/particles.js') }}></script>
+<script src={{ asset('themes/ProtesiaN/swiper-bundle.min.js') }}></script>
+<script src={{ asset('themes/ProtesiaN/main.js') }}></script>
 </body>
 
 </html>

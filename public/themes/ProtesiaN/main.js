@@ -120,3 +120,7 @@ const opentab =  JSON.parse(localStorage.getItem('jstabs-opentab')) || '1'
 // and..... Action!
 
 activateTab(opentab)
+
+function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle('hidden');
+}
