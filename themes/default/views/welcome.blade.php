@@ -10,11 +10,11 @@
     <meta property="og:image" content="{{ asset('images/preview.png') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/swiper-bundle.min.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/slider.css') }}?v8">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/progressLine.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/swiper-bundle.min.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/slider.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/progressLine.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v7">
     <title>{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}</title>
 </head>
 

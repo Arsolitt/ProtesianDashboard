@@ -23,11 +23,11 @@ if (!empty($_COOKIE['theme'])) {
         rel="stylesheet" />
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/swiper-bundle.min.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/slider.css') }}?v8">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/progressLine.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/swiper-bundle.min.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/slider.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/progressLine.css') }}?v7">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v7">
 
     <style>
         [x-cloak] {
