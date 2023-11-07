@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Session;
 
 class WelcomeController extends Controller
 {
     public function index(Request $request)
     {
-        if (Session::get('locale') == 'ru') {
+        if (App::isLocale('ru')) {
             $multiplier = 1;
         } else {
             $multiplier = 100;

@@ -1,4 +1,4 @@
-@props(['products' => null, 'multiplier' => 100])
+@props(['products' => null, 'multiplier'])
 
 
 <div class="prices-wrapper swiper-wrapper">
