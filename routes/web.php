@@ -3,6 +3,7 @@
 use App\Classes\Settings\Invoices;
 use App\Classes\Settings\Language;
 use App\Classes\Settings\Misc;
+use App\Classes\Settings\Monitoring;
 use App\Classes\Settings\Payments;
 use App\Classes\Settings\System;
 use App\Classes\Settings\Information;
@@ -194,6 +195,7 @@ Route::middleware(['auth', 'checkSuspended'])->group(function () {
         //settings
         Route::patch('settings/update/invoice-settings', [Invoices::class, 'updateSettings'])->name('settings.update.invoicesettings');
         Route::patch('settings/update/language', [Language::class, 'updateSettings'])->name('settings.update.languagesettings');
+        Route::patch('settings/update/monitoring', [Monitoring::class, 'updateSettings'])->name('settings.update.monitoringsettings');
         Route::patch('settings/update/payment', [Payments::class, 'updateSettings'])->name('settings.update.paymentsettings');
         Route::patch('settings/update/misc', [Misc::class, 'updateSettings'])->name('settings.update.miscsettings');
         Route::patch('settings/update/system', [System::class, 'updateSettings'])->name('settings.update.systemsettings');

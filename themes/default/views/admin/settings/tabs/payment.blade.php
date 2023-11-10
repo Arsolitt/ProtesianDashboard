@@ -8,11 +8,11 @@
         <div class="grid gap-x-4 md:grid-cols-2 lg:grid-cols-3">
             <x-card title="YooKassa" class="p-0 shadow-none" style="padding: 0 !important;">
                 <x-label title="YooKassa Shop ID">
-                    <x-input x-todo="paypal-client-id" id="paypal-client-id" name="yookassa-shop-id" type="text"
+                    <x-input x-todo="yookassa-shop-id" id="yookassa-shop-id" name="yookassa-shop-id" type="text"
                         value="{{ config('SETTINGS::PAYMENTS:YOOKASSA:SHOP_ID') }}" />
                 </x-label>
                 <x-label title="YooKassa Secret Key">
-                    <x-input x-todo="paypal-client-secret" id="paypal-client-secret" name="yookassa-secret-key"
+                    <x-input x-todo="yookassa-secret-key" id="yookassa-secret-key" name="yookassa-secret-key"
                         type="text" value="{{ config('SETTINGS::PAYMENTS:YOOKASSA:SECRET_KEY') }}" />
                 </x-label>
             </x-card>

@@ -57,62 +57,14 @@
 
             <section class="lg:hidden flex flex-col justify-center items-center page-slide swiper-slide">
                 <article class="node-status text-lg font-semibold w-10/12">
-                    <h3 class="text-xl font-bold mb-3">{{ __('Nodes monitoring') }}</h3>
-                    <div class="node flex flex-col mb-3 w-full">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 61%"></span>
-                        </div>
-                        <span class="text-base">FIN-1 i9 9900k</span>
-                    </div>
-                    <div class="node flex flex-col mb-3 w-full">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 0%"></span>
-                        </div>
-                        <span class="text-base">FIN-2 R7 5800x</span>
-                    </div>
-                    <div class="node flex flex-col mb-3 w-full">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 100%"></span>
-                        </div>
-                        <span class="text-base">SPB-1 i5 12500</span>
-                    </div>
-                    <div class="node flex flex-col mb-3 w-full">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 65%"></span>
-                        </div>
-                        <span class="text-base">SPB-2 i5 12500</span>
-                    </div>
+                    <x-nodes-monitoring width="w-full" :nodes=$nodes></x-nodes-monitoring>
                 </article>
             </section>
 
             <section class="page-slide swiper-slide flex justify-center items-center">
 
                 <article class="hidden lg:flex lg:flex-col lg:h-full lg:w-6/12 lg:justify-center node-status text-lg font-semibold">
-                    <h3 class="font-bold lg:text-3xl mb-3" style="text-transform: uppercase">{{ __('Nodes monitoring') }}</h3>
-                    <div class="node flex flex-col mb-3 w-10/12">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 61%"></span>
-                        </div>
-                        <span class="text-base">FIN-1 i9 9900k</span>
-                    </div>
-                    <div class="node flex flex-col mb-3 w-10/12">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 0%"></span>
-                        </div>
-                        <span class="text-base">FIN-2 R7 5800x</span>
-                    </div>
-                    <div class="node flex flex-col mb-3 w-10/12">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 100%"></span>
-                        </div>
-                        <span class="text-base">SPB-1 i5 12500</span>
-                    </div>
-                    <div class="node flex flex-col mb-3 w-10/12">
-                        <div class="outer-bar-horizontal w-full">
-                            <span class="inner-bar-horizontal" style="width: 65%"></span>
-                        </div>
-                        <span class="text-base">SPB-2 i5 12500</span>
-                    </div>
+                    <x-nodes-monitoring width="w-10/12" :nodes=$nodes></x-nodes-monitoring>
                 </article>
 
                 <article id="tabs" class="flex flex-col lg:h-full lg:w-6/12 items-center h-3/5 justify-center tabs-container">

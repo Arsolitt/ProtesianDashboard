@@ -1,10 +1,11 @@
 .env
-storage/logs/**
-storage/files/**
-vendor/**
+storage/logs/
+storage/files/
+vendor/
 transferusers.php
 install.lock
-public/install/logs/**
+public/install/logs/
 public/storage
 /node_modules
 /.idea
+/docker
