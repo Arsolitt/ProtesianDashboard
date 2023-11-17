@@ -110,7 +110,7 @@
                             </table>
                         </div>
                         <div class="mt-4 flex justify-evenly">
-                            <a href="{{ config('SETTINGS::SYSTEM:PTERODACTYL:URL') }}/server/{{ $server->identifier }}"
+                            <a href="{{ config('SETTINGS::SYSTEM:PTERODACTYL:PUBLIC_URL') }}/server/{{ $server->identifier }}"
                                 target="__blank"
                                 class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 {{ __('Manage') }}

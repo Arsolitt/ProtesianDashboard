@@ -50,6 +50,9 @@
                     className: "px-4 py-3",
                     "targets": "_all"
                 }],
+                order: [
+                    [4, "desc"]
+                ],
                 columns: [{
                         data: 'title',
                     },

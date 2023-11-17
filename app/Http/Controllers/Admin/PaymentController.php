@@ -145,9 +145,9 @@ class PaymentController extends Controller
         return datatables($query)
 
             ->addColumn('user', function (Payment $payment) {
-                return 
+                return
                 ($payment->user)?'<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline"  href="'.route('admin.users.show', $payment->user->id).'">'.$payment->user->name.'</a>':__('Unknown user');
-                
+
             })
             ->editColumn('price', function (Payment $payment) {
                 return $payment->formatToCurrency($payment->price);
@@ -175,7 +175,25 @@ class PaymentController extends Controller
                           </a>
                           </div>';
             })
-            ->rawColumns(['actions', 'user'])
+            ->editColumn('status', function (Payment $payment) {
+                switch ($payment->status) {
+                    case 'succeeded':
+                        $badgeColor = 'text-green-700 bg-green-100 dark:bg-green-500/20 dark:text-green-500';
+                        break;
+                    case 'canceled':
+                        $badgeColor = 'text-red-700 bg-red-100 dark:bg-red-500/20 dark:text-red-500';
+                        break;
+                    case 'open':
+                        $badgeColor = 'text-purple-700 bg-purple-100 dark:bg-purple-700 dark:text-purple-100';
+                        break;
+                    default:
+                        $badgeColor = 'text-indigo-700 bg-indigo-100 dark:bg-indigo-500/20 dark:text-indigo-500';
+                        break;
+                }
+
+                return '<span class="px-2 py-1 text-xs font-semibold leading-tight rounded-full ' . $badgeColor . '">' . $payment->status . '</span>';
+            })
+            ->rawColumns(['actions', 'user', 'status'])
             ->make(true);
     }
 }

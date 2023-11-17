@@ -295,11 +295,11 @@ class UserController extends Controller
         // manually count referrals in user_referrals table
         $query->selectRaw('users.*, (SELECT COUNT(*) FROM user_referrals WHERE user_referrals.referral_id = users.id) as referrals_count');
 
-        
+
         return datatables($query)
             ->addColumn('avatar', function (User $user) {
                 return '
-                
+
                 <div class="relative  w-8 h-8 mr-3 rounded-full">
                             <img class="object-cover w-full h-full rounded-full" src="' .
                     $user->getAvatar() .
@@ -373,7 +373,7 @@ class UserController extends Controller
                           </button>
                           </form>
                           </div>
-                    
+
                 ';
             })
             ->editColumn('role', function (User $user) {
@@ -399,7 +399,7 @@ class UserController extends Controller
                 return $user->last_seen ? $user->last_seen->diffForHumans() : __('Never');
             })
             ->editColumn('name', function (User $user) {
-                return '<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline" href="' . route('admin.users.show', $user->id) . '">' . strip_tags($user->name) . '</a> (<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline" target="_blank" href="' . config('SETTINGS::SYSTEM:PTERODACTYL:URL') . '/admin/users/view/' . $user->pterodactyl_id . '">Pterodactyl</a>)';
+                return '<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline" href="' . route('admin.users.show', $user->id) . '">' . strip_tags($user->name) . '</a> (<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline" target="_blank" href="' . config('SETTINGS::SYSTEM:PTERODACTYL:PUBLIC_URL') . '/admin/users/view/' . $user->pterodactyl_id . '">Pterodactyl</a>)';
             })
             ->rawColumns(['avatar', 'name', 'credits', 'role', 'usage', 'actions'])
             ->make();

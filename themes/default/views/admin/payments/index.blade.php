@@ -30,6 +30,7 @@
                             <th class="px-4 py-3">{{ __('Created At') }}</th>
                             {{-- <th class="px-4 py-3">{{ __('Type') }}</th> --}}
                             <th class="px-4 py-3">{{ __('Amount') }}</th>
+                            <th class="px-4 py-3">{{ __('Status') }}</th>
                             {{-- <th class="px-4 py-3">{{ __('Product Price') }}</th> --}}
                             {{-- <th class="px-4 py-3">{{ __('Tax Value') }}</th> --}}
                             {{-- <th class="px-4 py-3">{{ __('Tax Percentage') }}</th> --}}
@@ -86,6 +87,9 @@
                     },
                     {
                         data: 'amount'
+                    },
+                    {
+                        data: 'status'
                     },
                     // {
                     //     data: 'type'

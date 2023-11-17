@@ -11,7 +11,7 @@
                     <div class="ticket-info">
                         @if (!empty($server))
                             <p><b>{{ __('Server')}}:</b> <a
-                                    href="{{ config('SETTINGS::SYSTEM:PTERODACTYL:URL') }}/server/{{ $server->identifier }}"
+                                    href="{{ config('SETTINGS::SYSTEM:PTERODACTYL:PUBLIC_URL') }}/server/{{ $server->identifier }}"
                                     target="__blank">{{ $server->name }} </a></p>
                         @endif
                         <p><b>{{ __("Category") }}:</b> {{ $ticketcategory->name }}</p>

@@ -50,6 +50,7 @@ class System
             'server-limit-purchase' => 'required|min:0|integer',
             'pterodactyl-api-key' => 'required|string',
             'pterodactyl-url' => 'required|string',
+            'pterodactyl-public-url' => 'required|string',
             'per-page-limit' => 'required|min:0|integer',
             'pterodactyl-admin-api-key' => 'required|string',
             'enable-upgrades' => 'string',
@@ -77,7 +78,7 @@ class System
         $this->updateIcons($request);
 
         $values = [
-            
+
             'SETTINGS::SYSTEM:REGISTER_IP_CHECK' => 'register-ip-check',
             'SETTINGS::SYSTEM:SERVER_CREATE_CHARGE_FIRST_HOUR' => 'server-create-charge-first-hour',
             'SETTINGS::SYSTEM:CREDITS_DISPLAY_NAME' => 'credits-display-name',
@@ -94,6 +95,7 @@ class System
             'SETTINGS::USER:SERVER_LIMIT_AFTER_IRL_PURCHASE' => 'server-limit-purchase',
             'SETTINGS::MISC:PHPMYADMIN:URL' => 'phpmyadmin-url',
             'SETTINGS::SYSTEM:PTERODACTYL:URL' => 'pterodactyl-url',
+            'SETTINGS::SYSTEM:PTERODACTYL:PUBLIC_URL' => 'pterodactyl-public-url',
             'SETTINGS::SYSTEM:PTERODACTYL:PER_PAGE_LIMIT' => 'per-page-limit',
             'SETTINGS::SYSTEM:PTERODACTYL:TOKEN' => 'pterodactyl-api-key',
             'SETTINGS::SYSTEM:ENABLE_LOGIN_LOGO' => 'enable-login-logo',

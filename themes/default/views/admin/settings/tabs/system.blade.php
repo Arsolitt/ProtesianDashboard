@@ -37,6 +37,13 @@
                         {{ __('Enter the URL to your Pterodactyl installation. <strong>Without a trailing slash!</strong>') }}
                     @endslot
                 </x-label>
+                <x-label title="Pterodactyl Public URL">
+                    <x-input x-todo="pterodactyl-public-url" id="pterodactyl-public-url" name="pterodactyl-public-url" type="text"
+                             value="{{ config('SETTINGS::SYSTEM:PTERODACTYL:PUBLIC_URL') }}" required />
+                    @slot('text')
+                        {{ __('Enter the Public URL to your Pterodactyl installation. <strong>Without a trailing slash!</strong>') }}
+                    @endslot
+                </x-label>
                 <x-label title="Pterodactyl API perPage limit">
                     <x-input id="per-page-limit" name="per-page-limit" type="number"
                         value="{{ config('SETTINGS::SYSTEM:PTERODACTYL:PER_PAGE_LIMIT') }}" reauired />

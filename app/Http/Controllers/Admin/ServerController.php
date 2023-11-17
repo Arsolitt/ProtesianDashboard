@@ -222,7 +222,7 @@ class ServerController extends Controller
                 return $server->suspended ? $server->suspended->diffForHumans() : '';
             })
             ->editColumn('name', function (Server $server) {
-                return '<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline" target="_blank" href="' . config("SETTINGS::SYSTEM:PTERODACTYL:URL") . '/admin/servers/view/' . $server->pterodactyl_id . '">' . strip_tags($server->name) . '</a>';
+                return '<a class="font-medium text-purple-600 dark:text-purple-500 hover:underline" target="_blank" href="' . config("SETTINGS::SYSTEM:PTERODACTYL:PUBLIC_URL") . '/admin/servers/view/' . $server->pterodactyl_id . '">' . strip_tags($server->name) . '</a>';
             })
             ->rawColumns(['user', 'actions', 'status', 'name'])
             ->make();
