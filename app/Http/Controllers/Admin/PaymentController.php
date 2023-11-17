@@ -177,10 +177,10 @@ class PaymentController extends Controller
             })
             ->editColumn('status', function (Payment $payment) {
                 switch ($payment->status) {
-                    case 'succeeded':
+                    case 'paid':
                         $badgeColor = 'text-green-700 bg-green-100 dark:bg-green-500/20 dark:text-green-500';
                         break;
-                    case 'canceled':
+                    case 'cancelled':
                         $badgeColor = 'text-red-700 bg-red-100 dark:bg-red-500/20 dark:text-red-500';
                         break;
                     case 'open':
