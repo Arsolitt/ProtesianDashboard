@@ -47,8 +47,6 @@ if (!empty($_COOKIE['theme'])) {
     @if (config('SETTINGS::RECAPTCHA:ENABLED') == 'true')
         {!! htmlScriptTagJsApi() !!}
     @endif
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/style.css') }}?v6">
 </head>
 
 <body>
