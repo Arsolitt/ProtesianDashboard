@@ -34,27 +34,26 @@
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">{{ __('Username') }}</span>
                                 <x-input placeholder="{{ __('Username') }}" type="text" id="name" name="name"
-                                    value="{{ old('name') }}" required autofocus />
+                                    value="{{ old('name') }}" autocomplete="username" required autofocus />
 
                             </label>
                             <label class="block mt-4 text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">{{ __('Email') }}</span>
                                 <x-input type="email" name="email" id="email" value="{{ old('email') }}"
-                                    placeholder="{{ __('foo@gmail.com') }}" required />
+                                    placeholder="{{ __('foo@gmail.com') }}" autocomplete="email" required />
 
                             </label>
                             <div class="flex gap-4 mt-4">
                                 <label class="block text-sm">
                                     <span class="text-gray-700 dark:text-gray-400">{{ __('Password') }}</span>
-                                    <x-input type="password" name="password" placeholder="***************" required />
+                                    <x-input type="password" name="password" placeholder="***************" autocomplete="new-password" required />
 
                                 </label>
                                 <label class="block text-sm">
                                     <span class="text-gray-700 dark:text-gray-400">
                                         {{ __('Confirm Password') }}
                                     </span>
-                                    <x-input type="password" name="password_confirmation" placeholder="***************"
-                                        required />
+                                    <x-input type="password" name="password_confirmation" placeholder="***************" autocomplete="new-password" required />
 
                                 </label>
                             </div>

@@ -45,7 +45,7 @@ if (!empty($_COOKIE['theme'])) {
     <script defer src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
-<body>
+<body class="dark:bg-gray-900">
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
