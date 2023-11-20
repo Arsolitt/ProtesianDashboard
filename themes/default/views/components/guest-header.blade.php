@@ -1,6 +1,6 @@
 @props(['active' => ''])
 
-<header class="flex justify-between items-center sticky z-10 mt-5">
+<header class="flex justify-between items-center sticky z-10 mt-5" style="padding-left: 1.25rem; padding-right: 1.25rem">
     <a href="{{ route('welcome') }}" class="flex items-center">
         <img src="/images/cube.png" alt="" class="h-10 w-10 mr-1">
         <div class="whitespace-nowrap"><span class="text-2xl font-bold">Protes<span class="cyan-dot cyan-dot-small"><i>i</i></span>aN</span></div>
