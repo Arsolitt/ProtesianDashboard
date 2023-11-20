@@ -18,7 +18,7 @@
     <title>{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}</title>
 </head>
 
-<body>
+<body style="overflow: hidden">
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
