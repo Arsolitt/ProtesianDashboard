@@ -24,6 +24,8 @@ class Payments
             'stripe-methods' => 'nullable|string',
             'yookassa-shop-id' => 'nullable|string',
             'yookassa-secret-key' => 'nullable|string',
+            'paypalych-shop-id' => 'nullable|string',
+            'paypalych-secret-key' => 'nullable|string',
             'sales-tax' => 'nullable|numeric',
         ]);
         if ($validator->fails()) {
@@ -40,6 +42,8 @@ class Payments
             'SETTINGS::PAYMENTS:STRIPE:METHODS' => 'stripe-methods',
             'SETTINGS::PAYMENTS:YOOKASSA:SHOP_ID' => 'yookassa-shop-id',
             'SETTINGS::PAYMENTS:YOOKASSA:SECRET_KEY' => 'yookassa-secret-key',
+            'SETTINGS::PAYMENTS:PAYPALYCH:SHOP_ID' => 'paypalych-shop-id',
+            'SETTINGS::PAYMENTS:PAYPALYCH:SECRET_KEY' => 'paypalych-secret-key',
             'SETTINGS::PAYMENTS:SALES_TAX' => 'sales-tax',
         ];
 

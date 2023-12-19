@@ -17,7 +17,18 @@
                 </x-label>
             </x-card>
 
-            <x-card title="Stripe" class="p-0 shadow-none" style="padding: 0 !important;">
+            <x-card title="Paypalych" class="p-0 shadow-none" style="padding: 0 !important;">
+                <x-label title="Paypalych Shop ID">
+                    <x-input x-todo="paypalych-shop-id" id="paypalych-shop-id" name="paypalych-shop-id" type="text"
+                             value="{{ config('SETTINGS::PAYMENTS:PAYPALYCH:SHOP_ID') }}" />
+                </x-label>
+                <x-label title="Paypalych Secret Key">
+                    <x-input x-todo="paypalych-secret-key" id="paypalych-secret-key" name="paypalych-secret-key"
+                             type="text" value="{{ config('SETTINGS::PAYMENTS:PAYPALYCH:SECRET_KEY') }}" />
+                </x-label>
+            </x-card>
+
+{{--            <x-card title="Stripe" class="p-0 shadow-none" style="padding: 0 !important;">
                 <x-label title="Stripe Secret key">
                     <x-input x-todo="stripe-secret" id="stripe-secret" name="stripe-secret" type="text"
                         value="{{ config('SETTINGS::PAYMENTS:STRIPE:SECRET') }}" />
@@ -42,7 +53,7 @@
                         Comma separated list of payment methods without whitespaces. <br> Example: card,klarna,sepa
                     @endslot
                 </x-label>
-            </x-card>
+            </x-card>--}}
 
             <x-card title="Other" class="p-0 shadow-none" style="padding: 0 !important;">
                 <x-label title="Tax Value in %">
