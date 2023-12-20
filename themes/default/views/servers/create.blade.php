@@ -149,13 +149,13 @@
                             </h2>
                             <div class="w-full overflow-x-auto rounded-lg shadow-sm ">
                                 <table class="w-full whitespace-no-wrap">
-                                    <thead>
+                                    {{--<thead>
                                         <tr
                                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                             <th class="px-4 py-3">{{ __('Resources') }}</th>
                                             <th class="px-4 py-3">{{ __('Amount') }}</th>
                                         </tr>
-                                    </thead>
+                                    </thead>--}}
                                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                                         <tr class="text-gray-700 dark:text-gray-400">
                                             <td class="px-4 py-3">
@@ -229,29 +229,44 @@
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
                                                         {{ __('Required') }}
-                                                        {{--<span
-                                                            class="font-normal dark:text-gray-400/75 text-gray-600">({{ CREDITS_DISPLAY_NAME }})</span>--}}
                                                     </p>
                                                 </div>
                                             </td>
-                                            <td class="px-4 py-3 text-sm"
-                                                x-text="product.minimum_credits+ ' ' + '{{ CREDITS_DISPLAY_NAME }}'">
+                                            <td class="px-4 py-3 text-sm flex items-center">
+                                                <span x-text="product.minimum_credits"></span>
+                                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                          d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                                          clip-rule="evenodd"></path>
+                                                </svg>
                                             </td>
                                         </tr>
-                                        {{--<tr>
+                                        <tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
-                                                        {{ __('Price') }}
-                                                        <span
-                                                            class="font-normal dark:text-gray-400/75 text-gray-600">({{ CREDITS_DISPLAY_NAME }})</span>
+                                                        {{ __('Monthly') }}
+                                                        /
+                                                        {{ __('Daily') }}
                                                     </p>
                                                 </div>
                                             </td>
-                                            <td class="px-4 py-3 text-sm">
+                                            <td class="px-4 py-3 text-sm flex items-center">
                                                 <span x-text="product.price"></span>
+                                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                          d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                                          clip-rule="evenodd"></path>
+                                                </svg>
+                                                <span class="mx-1">/</span>
+                                                <span x-text="product.daily"></span>
+                                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                          d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                                          clip-rule="evenodd"></path>
+                                                </svg>
                                             </td>
-                                        </tr>--}}
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -395,6 +410,8 @@
                         product.cpu = product.cpu / 100;
                         product.memory = product.memory / 1024;
                         product.disk = product.disk / 1024;
+                        product.daily = (product.price / 30).toFixed(2);
+                        product.minimum_credits = product.minimum_credits.toFixed(2);
                     })
 
                     this.loading = false;

@@ -370,5 +370,7 @@
     "Optional": "Необязательно",
     "Profile Information": "Информация",
     "Registered": "Зарегистрирован",
-    "ago": "назад"
+    "ago": "назад",
+    "Monthly": "В месяц",
+    "Daily": "В день"
 }
