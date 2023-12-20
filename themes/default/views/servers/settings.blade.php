@@ -34,11 +34,11 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        CPU
+                        {{ __('CPU') }}
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         @if ($server->product->cpu == 0)
-                            {{ __('Unlimited') }}
+                            <span class="text-2xl">∞</span>
                         @else
                             {{ $server->product->cpu }} %
                         @endif
@@ -56,7 +56,7 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        RAM
+                        {{ __('RAM') }}
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         @if ($server->product->memory == 0)
@@ -79,7 +79,7 @@
                 </div>
                 <div>
                     <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                        SSD
+                        {{ __('Disk') }}
                     </p>
                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                         @if ($server->product->disk == 0)
@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <x-card title="Server Information">
+        <x-card title="{{ __('Server information') }}">
             <div class="grid gap-6 mb-8 md:grid-cols-2">
                 <div class="w-full overflow-x-auto rounded-lg shadow-sm ">
                     <table class="w-full whitespace-no-wrap">
@@ -132,9 +132,13 @@
                                     </div>
                                 </td>
 
-                                <td class="px-4 py-3 text-sm">
-                                    {{ number_format($server->product->getHourlyPrice(), 2, '.', '') }}
-                                    {{ CREDITS_DISPLAY_NAME }}
+                                <td class="px-4 py-3 text-sm flex items-center">
+                                    <span>{{ number_format($server->product->getHourlyPrice(), 2, '.', '') }}</span>
+                                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                              d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
                                 </td>
                             </tr>
                             <tr class="text-gray-700 dark:text-gray-400">
@@ -146,8 +150,13 @@
                                     </div>
                                 </td>
 
-                                <td class="px-4 py-3 text-sm">
-                                    {{ $server->product->getHourlyPrice() * 24 * 30 }} {{ CREDITS_DISPLAY_NAME }}
+                                <td class="px-4 py-3 text-sm flex items-center">
+                                    <span>{{ $server->product->getHourlyPrice() * 24 * 30 }}</span>
+                                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                              d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
                                 </td>
                             </tr>
                         </tbody>
@@ -199,7 +208,7 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center text-sm">
                                         <p class="font-semibold">
-                                            {{ __('MySQL Database') }}
+                                            {{ __('MySQL Databases') }}
                                         </p>
                                     </div>
                                 </td>

@@ -232,8 +232,8 @@
     "Software": "ПО",
     "Specification": "Характеристики",
     "Resource plan": "Ресурсный план",
-    "RAM": "Оперативная память",
-    "MySQL Databases": "База данных MySQL",
+    "RAM": "ОЗУ",
+    "MySQL Databases": "Базы данных MySQL",
     "per Hour": "в час",
     "per Month": "в месяц",
     "Manage": "Управление",
@@ -372,5 +372,6 @@
     "Registered": "Зарегистрирован",
     "ago": "назад",
     "Monthly": "В месяц",
-    "Daily": "В день"
+    "Daily": "В день",
+    "Server information": "Информация о сервере"
 }

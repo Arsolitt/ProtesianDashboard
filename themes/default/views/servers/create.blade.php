@@ -145,7 +145,7 @@
 
                     <template x-for="product in products" :key="product.id">
                         <div class="min-w-0 p-4 bg-white rounded-lg shadow-sm dark:bg-gray-800">
-                            <h2 class="mb-4 font-semibold text-gray-600 dark:text-gray-300" x-text="product.name">
+                            <h2 class="mb-4 font-semibold text-gray-600 dark:text-gray-300" x-text="product.name + ' ' + 'BUILD'">
                             </h2>
                             <div class="w-full overflow-x-auto rounded-lg shadow-sm ">
                                 <table class="w-full whitespace-no-wrap">
