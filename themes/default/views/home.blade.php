@@ -130,7 +130,7 @@
                                 <li
                                     class="text-gray-700 dark:text-gray-200  relative block leading-normal bg-white dark:bg-gray-800 border-0 border-t-0 text-sm text-inherit">
 
-                                    <strong class="">{{ __('Referral Code') }}:</strong>
+                                    <strong class="">{{ __('Referral URL') }}:</strong>
                                     <span class="cursor-copy hover:text-gray-600 hover:dark:text-gray-400"
                                         data-content="{{ __('Click to Copy URL') }}" data-toggle="popover" data-trigger="hover"
                                         data-placement="top"

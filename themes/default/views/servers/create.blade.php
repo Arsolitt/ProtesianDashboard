@@ -165,7 +165,9 @@
                                                     </p>
                                                 </div>
                                             </td>
-                                            <td class="px-4 py-3 text-sm" x-text="'UNLIMIT'">
+                                            <td class="px-4 py-3 text-sm">
+                                                <span
+                                                    class="text-2xl dark:text-gray-400/75 text-gray-600">∞</span>
                                             </td>
                                         <tr>
                                             <td class="px-4 py-3">
@@ -175,7 +177,7 @@
                                                     </p>
                                                 </div>
                                             </td>
-                                            <td class="px-4 py-3 text-sm" x-text="product.memory + ' {{ __('MB') }}'">
+                                            <td class="px-4 py-3 text-sm" x-text="product.memory + ' {{ __('GB') }}'">
                                             </td>
                                         </tr>
                                         <tr>
@@ -186,10 +188,10 @@
                                                     </p>
                                                 </div>
                                             </td>
-                                            <td class="px-4 py-3 text-sm" x-text="product.disk + ' {{ __('MB') }}'">
+                                            <td class="px-4 py-3 text-sm" x-text="product.disk + ' {{ __('GB') }}'">
                                             </td>
                                         </tr>
-                                        <tr>
+                                        {{--<tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
@@ -199,8 +201,8 @@
                                             </td>
                                             <td class="px-4 py-3 text-sm" x-text="product.databases">
                                             </td>
-                                        </tr>
-                                        <tr>
+                                        </tr>--}}
+                                        {{--<tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
@@ -210,7 +212,7 @@
                                             </td>
                                             <td class="px-4 py-3 text-sm" x-text="product.allocations">
                                             </td>
-                                        </tr>
+                                        </tr>--}}
                                         {{-- <tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
@@ -227,16 +229,16 @@
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
                                                         {{ __('Required') }}
-                                                        <span
-                                                            class="font-normal dark:text-gray-400/75 text-gray-600">({{ CREDITS_DISPLAY_NAME }})</span>
+                                                        {{--<span
+                                                            class="font-normal dark:text-gray-400/75 text-gray-600">({{ CREDITS_DISPLAY_NAME }})</span>--}}
                                                     </p>
                                                 </div>
                                             </td>
                                             <td class="px-4 py-3 text-sm"
-                                                x-text="product.minimum_credits">
+                                                x-text="product.minimum_credits+ ' ' + '{{ CREDITS_DISPLAY_NAME }}'">
                                             </td>
                                         </tr>
-                                        <tr>
+                                        {{--<tr>
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <p class="font-semibold">
@@ -249,7 +251,7 @@
                                             <td class="px-4 py-3 text-sm">
                                                 <span x-text="product.price"></span>
                                             </td>
-                                        </tr>
+                                        </tr>--}}
                                     </tbody>
                                 </table>
                             </div>
@@ -388,11 +390,12 @@
                     this.products = response.sort((p1, p2) => parseInt(p1.price, 10) > parseInt(p2.price, 10) &&
                         1 || -1)
 
-                    //divide cpu by 100 for each product
+                    //divide cpu, disk and memory for each product
                     this.products.forEach(product => {
                         product.cpu = product.cpu / 100;
+                        product.memory = product.memory / 1024;
+                        product.disk = product.disk / 1024;
                     })
-
 
                     this.loading = false;
                     this.updateSelectedObjects()

@@ -84,12 +84,12 @@
                             <ul class="flex flex-col pl-0 mb-0 rounded-lg">
                                 <li
                                     class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white dark:bg-gray-800 border-0 rounded-t-lg text-sm text-inherit">
-                                    <strong class="text-gray-700 dark:text-gray-200">User Name:</strong> &nbsp;
+                                    <strong class="text-gray-700 dark:text-gray-200">{{ __('Username') }}:</strong> &nbsp;
                                     {{ $user->name }}
                                 </li>
                                 <li
                                     class="relative block px-4 py-2 pl-0 leading-normal bg-white dark:bg-gray-800 border-0 border-t-0 text-sm text-inherit">
-                                    <strong class="text-gray-700 dark:text-gray-200">Email:</strong> &nbsp;
+                                    <strong class="text-gray-700 dark:text-gray-200">{{ __('Email') }}:</strong> &nbsp;
                                     {{ $user->email }}
                                 </li>
                                 @if (config('SETTINGS::REFERRAL::ENABLED') == 'true')
@@ -99,7 +99,7 @@
                                         class="cursor-copy text-gray-700 dark:text-gray-200 hover:text-gray-600 hover:dark:text-gray-400 relative block px-4 py-2 pl-0 leading-normal bg-white dark:bg-gray-800 border-0 border-t-0 text-sm text-inherit">
                                         @if ((config('SETTINGS::REFERRAL::ALLOWED') == 'client' && $user->role != 'member') ||
                                             config('SETTINGS::REFERRAL::ALLOWED') == 'everyone')
-                                            <strong class="">Referral URL:</strong> &nbsp;
+                                            <strong class="">{{ __('Referral URL') }}:</strong> &nbsp;
                                             {{ route('register') }}?ref={{ $user->referral_code }}
                                         @else
                                             <span
@@ -110,17 +110,17 @@
                                 @endif
                                 <li
                                     class="relative block px-4 py-2 pl-0 leading-normal bg-white dark:bg-gray-800 border-0 border-t-0 text-sm text-inherit">
-                                    <strong class="text-gray-700 dark:text-gray-200">Role:</strong> &nbsp; <span
+                                    <strong class="text-gray-700 dark:text-gray-200">{{ __('Role') }}:</strong> &nbsp; <span
                                         class="px-2 py-1 text-xs font-semibold leading-tight rounded-full {{ $badgeColor }}">{{ $user->role }}</span>
                                 </li>
                                 <li
                                     class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white dark:bg-gray-800 border-0 rounded-t-lg text-sm text-inherit">
-                                    <strong class="text-gray-700 dark:text-gray-200">Created At:</strong> &nbsp;
+                                    <strong class="text-gray-700 dark:text-gray-200">{{ __('Registered') }}:</strong> &nbsp;
                                     {{ $user->created_at->isoFormat('LL') }}
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <x-button class="mx-4 my-2 bg-red-500 hover:bg-red-600 text-white w-1/3" id="confirmDeleteButton" type="button">{{ __('Delete Account') }}</x-button>
                         @if (!empty(config('SETTINGS::DISCORD:CLIENT_ID')) && !empty(config('SETTINGS::DISCORD:CLIENT_SECRET')))
                             <div class="p-4 pt-0 mt-4">

@@ -16,9 +16,9 @@
                             <th scope="col" class="py-3 px-6">
                                 {{ __('Price') }}
                             </th>
-                            <th scope="col" class="py-3 px-6">
+                            {{--<th scope="col" class="py-3 px-6">
                                 {{ __('Type') }}
-                            </th>
+                            </th>--}}
                             <th scope="col" class="py-3 px-6">
                                 {{ __('Description') }}
                             </th>
@@ -35,9 +35,9 @@
                                 <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
                                     {{ $product->formatToCurrency($product->price) }}
                                 </th>
-                                <td class="py-4 px-6">
+                                {{--<td class="py-4 px-6">
                                     {{ strtolower($product->type) == 'credits' ? __('Balance') : $product->type }}
-                                </td>
+                                </td>--}}
                                 <td class="py-4 px-6">
                                     {{ $product->display }}
                                 </td>
