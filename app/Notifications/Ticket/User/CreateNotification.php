@@ -48,7 +48,7 @@ class CreateNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('[Ticket ID: '.$this->ticket->ticket_id.'] '.$this->ticket->title)
+            ->subject('[Номер обращения: '.$this->ticket->ticket_id.'] '.$this->ticket->title)
             ->markdown('mail.ticket.user.create', ['ticket' => $this->ticket]);
     }
 
@@ -61,8 +61,8 @@ class CreateNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'title' => '[Ticket ID: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
-            'content' => "Your Ticket has been Created With ID: {$this->ticket->ticket_id}",
+            'title' => '[Номер обращения: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
+            'content' => "Ваше обращение зарегистрировано под номером: {$this->ticket->ticket_id}",
         ];
     }
 }

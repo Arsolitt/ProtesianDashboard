@@ -66,18 +66,19 @@ class WelcomeMessage extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'title' => __('Getting started!'),
+            'title' => __('Добро пожаловать!'),
             'content' => '
-               <p> '.__('Hello')." <strong>{$this->user->name}</strong>, ".__('Welcome to our dashboard').'!</p>
-                <h5>'.__('Verification').'</h5>
+               <p> '.'Здравствуйте,'." <strong>{$this->user->name}</strong>, ".'!</p>
+                <h5>'.__('Подтверждение').'</h5>
                 <p>'.__('You can verify your e-mail address and link/verify your Discord account.').'</p>
                 <p>
                   '.$this->AdditionalLines().'
                 </p>
-                <h5>'.__('Information').'</h5>
-                <p>'.__('This dashboard can be used to create and delete servers').'.<br /> '.__('These servers can be used and managed on our pterodactyl panel').'.<br /> '.__('If you have any questions, please join our Discord server and #create-a-ticket').'.</p>
-                <p>'.__('We hope you can enjoy this hosting experience and if you have any suggestions please let us know').'!</p>
-                <p>'.__('Regards').',<br />'.config('app.name', 'Laravel').'</p>
+                <h5>'.'Информация'.'</h5>
+                <p>'.'Мы надеемся, что вам понравится этот хостинг, и если у вас есть какие-либо предложения, пожалуйста, сообщите нам.'.'!</p>
+                <p>'.'Если у вас есть вопросы, присоединяйтесь к нашему серверу Discord или создайте обращение в службу поддержки на сайте'.'.</p>
+
+                <p>'.'C наилучшими пожеланиями'.',<br />'.config('app.name').'</p>
             ',
         ];
     }

@@ -4,13 +4,14 @@ module.exports = {
         "./themes/default/**/*.blade.php",
         "./themes/default/**/*.js",
         "./themes/default/**/*.vue",
+        "./app/Http/Controllers/**/*.php"
     ],
-    purge: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/themes/default/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './themes/default/views/**/*.blade.php',
-        './app/Http/Controllers/**/*.php'
-    ],
+/*    purge: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/themes/default/views/!*.blade.php',
+        './storage/framework/views/!*.php',
+        './themes/default/views/!**!/!*.blade.php',
+        './app/Http/Controllers/!**!/!*.php'
+    ],*/
 
     variants: {
         extend: {

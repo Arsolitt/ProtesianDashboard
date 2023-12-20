@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/styleDmitron.css') }}">
-    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v6">
+    <link rel="stylesheet" href="{{ asset('themes/ProtesiaN/main.css') }}?v8">
     <script src="https://kit.fontawesome.com/523a8fe7f9.js" crossorigin="anonymous"></script>
     <title>{{ __(config('SETTINGS::SYSTEM:SEO_TITLE')) }}</title>
 </head>

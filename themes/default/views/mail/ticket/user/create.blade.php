@@ -1,13 +1,13 @@
 @component('mail::message')
-{{ __('Hello') }} {{$ticket->user->name}},
+Здравствуйте, {{$ticket->user->name}}!
 
-This is a notification that we have received your support request, and your ticket number is **#{{$ticket->ticket_id}}**.
+Это уведомление о том, что мы получили ваш запрос в службу поддержки, и номер вашего тикета **#{{$ticket->ticket_id}}**.
 
-We will be responding to this ticket as soon as possible. If this is a Setup request, please understand that these requests take longer than regular support timeframes. Please be aware that Setups may take up to 48 hours to be completed.
+Мы ответим на этот запрос как можно скорее. Если это запрос на настройку, пожалуйста, поймите, что такие запросы занимают больше времени, чем обычно. Пожалуйста, имейте в виду, что на настройку может уйти до 48 часов.
 
-Thank you so much for being so understanding.
+Большое спасибо за понимание!
 
 <br>
-{{__('Thanks')}},<br>
+C наилучшими пожеланиями,<br>
 {{ config('app.name') }}
 @endcomponent

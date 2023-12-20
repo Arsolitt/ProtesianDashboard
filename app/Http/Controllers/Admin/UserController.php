@@ -379,16 +379,16 @@ class UserController extends Controller
             ->editColumn('role', function (User $user) {
                 switch ($user->role) {
                     case 'client':
-                        $badgeColor = 'text-green-700 bg-green-100 dark:bg-green-500/20 dark:text-green-500';
+                        $badgeColor = 'bg-green-500/20 text-green-500';
                         break;
                     case 'admin':
-                        $badgeColor = 'text-red-700 bg-red-100 dark:bg-red-500/20 dark:text-red-500';
+                        $badgeColor = 'bg-red-500/20 text-red-500';
                         break;
                     case 'moderator':
-                        $badgeColor = 'text-indigo-700 bg-indigo-100 dark:bg-indigo-500/20 dark:text-indigo-500';
+                        $badgeColor = 'bg-indigo-500/20 text-indigo-500';
                         break;
                     default:
-                        $badgeColor = 'text-purple-700 bg-purple-100 dark:bg-purple-700 dark:text-purple-100';
+                        $badgeColor = 'bg-purple-700 text-purple-100';
                         break;
                 }
 

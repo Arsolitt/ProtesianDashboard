@@ -21,11 +21,11 @@
                     <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                         {{ __('Login') }}
                     </h1>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" autocomplete="on">
                         @csrf
                         <label class="block text-sm">
                             <span class="text-gray-700 dark:text-gray-400">{{ __('Email') }}</span>
-                            <x-input type="email" name="email" value="{{ old('email') }}" required autofocus />
+                            <x-input type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email"/>
                         </label>
                         <label class="block mt-4 text-sm">
                             <span class="text-gray-700 dark:text-gray-400">{{ __('Password') }}</span>

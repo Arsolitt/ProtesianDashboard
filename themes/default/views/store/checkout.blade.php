@@ -8,7 +8,7 @@
         <form x-data="{ payment_method: '', clicked: false }" x-ref="form" action="{{ route('payment.pay') }}" method="POST">
             @csrf
             @method('post')
-            
+
             <div class="">
                 <h4 class="flex justify-between">
                     <span>{{ config('app.name', 'Laravel') }}</span>
@@ -63,7 +63,7 @@
                             {{ __('Payment Methods') }}:
                         </h2>
                         <div class="mb-4 ml-2">
-                            {{-- !! LEGACY CODE !! 
+                            {{-- !! LEGACY CODE !!
                             @if (config('SETTINGS::PAYMENTS:PAYPAL:SECRET') || config('SETTINGS::PAYMENTS:PAYPAL:SANDBOX_SECRET'))
                                 <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
                                     <input type="radio" class="text-purple-600 form-radio focus:border-purple-400 "
@@ -83,21 +83,22 @@
                             @foreach ($paymentGateways as $gateway)
                                 <div class="ml-2">
                                     <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400" for="{{ $gateway->name }}">
-                                        {{-- <img class="mb-3 w-44"
-                                            src="{{ $gateway->image }}"></br> --}}
                                         <input type="radio" class="text-purple-600 form-radio focus:border-purple-400 "
                                             x-on:click="clicked = false"
                                             x-model="payment_method" id="{{ $gateway->name }}" value="{{ $gateway->name }}"
                                             name="payment_method">
-                                        <span class="ml-2 font-bold text-lg dark:text-gray-200 text-gray-800">{{ $gateway->name }}</span>
+                                        <span class="ml-2 font-bold text-lg dark:text-gray-200 text-gray-800">
+                                            <img class="w-32" src="{{ $gateway->image }}">
+                                            {{--{{ $gateway->name }}--}}
+                                        </span>
                                     </label>
                                 </div>
-                                
+
                             @endforeach
                         </div>
                     </div>
                     @endif
-                    
+
                     <div class="w-full overflow-hidden">
                         <h2
                             class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200 flex justify-between items-center">

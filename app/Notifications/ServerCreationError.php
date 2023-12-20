@@ -45,12 +45,12 @@ class ServerCreationError extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => __('Server Creation Error'),
+            'title' => __('Ошибка создания сервера'),
             'content' => "
-                <p>Hello <strong>{$this->server->User->name}</strong>, An unexpected error has occurred...</p>
-                <p>There was a problem creating your server on our pterodactyl panel. There are likely no allocations or rooms left on the selected node. Please contact one of our support members through our discord server to get this resolved asap!</p>
-                <p>We thank you for your patience and our deepest apologies for this inconvenience.</p>
-                <p>".config('app.name', 'Laravel').'</p>
+                <p>Здравствуйте, <strong>{$this->server->User->name}</strong>, произошла непредвиденная ошибка...</p>
+                <p>Возникла проблема с созданием сервера. Пожалуйста, свяжитесь со службой поддержки, чтобы решить эту проблему как можно скорее!</p>
+                <p>Мы благодарим вас за терпение и приносим глубочайшие извинения за причиненные неудобства.</p>
+                <p>".config('app.name').'</p>
             ',
         ];
     }

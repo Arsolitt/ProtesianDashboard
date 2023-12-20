@@ -19,7 +19,7 @@
                     {{ __('Type your email to get password recovery link') }}
                 </p>
 
-                <form method="POST" action="{{ route('password.email') }}">
+                <form method="POST" action="{{ route('password.email') }}" autocomplete="on">
                     @csrf
                     <x-label title="Email">
                         <x-input type="email" name="email" value="{{ old('email') }}" required autocomplete="email"

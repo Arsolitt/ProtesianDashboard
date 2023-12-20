@@ -46,13 +46,10 @@ class ReferralNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => __('Someone registered using your Code!'),
+            'title' => "Кто-то зарегистрировался, используя вашу ссылку!",
             'content' => '
-                <p>You received '.config('SETTINGS::REFERRAL::REWARD').' '.config('SETTINGS::SYSTEM:CREDITS_DISPLAY_NAME').'</p>
-                <p>because '.$this->ref_user->name.' registered with your Referral-Code!</p>
-                <p>Thank you very much for supporting us!.</p>
-                <p>'.config('app.name', 'Laravel').'</p>
-            ',
+                <p>Большое спасибо, что поддерживаете нас!</p>
+                <p>'.config('app.name').'</p>',
         ];
     }
 }

@@ -26,6 +26,7 @@ class Payments
             'yookassa-secret-key' => 'nullable|string',
             'paypalych-shop-id' => 'nullable|string',
             'paypalych-secret-key' => 'nullable|string',
+            'paypalych-enabled' => 'nullable|boolean',
             'sales-tax' => 'nullable|numeric',
         ]);
         if ($validator->fails()) {

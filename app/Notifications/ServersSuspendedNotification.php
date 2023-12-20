@@ -41,9 +41,9 @@ class ServersSuspendedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject(__('Your servers have been suspended!'))
-                    ->greeting(__('Your servers have been suspended!'))
-                    ->line(__('To automatically re-enable your server/s, you need to purchase more credits.'))
+                    ->subject(__('Работа ваших серверов приостановлена!'))
+                    ->greeting(__('Работа ваших серверов приостановлена!'))
+                    ->line(__('Для автоматического включения вашего сервера/серверов вам необходимо пополнить баланс.'))
                     ->action(__('Purchase credits'), route('store.index'))
                     ->line(__('If you have any questions please let us know.'));
     }
@@ -57,12 +57,13 @@ class ServersSuspendedNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'title' => __('Your servers have been suspended!'),
+            'title' => __('Работа ваших серверов приостановлена!'),
             'content' => '
-                <h5>'.__('Your servers have been suspended!').'</h5>
-                <p>'.__('To automatically re-enable your server/s, you need to purchase more credits.').'</p>
-                <p>'.__('If you have any questions please let us know.').'</p>
-                <p>'.__('Regards').',<br />'.config('app.name', 'Laravel').'</p>
+                <h5>'.__('Работа ваших серверов приостановлена!').'</h5>
+                <p>'.__('Для автоматического включения вашего сервера/серверов вам необходимо пополнить баланс.').'</p>
+                <p>'.__('Если у вас есть вопросы, пожалуйста, сообщите нам.').'</p>
+                <p>'.'C наилучшими пожеланиями'.',<br />'.config('app.name').'
+                </p>
             ',
         ];
     }

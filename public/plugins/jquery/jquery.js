@@ -495,7 +495,7 @@ if ( typeof Symbol === "function" ) {
 }
 
 // Populate the class2type map
-jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
+jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( "" ),
 function( _i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 } );
@@ -698,7 +698,7 @@ var i,
 
 			// Control characters and (dependent upon position) numbers get escaped as code points
 			return ch.slice( 0, -1 ) + "\\" +
-				ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
+				ch.charCodeAt( ch.length - 1 ).toString( 16 ) + "";
 		}
 
 		// Other potentially-special ASCII characters get backslash-escaped
@@ -828,7 +828,7 @@ function Sizzle( selector, context, results, seed ) {
 
 			// Take advantage of querySelectorAll
 			if ( support.qsa &&
-				!nonnativeSelectorCache[ selector + " " ] &&
+				!nonnativeSelectorCache[ selector + "" ] &&
 				( !rbuggyQSA || !rbuggyQSA.test( selector ) ) &&
 
 				// Support: IE 8 only
@@ -868,7 +868,7 @@ function Sizzle( selector, context, results, seed ) {
 					groups = tokenize( selector );
 					i = groups.length;
 					while ( i-- ) {
-						groups[ i ] = ( nid ? "#" + nid : ":scope" ) + " " +
+						groups[ i ] = ( nid ? "#" + nid : ":scope" ) + "" +
 							toSelector( groups[ i ] );
 					}
 					newSelector = groups.join( "," );
@@ -905,13 +905,13 @@ function createCache() {
 
 	function cache( key, value ) {
 
-		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
-		if ( keys.push( key + " " ) > Expr.cacheLength ) {
+		// Use (key + "") to avoid collision with native prototype properties (see Issue #157)
+		if ( keys.push( key + "" ) > Expr.cacheLength ) {
 
 			// Only keep the most recent entries
 			delete cache[ keys.shift() ];
 		}
-		return ( cache[ key + " " ] = value );
+		return ( cache[ key + "" ] = value );
 	}
 	return cache;
 }
@@ -1606,7 +1606,7 @@ Sizzle.matchesSelector = function( elem, expr ) {
 	setDocument( elem );
 
 	if ( support.matchesSelector && documentIsHTML &&
-		!nonnativeSelectorCache[ expr + " " ] &&
+		!nonnativeSelectorCache[ expr + "" ] &&
 		( !rbuggyMatches || !rbuggyMatches.test( expr ) ) &&
 		( !rbuggyQSA     || !rbuggyQSA.test( expr ) ) ) {
 
@@ -1765,7 +1765,7 @@ Expr = Sizzle.selectors = {
 
 	relative: {
 		">": { dir: "parentNode", first: true },
-		" ": { dir: "parentNode" },
+		"": { dir: "parentNode" },
 		"+": { dir: "previousSibling", first: true },
 		"~": { dir: "previousSibling" }
 	},
@@ -1779,7 +1779,7 @@ Expr = Sizzle.selectors = {
 				match[ 5 ] || "" ).replace( runescape, funescape );
 
 			if ( match[ 2 ] === "~=" ) {
-				match[ 3 ] = " " + match[ 3 ] + " ";
+				match[ 3 ] = "" + match[ 3 ] + "";
 			}
 
 			return match.slice( 0, 4 );
@@ -1866,7 +1866,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"CLASS": function( className ) {
-			var pattern = classCache[ className + " " ];
+			var pattern = classCache[ className + "" ];
 
 			return pattern ||
 				( pattern = new RegExp( "(^|" + whitespace +
@@ -1901,7 +1901,7 @@ Expr = Sizzle.selectors = {
 					operator === "^=" ? check && result.indexOf( check ) === 0 :
 					operator === "*=" ? check && result.indexOf( check ) > -1 :
 					operator === "$=" ? check && result.slice( -check.length ) === check :
-					operator === "~=" ? ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 :
+					operator === "~=" ? ( "" + result.replace( rwhitespace, "" ) + "" ).indexOf( check ) > -1 :
 					operator === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
 					false;
 				/* eslint-enable max-len */
@@ -2313,7 +2313,7 @@ Expr.setFilters = new setFilters();
 tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 	var matched, match, tokens, type,
 		soFar, groups, preFilters,
-		cached = tokenCache[ selector + " " ];
+		cached = tokenCache[ selector + "" ];
 
 	if ( cached ) {
 		return parseOnly ? 0 : cached.slice( 0 );
@@ -2344,7 +2344,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 				value: matched,
 
 				// Cast descendant combinators to space
-				type: match[ 0 ].replace( rtrim, " " )
+				type: match[ 0 ].replace( rtrim, "" )
 			} );
 			soFar = soFar.slice( matched.length );
 		}
@@ -2605,7 +2605,7 @@ function matcherFromTokens( tokens ) {
 	var checkContext, matcher, j,
 		len = tokens.length,
 		leadingRelative = Expr.relative[ tokens[ 0 ].type ],
-		implicitRelative = leadingRelative || Expr.relative[ " " ],
+		implicitRelative = leadingRelative || Expr.relative[ "" ],
 		i = leadingRelative ? 1 : 0,
 
 		// The foundational matcher ensures that elements are reachable from top-level context(s)
@@ -2649,7 +2649,7 @@ function matcherFromTokens( tokens ) {
 					// If the preceding token was a descendant combinator, insert an implicit any-element `*`
 					tokens
 						.slice( 0, i - 1 )
-						.concat( { value: tokens[ i - 2 ].type === " " ? "*" : "" } )
+						.concat( { value: tokens[ i - 2 ].type === "" ? "*" : "" } )
 					).replace( rtrim, "$1" ),
 					matcher,
 					i < j && matcherFromTokens( tokens.slice( i, j ) ),
@@ -2793,7 +2793,7 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 	var i,
 		setMatchers = [],
 		elementMatchers = [],
-		cached = compilerCache[ selector + " " ];
+		cached = compilerCache[ selector + "" ];
 
 	if ( !cached ) {
 
@@ -5477,7 +5477,7 @@ jQuery.event = {
 						handleObj = handlers[ i ];
 
 						// Don't conflict with Object.prototype properties (#13203)
-						sel = handleObj.selector + " ";
+						sel = handleObj.selector + "";
 
 						if ( matchedSelectors[ sel ] === undefined ) {
 							matchedSelectors[ sel ] = handleObj.needsContext ?
@@ -7101,7 +7101,7 @@ jQuery.each( {
 				expanded = {},
 
 				// Assumes a single number if not a string
-				parts = typeof value === "string" ? value.split( " " ) : [ value ];
+				parts = typeof value === "string" ? value.split( "" ) : [ value ];
 
 			for ( ; i < 4; i++ ) {
 				expanded[ prefix + cssExpand[ i ] + suffix ] =
@@ -8247,7 +8247,7 @@ jQuery.each( [
 	// https://infra.spec.whatwg.org/#strip-and-collapse-ascii-whitespace
 	function stripAndCollapse( value ) {
 		var tokens = value.match( rnothtmlwhite ) || [];
-		return tokens.join( " " );
+		return tokens.join( "" );
 	}
 
 
@@ -8281,13 +8281,13 @@ jQuery.fn.extend( {
 		if ( classes.length ) {
 			while ( ( elem = this[ i++ ] ) ) {
 				curValue = getClass( elem );
-				cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+				cur = elem.nodeType === 1 && ( "" + stripAndCollapse( curValue ) + "" );
 
 				if ( cur ) {
 					j = 0;
 					while ( ( clazz = classes[ j++ ] ) ) {
-						if ( cur.indexOf( " " + clazz + " " ) < 0 ) {
-							cur += clazz + " ";
+						if ( cur.indexOf( "" + clazz + "" ) < 0 ) {
+							cur += clazz + "";
 						}
 					}
 
@@ -8324,15 +8324,15 @@ jQuery.fn.extend( {
 				curValue = getClass( elem );
 
 				// This expression is here for better compressibility (see addClass)
-				cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+				cur = elem.nodeType === 1 && ( "" + stripAndCollapse( curValue ) + "" );
 
 				if ( cur ) {
 					j = 0;
 					while ( ( clazz = classes[ j++ ] ) ) {
 
 						// Remove *all* instances
-						while ( cur.indexOf( " " + clazz + " " ) > -1 ) {
-							cur = cur.replace( " " + clazz + " ", " " );
+						while ( cur.indexOf( "" + clazz + "" ) > -1 ) {
+							cur = cur.replace( "" + clazz + "", "" );
 						}
 					}
 
@@ -8413,10 +8413,10 @@ jQuery.fn.extend( {
 		var className, elem,
 			i = 0;
 
-		className = " " + selector + " ";
+		className = "" + selector + "";
 		while ( ( elem = this[ i++ ] ) ) {
 			if ( elem.nodeType === 1 &&
-				( " " + stripAndCollapse( getClass( elem ) ) + " " ).indexOf( className ) > -1 ) {
+				( "" + stripAndCollapse( getClass( elem ) ) + "" ).indexOf( className ) > -1 ) {
 					return true;
 			}
 		}
@@ -9150,7 +9150,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 
 		// Try convertible dataTypes
 		for ( type in responses ) {
-			if ( !dataTypes[ 0 ] || s.converters[ type + " " + dataTypes[ 0 ] ] ) {
+			if ( !dataTypes[ 0 ] || s.converters[ type + "" + dataTypes[ 0 ] ] ) {
 				finalDataType = type;
 				break;
 			}
@@ -9219,18 +9219,18 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 			} else if ( prev !== "*" && prev !== current ) {
 
 				// Seek a direct converter
-				conv = converters[ prev + " " + current ] || converters[ "* " + current ];
+				conv = converters[ prev + "" + current ] || converters[ "* " + current ];
 
 				// If none found, seek a pair
 				if ( !conv ) {
 					for ( conv2 in converters ) {
 
 						// If conv2 outputs current
-						tmp = conv2.split( " " );
+						tmp = conv2.split( "" );
 						if ( tmp[ 1 ] === current ) {
 
 							// If prev can be converted to accepted input
-							conv = converters[ prev + " " + tmp[ 0 ] ] ||
+							conv = converters[ prev + "" + tmp[ 0 ] ] ||
 								converters[ "* " + tmp[ 0 ] ];
 							if ( conv ) {
 
@@ -9442,12 +9442,12 @@ jQuery.extend( {
 						if ( !responseHeaders ) {
 							responseHeaders = {};
 							while ( ( match = rheaders.exec( responseHeadersString ) ) ) {
-								responseHeaders[ match[ 1 ].toLowerCase() + " " ] =
-									( responseHeaders[ match[ 1 ].toLowerCase() + " " ] || [] )
+								responseHeaders[ match[ 1 ].toLowerCase() + "" ] =
+									( responseHeaders[ match[ 1 ].toLowerCase() + "" ] || [] )
 										.concat( match[ 2 ] );
 							}
 						}
-						match = responseHeaders[ key.toLowerCase() + " " ];
+						match = responseHeaders[ key.toLowerCase() + "" ];
 					}
 					return match == null ? null : match.join( ", " );
 				},
@@ -10350,7 +10350,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 jQuery.fn.load = function( url, params, callback ) {
 	var selector, type, response,
 		self = this,
-		off = url.indexOf( " " );
+		off = url.indexOf( "" );
 
 	if ( off > -1 ) {
 		selector = stripAndCollapse( url.slice( off ) );
@@ -10728,7 +10728,7 @@ jQuery.fn.extend( {
 
 jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
+	"change select submit keydown keypress keyup contextmenu" ).split( "" ),
 	function( _i, name ) {
 
 		// Handle event binding

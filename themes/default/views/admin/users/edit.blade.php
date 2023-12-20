@@ -44,11 +44,11 @@
                                     {{ __('Moderator') }}
                                 </option>
                                 <option @if ($user->role == 'client') selected @endif
-                                    class="font-medium text-purple-600 dark:text-purple-500 hover:underline" value="client">
+                                    class="font-medium text-green-500 hover:underline" value="client">
                                     {{ __('Client') }}
                                 </option>
                                 <option @if ($user->role == 'member') selected @endif
-                                    class="font-medium text-green-600 dark:text-green-500 hover:underline" value="member">
+                                    class="font-medium text-purple-500 hover:underline" value="member">
                                     {{ __('Member') }}
                                 </option>
                             </x-select>

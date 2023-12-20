@@ -55,7 +55,7 @@ class ReplyNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('[Ticket ID: '.$this->ticket->ticket_id.'] '.$this->ticket->title)
+            ->subject('[Номер обращения: '.$this->ticket->ticket_id.'] '.$this->ticket->title)
             ->markdown('mail.ticket.user.reply', ['ticket' => $this->ticket, 'user' => $this->user, 'newmessage' => $this->newmessage]);
     }
 
@@ -68,11 +68,11 @@ class ReplyNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'title' => '[Ticket ID: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
+            'title' => '[Номер обращения: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
             'content' => "
-                <p>Ticket With ID : {$this->ticket->ticket_id} A response has been added to your ticket. Please see below for our response!</p>
+                <p>К вашему обращению {$this->ticket->ticket_id} был добавлен ответ:</p>
                 <br>
-                <p><strong>Message:</strong></p>
+                <p><strong>Ответ:</strong></p>
                 <p>{$this->newmessage}</p>
             ",
         ];

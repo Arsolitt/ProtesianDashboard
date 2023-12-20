@@ -3,54 +3,38 @@
 
 <div class="prices-wrapper swiper-wrapper">
     @if($products != null)
-    @foreach($products as $product)
+        @foreach($products as $product)
     <div class="price-slide swiper-slide">
         <div class="price-card">
             <span class="card-header card-summ">{{ $product["name"] }}<br>BUILD</span>
-            <table class="specs-table">
-                <tr>
-                    <td>
-                        <div class="spec-cpu spec-block">
-                            <div class="spec-desc">
-                                <span class="spec-header">CPU</span>
-                                <span class="spec-count">∞</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="spec-ram spec-block">
-                            <div class="spec-desc">
-                                <span class="spec-header">RAM</span>
-                                <span class="spec-count">{{ $product["memory"] / 1024 }} Gb</span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="spec-ssd spec-block">
-                            <div class="spec-desc">
-                                <span class="spec-header">SSD</span>
-                                <span class="spec-count">{{ $product["disk"] / 1024 }} Gb</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="spec-db spec-block">
-                            <div class="spec-desc">
-                                <span class="spec-header">BACKUP</span>
-                                <span class="spec-count">0-{{ $product["backups"] }}</span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div class="card-spec">
+                <div class="spec-header">CPU</div>
+                <div class="spec-count" style="font-size: 20px">∞</div>
+                <div class="spec-header">RAM</div>
+                <div class="spec-count">{{ $product["memory"] / 1024 }} Gb</div>
+                <div class="spec-header">SSD</div>
+                <div class="spec-count">{{ $product["disk"] / 1024 }} Gb</div>
+            </div>
             <div class="card-summ"><span>{{ intval($product["price"]) / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
         </div>
     </div>
     @endforeach
     @endif
-    <div class="price-slide swiper-slide">
+        <div class="price-slide swiper-slide">
+            <div class="price-card">
+                <span class="card-header card-summ">CUSTOM<br>BUILD</span>
+                <div class="card-spec">
+                    <div class="spec-header">CPU</div>
+                    <div class="spec-count" style="font-size: 20px">∞</div>
+                    <div class="spec-header">RAM</div>
+                    <div class="spec-count" style="font-size: 20px">∞</div>
+                    <div class="spec-header">SSD</div>
+                    <div class="spec-count" style="font-size: 20px">∞</div>
+                </div>
+                <div class="card-summ"><span>???</span> <span class="spec-header">{{ __('EUR') }}</span></div>
+            </div>
+        </div>
+{{--    <div class="price-slide swiper-slide">
             <div class="price-card">
                 <span class="card-header card-summ">CUSTOM<br>BUILD</span>
                 <table class="specs-table">
@@ -105,5 +89,5 @@
                 </table>
                 <div class="card-summ"><span>???</span> <span class="spec-header">{{ __('EUR') }}</span></div>
             </div>
-        </div>
+        </div>--}}
 </div>

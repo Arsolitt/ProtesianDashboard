@@ -1,10 +1,11 @@
 @component('mail::message')
-A response has been added to your ticket. Please see below for our response!
+К вашему обращению был добавлен ответ
 
-### Details
-Ticket ID : {{ $ticket->ticket_id }} <br>
-Subject: {{ $ticket->title }} <br>
-Status: {{ $ticket->status }} <br>
+### Информация
+___
+Номер обращения: {{ $ticket->ticket_id }} <br>
+Тема: {{ $ticket->title }} <br>
+Статус: {{ $ticket->status }} <br>
 
 ___
 ```
@@ -13,6 +14,6 @@ ___
 ___
 <br>
 <br>
-{{__('Thanks')}},<br>
+C наилучшими пожеланиями,<br>
 {{ config('app.name') }}
 @endcomponent

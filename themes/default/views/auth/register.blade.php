@@ -28,13 +28,13 @@
                                 </span>
                             @endforeach
                         @endif
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" autocomplete="on">
                             @csrf
 
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">{{ __('Username') }}</span>
                                 <x-input placeholder="{{ __('Username') }}" type="text" id="name" name="name"
-                                    value="{{ old('name') }}" autocomplete="username" required autofocus />
+                                    value="{{ old('name') }}" autocomplete="name" required autofocus />
 
                             </label>
                             <label class="block mt-4 text-sm">

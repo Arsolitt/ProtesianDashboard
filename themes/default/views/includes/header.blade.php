@@ -72,7 +72,7 @@
                 <ul x-cloak x-show="isNotificationsMenuOpen" x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                     @click.away="closeNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                    class="absolute right-0 w-80 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                    class="absolute -right-20 sm:w-96 w-80 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
                     @foreach (Auth::user()->unreadNotifications->sortBy('created_at')->take(5) as $notification)
                         <li class="flex">
                             <a class="dark:hover:bg-gray-800 dark:hover:text-gray-200 duration-150 font-semibold hover:bg-gray-100 hover:text-gray-800 inline-flex justify-between px-2 py-1 rounded-md text-sm transition-colors w-full"
@@ -81,7 +81,7 @@
                                 <span
                                     class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-600">
                                     {{ $notification->created_at->longAbsoluteDiffForHumans() }}
-                                    ago
+                                    {{ __('ago') }}
                                 </span>
                             </a>
                         </li>
@@ -134,40 +134,38 @@
                 </li>
             @endif
             <p
-                class="sm:inline-flex items-center px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                class="hidden sm:inline-flex sm:items-center px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                 <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd"
                           d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
                           clip-rule="evenodd"></path>
                 </svg>
-                <span>{{ __(config('SETTINGS::SYSTEM:CREDITS_DISPLAY_NAME')) }}:
-                                {{ Auth::user()->credits() }}</span>
+                <span>{{ __('Balance') }}: {{ Auth::user()->credits() }}</span>
             </p>
             <!-- Profile menu -->
             <li class="relative">
                 <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
-                    @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
-                    aria-haspopup="true">
+                        @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
+                        aria-haspopup="true">
                     <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->getAvatar() }}"
-                        alt="{{ Auth::user()->name }}'s Avatar" aria-hidden="true" loading="lazy" />
+                         alt="{{ Auth::user()->name }}'s Avatar" aria-hidden="true" loading="lazy" />
                 </button>
                 <ul x-cloak x-show="isProfileMenuOpen" x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                     @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                     aria-label="submenu">
-{{--                    <li class="flex">
+                    <li class="flex">
                         <p
-                            class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                            class="inline-flex items-center sm:hidden w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                             <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
-                                    d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                                    clip-rule="evenodd"></path>
+                                      d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                      clip-rule="evenodd"></path>
                             </svg>
-                            <span>{{ __(config('SETTINGS::SYSTEM:CREDITS_DISPLAY_NAME')) }}:
-                                {{ Auth::user()->credits() }}</span>
+                            <span>{{ __('Balance') }}: {{ Auth::user()->credits() }}</span>
                         </p>
-                    </li>--}}
+                    </li>
 
                     <li class="flex">
                         <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"

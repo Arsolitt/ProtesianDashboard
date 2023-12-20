@@ -13,14 +13,14 @@
                     <p class="login-box-msg">
                         {{ __('You are only one step a way from your new password, recover your password now.') }}</p>
 
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <form method="POST" action="{{ route('password.update') }}" autocomplete="on">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="input-group mb-3">
                             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                                placeholder="{{ __('Email') }}">
+                                placeholder="{{ __('Email') }}" autocomplete="email">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
