@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Classes\Pterodactyl;
 use App\Notifications\Auth\QueuedVerifyEmail;
+use App\Notifications\CustomVerifyEmailNotification;
 use App\Notifications\WelcomeMessage;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -167,7 +168,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new QueuedVerifyEmail);
+        /*$this->notify(new QueuedVerifyEmail);*/
+        $this->notify(new CustomVerifyEmailNotification);
     }
 
     /**
