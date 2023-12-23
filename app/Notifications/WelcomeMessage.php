@@ -69,12 +69,9 @@ class WelcomeMessage extends Notification implements ShouldQueue
             'title' => __('Добро пожаловать!'),
             'content' => '
                <p> '.'Здравствуйте,'." <strong>{$this->user->name}</strong>, ".'!</p>
-                <h5>'.__('Подтверждение').'</h5>
-                <p>'.__('You can verify your e-mail address and link/verify your Discord account.').'</p>
                 <p>
                   '.$this->AdditionalLines().'
                 </p>
-                <h5>'.'Информация'.'</h5>
                 <p>'.'Мы надеемся, что вам понравится этот хостинг, и если у вас есть какие-либо предложения, пожалуйста, сообщите нам.'.'!</p>
                 <p>'.'Если у вас есть вопросы, присоединяйтесь к нашему серверу Discord или создайте обращение в службу поддержки на сайте'.'.</p>
 
