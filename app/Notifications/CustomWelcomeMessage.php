@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 
-class WelcomeMessage extends Notification implements ShouldQueue
+class CustomWelcomeMessage extends Notification implements ShouldQueue
 {
     use Queueable;
 
