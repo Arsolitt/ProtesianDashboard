@@ -14,4 +14,6 @@ return [
     */
 
     'header' => 'Подтверждение адреса электронной почты',
+    'If you\'re having trouble clicking the ":actionText" button, copy and paste the URL below' => 'Если у вас не получается нажать на кнопку ":actionText", перейдите по ссылке ниже',
+    'If you\'re having trouble clicking the \":actionText\" button, copy and paste the URL below\n' => 'Если у вас не получается нажать на кнопку \":actionText\", перейдите по ссылке ниже',
 ];
