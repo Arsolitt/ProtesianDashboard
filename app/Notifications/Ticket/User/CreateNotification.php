@@ -61,7 +61,7 @@ class CreateNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'title' => '[Номер обращения: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
+            'title' => '[Новое обращение: '.$this->ticket->ticket_id.'] '.$this->ticket->title,
             'content' => "Ваше обращение зарегистрировано под номером: {$this->ticket->ticket_id}",
         ];
     }
