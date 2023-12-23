@@ -48,18 +48,6 @@ class ShopProduct extends Model
     }
 
     /**
-     * @param  mixed  $value
-     * @param  string  $locale
-     * @return float
-     */
-    public function formatToCurrency($value, $locale = 'en_US')
-    {
-        $formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
-
-        return $formatter->formatCurrency($value, $this->currency_code);
-    }
-
-    /**
      * @description Returns the tax in % taken from the Configuration
      *
      * @return int
@@ -71,9 +59,21 @@ class ShopProduct extends Model
         return $tax < 0 ? 0 : $tax;
     }
 
+    /**
+     * @param  mixed  $value
+     * @param  string  $locale
+     * @return float
+     */
+    public function formatToCurrency($value, $locale = 'en_US')
+    {
+        $formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
+
+        return $formatter->formatCurrency((float) $value, $this->currency_code);
+    }
+
     public function getPriceAfterDiscount()
     {
-        return number_format($this->price - ($this->price * PartnerDiscount::getDiscount() / 100), 2);
+        return (float) $this->price - ($this->price * PartnerDiscount::getDiscount() / 100);
     }
 
     /**
@@ -83,7 +83,7 @@ class ShopProduct extends Model
      */
     public function getTaxValue()
     {
-        return number_format($this->getPriceAfterDiscount() * $this->getTaxPercent() / 100, 2);
+        return (float) $this->getPriceAfterDiscount() * $this->getTaxPercent() / 100;
     }
 
     /**
@@ -93,6 +93,6 @@ class ShopProduct extends Model
      */
     public function getTotalPrice()
     {
-        return number_format($this->getPriceAfterDiscount() + $this->getTaxValue(), 2);
+        return (float) $this->getPriceAfterDiscount() + $this->getTaxValue();
     }
 }

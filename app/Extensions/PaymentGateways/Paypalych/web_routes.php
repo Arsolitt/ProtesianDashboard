@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-include_once(__DIR__ . '/index.php');
+include_once __DIR__ . '/index.php';
 Route::middleware(['web', 'auth'])->group(function () {
     Route::get('payment/PaypalychPay/{shopProduct}', function () {
         PaypalychPay(request());
@@ -20,7 +20,7 @@ Route::middleware(['web', 'auth'])->group(function () {
         function () {
             PaypalychFailed();
         }
-    )->name('payment.PaypalychSuccess');
+    )->name('payment.PaypalychFailed');
 });
 
 Route::post('payment/PaypalychNotification', function () {

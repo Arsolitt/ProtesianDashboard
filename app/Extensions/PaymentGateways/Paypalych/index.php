@@ -2,19 +2,16 @@
 
 use App\Events\PaymentEvent;
 use App\Events\UserUpdateCreditsEvent;
+use App\Extensions\PaymentGateways\Paypalych\Paypalych;
 use App\Models\PartnerDiscount;
 use App\Models\Payment;
 use App\Models\ShopProduct;
 use App\Models\User;
+use App\Notifications\ConfirmPaymentNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
-use App\Notifications\ConfirmPaymentNotification;
-use App\Extensions\PaymentGateways\Paypalych\Paypalych;
-
-
-
+use Illuminate\Support\Facades\Redirect;
 
 function PaypalychPay(Request $request)
 {
@@ -24,10 +21,9 @@ function PaypalychPay(Request $request)
     $shopProduct = ShopProduct::findOrFail($request->shopProduct);
     $discount = PartnerDiscount::getDiscount();
 
-    if (($shopProduct->currency_code == 'RUB' && $shopProduct->price < 15) || ($shopProduct->currency_code == 'USD' && $shopProduct->price < 1)){
+    if (($shopProduct->currency_code == 'RUB' && $shopProduct->price < 15) || ($shopProduct->currency_code == 'USD' && $shopProduct->price < 1)) {
         return Redirect::route('home')->with('error', __('Minimum payment amount for the selected method is 1$ or 15 Rub'))->send();
     }
-
 
     // create a new payment
     $payment = Payment::create([
@@ -47,7 +43,7 @@ function PaypalychPay(Request $request)
 
     $metadata = array(
         "user_id" => $user->id,
-        "user_name" => $user->name
+        "user_name" => $user->name,
     );
 
     try {
@@ -94,21 +90,20 @@ function PaypalychNotification(Request $request)
         $payment = Payment::findOrFail($requestBody['InvId']);
         $shopProduct = $payment->shop_item_product_id;
 
-        $user = Auth::user();
         $user = User::findOrFail($metadata['user_id']);
 
-        $signature =strtoupper(md5($requestBody['OutSum'].":".$requestBody['InvId'].":".$client->apiToken));
+        $signature = strtoupper(md5($requestBody['OutSum'] . ":" . $requestBody['InvId'] . ":" . $client->apiToken));
 
         if ($signature === $requestBody['SignatureValue']) {
-            Log::info('Internal signature: '.$signature. ' corresponds external signature: '.$requestBody['SignatureValue']);
+            Log::info('Internal signature: ' . $signature . ' corresponds external signature: ' . $requestBody['SignatureValue']);
         } else {
-            Log::info('Internal signature: '.$signature. ' mismatches external signature: '.$requestBody['SignatureValue']);
+            Log::info('Internal signature: ' . $signature . ' mismatches external signature: ' . $requestBody['SignatureValue']);
         }
 
         if ($paymentStatus === 'SUCCESS') {
             $payment->update([
-            'status' => 'paid',
-            'payment_id' => $payment->id,]);
+                'status' => 'paid',
+                'payment_id' => $payment->id]);
 
             $user->notify(new ConfirmPaymentNotification($payment));
 
@@ -116,17 +111,16 @@ function PaypalychNotification(Request $request)
             event(new PaymentEvent($user, $payment, $shopProduct));
 
             return response('Successfully', 200);
-        } elseif ($paymentStatus === 'FAIL'){
+        } elseif ($paymentStatus === 'FAIL') {
             $payment->update([
                 'status' => 'cancelled',
                 'payment_id' => $payment->id,
             ]);
             return response('Successfully', 200);
-        }
-        else {
+        } else {
             return response('Internal Error', 500);
         }
-    }catch (\Exception $e) {
+    } catch (\Exception $e) {
         Log::error($e);
     } finally {
         $logInfo = array(
@@ -134,10 +128,10 @@ function PaypalychNotification(Request $request)
             "UserID" => $metadata['user_id'],
             "PaymentID" => $metadata['payment_id'],
             "PaymentAmount" => $payment->total_price,
-            "PaymentStatus"=> $paymentStatus
+            "PaymentStatus" => $paymentStatus,
         );
 
-        Log:info(json_encode($logInfo));
+        Log: info(json_encode($logInfo));
     }
 }
 function getPaypalychClient()
