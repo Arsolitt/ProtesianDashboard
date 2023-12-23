@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Classes\Pterodactyl;
-use App\Notifications\Auth\QueuedVerifyEmail;
+use App\Notifications\CustomResetPasswordNotification;
 use App\Notifications\CustomVerifyEmailNotification;
 use App\Notifications\WelcomeMessage;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -170,6 +170,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         /*$this->notify(new QueuedVerifyEmail);*/
         $this->notify(new CustomVerifyEmailNotification);
+    }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomResetPasswordNotification($token));
     }
 
     /**
