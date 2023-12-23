@@ -48,7 +48,7 @@ class CreateNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('[Номер обращения: '.$this->ticket->ticket_id.'] '.$this->ticket->title)
+            ->subject('[Новое обращение: '.$this->ticket->ticket_id.'] '.$this->ticket->title)
             ->markdown('mail.ticket.user.create', ['ticket' => $this->ticket]);
     }
 
