@@ -2,11 +2,11 @@
 
 namespace App\Notifications\Auth;
 
-use Illuminate\Auth\Notifications\VerifyEmail;
+use App\Notifications\CustomVerifyEmailNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class QueuedVerifyEmail extends VerifyEmail implements ShouldQueue
+class QueuedVerifyEmail extends CustomVerifyEmailNotification implements ShouldQueue
 {
     use Queueable;
 }
