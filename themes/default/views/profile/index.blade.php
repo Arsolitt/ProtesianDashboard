@@ -279,7 +279,7 @@
             const {value: enterConfirm} = await Swal.fire({
                 background: '#343a40',
                 input: 'text',
-                inputLabel: '{{__("Are you sure you want to permanently delete your account and all of your servers?")}} \n Type "{{__('Delete my account')}}" in the Box below',
+                inputLabel: '{{__("Are you sure you want to permanently delete your account and all of your servers?")}} \n {{__('Write down')}} "{{__('Delete my account')}}" {{__('in the Box below')}}',
                 inputPlaceholder: "{{__('Delete my account')}}",
                 showCancelButton: true
             })
@@ -299,7 +299,7 @@
                 location.reload();
 
             } else {
-                Swal.fire("{{__('Account was NOT deleted.')}}", '', 'info')
+                Swal.fire("{{__('Account was NOT deleted')}}", '', 'info')
 
             }
 
