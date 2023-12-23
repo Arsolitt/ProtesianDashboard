@@ -2,16 +2,21 @@
 
 namespace App\Providers;
 
+use App\Mail\EmailVerification;
 use App\Models\Settings;
 use App\Models\UsefulLink;
 use Exception;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Qirolab\Theme\Theme;
+use Illuminate\Support\Facades\Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -150,5 +155,17 @@ class AppServiceProvider extends ServiceProvider
             Log::error('Settings Error: Could not load settings from database. The Installation probably is not done yet.');
             Log::error($e);
         }
+
+        // Override the email notification for verifying email
+        VerifyEmail::toMailUsing(function ($notifiable){
+            $verifyUrl = URL::temporarySignedRoute('verification.verify',
+                Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
+                [
+                    'id' => $notifiable->getKey(),
+                    'hash' => sha1($notifiable->getEmailForVerification()),
+                ]
+            );
+            return new EmailVerification($verifyUrl, $notifiable);
+        });
     }
 }
