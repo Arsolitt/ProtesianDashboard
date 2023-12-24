@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Classes\Pterodactyl;
 use App\Notifications\CustomResetPasswordNotification;
 use App\Notifications\CustomVerifyEmailNotification;
-use App\Notifications\CustomWelcomeMessage;
+use App\Notifications\WelcomeMessage;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -93,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
         parent::boot();
 
         static::created(function (User $user) {
-            $user->notify(new CustomWelcomeMessage($user));
+            $user->notify(new WelcomeMessage($user));
         });
 
         static::deleting(function (User $user) {
