@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Egg;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
@@ -10,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 
 class WelcomeController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, Egg $egg)
     {
         if (App::isLocale('ru')) {
             $multiplier = 1;
@@ -22,6 +24,9 @@ class WelcomeController extends Controller
         if ($products_response == null) {
             $products_response = Product::query()
                 ->where('disabled', '=', false)
+                ->whereHas('eggs', function (Builder $builder) use ($egg) {
+                    $builder->where('id', '=', 2);
+                })
                 ->orderBy('price')
                 ->get();
             Cache::put('products', $products_response, 43200);
