@@ -1,19 +1,19 @@
-<h1>Политика конфиденциальности для хостинга игровых серверов Protesian</h1>
+<h1>{{ __('ProtesiaN Host Privacy Policy') }}</h1>
 <p>&nbsp;</p>
-<p><em><sub>Последнее изменение 08.10.2023</sub></em></p>
-<p>Настоящая Политика конфиденциальности "Политика" описывает, как Protesian "Компания" или "мы" собирает, использует и защищает информацию, которую вы "Пользователь" или "вы" предоставляете при использовании наших услуг по хостингу игровых серверов. Мы стремимся обеспечить конфиденциальность и безопасность ваших персональных данных. Пользуясь нашими услугами, вы соглашаетесь соблюдать данную Политику.</p>
-<h2>1. Собираемая информация</h2>
-<p>1.1 При регистрации аккаунта на нашем сайте, мы можем собирать следующую информацию:<br>- Имя, адрес электронной почты и другие контактные данные.<br>- Информация, которую вы предоставляете при установке игровых серверов, включая настройки, моды и другие параметры.</p>
-<p>1.2 Мы также можем собирать техническую информацию, такую как IP-адрес, информацию о браузере, дате и времени доступа к нашим услугам и другие аналогичные данные.</p>
-<h2>2. Использование информации</h2>
-<p>2.1 Мы используем предоставленную вами информацию для следующих целей:<br>- Управление вашим аккаунтом и предоставление услуг по хостингу игровых серверов.<br>- Обработка платежей и выставление счетов.<br>- Отправка вам информационных сообщений, включая обновления, оповещения и новости относительно наших услуг.<br>- Улучшение качества наших услуг и адаптация их к ваших потребностям.</p>
-<p>2.2 Мы не будем передавать, продавать или арендовать вашу информацию третьим лицам без вашего явного согласия, за исключением случаев, специально предусмотренных законодательством.</p>
-<h2>3. Защита информации</h2>
-<p>3.1 Мы принимаем меры безопасности для защиты вашей информации от несанкционированного доступа, использования или раскрытия. Однако, ни один метод передачи через Интернет или метод электронного хранения не является абсолютно безопасным. Мы не можем гарантировать абсолютную безопасность вашей информации.</p>
-<h2>4. Сохранение информации</h2>
-<p>4.1 Мы храним вашу информацию в течение периода, необходимого для достижения целей, для которых она была собрана, или в соответствии с применимым законодательством. Мы также можем сохранять информацию для соблюдения юридических обязательств, разрешения споров или обеспечения исполнения договоров.</p>
-<h2>5. Изменения Политики конфиденциальности</h2>
-<p>5.1 Мы можем периодически обновлять данную Политику конфиденциальности для отражения изменений в наших практиках по сбору, использованию и защите информации. Мы рекомендуем вам периодически проверять эту Политику для ознакомления с изменениями.</p>
-<h2>6. Связь с нами</h2>
-<p>6.1 Если у вас возникнут вопросы или замечания относительно нашей Политики конфиденциальности, пожалуйста, свяжитесь с нами через указанные контактные данные на нашем веб-сайте или сервере в Discord.</p>
-<p>Данная Политика конфиденциальности вступает в силу с даты вашего согласия на нее и применяется в отношении всей предоставленной вами информации.</p>
+<p><em><sub>{{ __('Last modified 08.10.2023') }}</sub></em></p>
+<p>{{ __('This Privacy Policy "Policy" describes how Protesian "Company" or "we" collect, use and protect the information that you "User" or "you" provide when you use our game server hosting services. We are committed to ensuring the privacy and security of your personal information. By using our services, you agree to abide by this Policy.') }}</p>
+<h2>{{ __('1. Information to be collected') }}</h2>
+<p>{{ __('1.1 When you register an account on our site, we may collect the following information:<br>- Name, email address and other contact information.<br>- Information you provide when you install game servers, including settings, mods and other options.') }}</p>
+<p>{{ __('1.2 We may also collect technical information such as IP address, browser information, date and time of access to our services and other similar data.') }}</p>
+<h2>{{ __('2. Utilization of information') }}</h2>
+<p>{{ __('2.1 We use the information you provide for the following purposes:<br>- Managing your account and providing game server hosting services.<br>- Processing payments and billing.<br>- Sending you informational messages, including updates, alerts and news . regarding our services.<br>- Improving the quality of our services and adapting them to your needs.') }}</p>
+<p>{{ __('2.2 We will not share, sell or rent your information to third parties without your explicit consent, except as specifically permitted by law.') }}</p>
+<h2>{{ __('3. Information protection') }}</h2>
+<p>{{ __('3.1 We take security measures to protect your information from unauthorized access, use or disclosure. However, no method of transmission over the Internet or method of electronic storage is absolutely secure. We cannot guarantee the absolute security of your information.') }}</p>
+<h2>{{ __('4. Saving information') }}</h2>
+<p>{{ __('4.1 We retain your information for the period necessary to fulfill the purposes for which it was collected or as required by applicable law. We may also retain information to comply with legal obligations, resolve disputes or enforce contracts.') }}</p>
+<h2>{{ __('5. Changes to the Privacy Policy') }}</h2>
+<p>{{ __('5.1 We may periodically update this Privacy Policy to reflect changes in our information collection, use and protection practices. We encourage you to periodically review this Policy to familiarize yourself with changes.') }}</p>
+<h2>{{ __('6. Contacting us') }}</h2>
+<p>{{ __('6.1 If you have any questions or comments about our Privacy Policy, please contact us through the contact details listed on our website or Discord server.') }}</p>
+<p></p>
