@@ -113,10 +113,10 @@
                             <div class="mb-2">
                                 <a class="underline text-gray-700 dark:text-gray-200 font-semibold" target="__blank"
                                     href="{{ $useful_link->link }}">
-                                    {{ $useful_link->title }}
+                                    {{ __($useful_link->title) }}
                                 </a>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    {!! $useful_link->description !!}
+                                    {!! __($useful_link->description) !!}
                                 </p>
                             </div>
                         @endforeach
