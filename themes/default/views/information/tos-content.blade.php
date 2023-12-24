@@ -1,29 +1,29 @@
-<h1>Пользовательское соглашение для хостинга игровых серверов Protesian</h1>
+<h1>{{ __('ProtesiaN Host Terms of Service') }}</h1>
 <p>&nbsp;</p>
-<p><em><sub>Последнее изменение 08.10.2023</sub></em></p>
-<p>Данное Пользовательское соглашение является юридическим соглашением между вами "Пользователь" или "вы" и Protesian "Компания" или "мы", регулирующим ваше использование наших услуг по хостингу игровых серверов. Используя наши услуги, вы соглашаетесь соблюдать это Соглашение.</p>
-<h2>1. Создание аккаунта</h2>
-<p>1.1 Для использования наших услуг хостинга игровых серверов вы должны создать аккаунт. Вы обязаны предоставить точную и полную информацию во время процесса регистрации.</p>
-<p>1.2 Вы несете ответственность за сохранение конфиденциальности информации для входа в ваш аккаунт и соглашаетесь нести исключительную ответственность за все действия, происходящие в вашем аккаунте.</p>
-<h2>2. Использование услуг</h2>
-<p>2.1 Наши услуги хостинга игровых серверов предоставляются "как есть" и "по мере наличия". Мы не гарантируем непрерывный или безошибочный доступ к нашим услугам и оставляем за собой право приостановить или прекратить ваш аккаунт без предварительного уведомления.</p>
-<p>2.2 Вы несете исключительную ответственность за содержание и действия, происходящие на игровых серверах, размещенных у нас. Компания Protesian не несет ответственности за любые потери, ущерб или правовые последствия, возникающие из содержания или действий игрового сервера.</p>
-<p>2.3 Вы соглашаетесь не использовать наши услуги для каких-либо незаконных, несанкционированных или недобросовестных действий, включая, но не ограничиваясь, взломом, мошенничеством, распространением вредоносных программ или участием в любой форме кибер-нападений или домогательств.</p>
-<p>2.4 Вы соглашаетесь не использовать наши услуги для нарушения интеллектуальных прав других лиц. Вы должны обеспечить наличие необходимых прав, лицензий и разрешений для использования любого контента на вашем игровом сервере.</p>
-<p>2.4 Вы соглашаетесь не использовать наши услуги для добычи криптовалют и сопутсвующей деятельности. Майнинг криптовалют на наших серверах считается нарушением политики использования и может привести к немедленному приостановлению учетной записи без возможности возобновления услуг.</p>
-<h2>3. Оплата и возмещение средств</h2>
-<p>3.1 Цены на наши услуги хостинга игровых серверов доступны на нашем веб-сайте / сервере в Discord и могут быть изменены без предварительного уведомления.</p>
-<p>3.2 Вы соглашаетесь оплачивать все сборы, связанные с вашим аккаунтом, вовремя. В случае неоплаты ваш аккаунт может быть приостановлен или заблокирован.</p>
-<p>3.3 Мы предоставляем возмещение средств и оставляем за собой право удержать неустойку в объёме 25% от суммы пополнения баланса, за исключением случаев, когда имеются подтвержденные технические сбои с нашей стороны, которые препятствуют вам получить доступ к нашим услугам, такие случаи рассматриваются в индивидуальном порядке.</p>
-<h2>4. Прекращение</h2>
-<p>4.1 Любая из сторон может прекратить это Соглашение в любое время, предоставив письменное уведомление другой стороне.</p>
-<p>4.2 В случае прекращения вы больше не будете иметь доступ к нашим услугам хостинга игровых серверов, и любой остаток на вашем счете будет аннулирован.</p>
-<p>5. Интеллектуальная собственность</p>
-<p>5.1 Компания сохраняет все права на интеллектуальную собственность в своих услугах, включая, но не ограничиваясь, товарные знаки, логотипы и собственное программное обеспечение.</p>
-<p>5.2 Вы не можете использовать, воспроизводить или изменять какую-либо интеллектуальную собственность Компании без предварительного письменного согласия.</p>
-<h2>6. Ограничение ответственности</h2>
-<p>6.1 В максимально допустимой степени, установленной законом, Protesian не несет ответственности за косвенные, случайные, последовательные или примерные ущербы, возникающие из-за использования наших услуг хостинга игровых серверов.</p>
-<h2>7. Применимое право и юрисдикция</h2>
-<p>7.1 Настоящее Соглашение подчиняется и толкуется в соответствии с законами юрисдикции.</p>
-<p>7.2 Любые споры, возникающие из настоящего Соглашения, подпадают под исключительную юрисдикцию судов или арбитражного суда по местонахождению.</p>
-<p>Используя наши услуги хостинга игровых серверов, вы признаете, что ознакомились, поняли и согласились быть связанными условиями настоящего Соглашения.</p>
+<p><em><sub>{{ __('Last modified 08.10.2023') }}</sub></em></p>
+<p>{{ __('This Terms of Service is a legal agreement between you "User" or "you" and Protesian "Company" or "we" governing your use of our game server hosting services. By using our services, you agree to abide by this Agreement.') }}</p>
+<h2>{{ __('1. Creating an account') }}</h2>
+<p>{{ __('1.1 To use our game server hosting services, you must create an account. You are required to provide accurate and complete information during the registration process.') }}</p>
+<p>{{ __('1.2 You are responsible for maintaining the confidentiality of your account login information and agree to be solely responsible for all activities that occur in your account.') }}</p>
+<h2>{{ __('2. Utilization of services') }}</h2>
+<p>{{ __('2.1 Our game server hosting services are provided on an "as is" and "as available" basis. We do not guarantee continuous or error-free access to our services and reserve the right to suspend or terminate your account without notice.') }}</p>
+<p>{{ __('2.2 You are solely responsible for the content and actions occurring on the game servers hosted by us. Protesian is not liable for any loss, damage or legal consequences arising from the content or actions of the game server.') }}</p>
+<p>{{ __('2.3 You agree not to use our services for any illegal, unauthorized or unfair activities, including, but not limited to, hacking, fraud, distributing malware, or engaging in any form of cyber-attack or harassment.') }}</p>
+<p>{{ __('2.4 You agree not to use our services to infringe the intellectual rights of others. You must ensure that you have the necessary rights, licenses and permissions to use any content on your game server.') }}</p>
+<p>{{ __('2.4 You agree not to use our services for cryptocurrency mining and related activities. Mining cryptocurrencies on our servers is considered a violation of our usage policy and may result in immediate account suspension without the ability to resume services.') }}</p>
+<h2>{{ __('3. Payment and reimbursement of funds') }}</h2>
+<p>{{ __('3.1 Prices for our game server hosting services are available on our website / Discord server and are subject to change without notice.') }}</p>
+<p>{{ __('3.2 You agree to pay all fees associated with your account on time. If you fail to pay, your account may be suspended or blocked.') }}</p>
+<p>{{ __('3.3 We will provide a refund and reserve the right to withhold a penalty of 25% of the top-up amount, unless there is a confirmed technical failure on our part which prevents you from accessing our services, such cases will be dealt with on an individual basis.') }}</p>
+<h2>{{ __('4. Termination') }}</h2>
+<p>{{ __('4.1 Either party may terminate this Agreement at any time by providing written notice to the other party.') }}</p>
+<p>{{ __('4.2 In the event of termination, you will no longer have access to our game server hosting services and any balance in your account will be canceled.') }}</p>
+<p>{{ __('5. Intellectual property') }}</p>
+<p>{{ __('5.1 The Company retains all intellectual property rights in its services, including but not limited to trademarks, logos and proprietary software.') }}</p>
+<p>{{ __('5.2 You may not use, reproduce or modify any of the Company intellectual property without prior written consent.') }}</p>
+<h2>{{ __('6. Limitation of liability') }}</h2>
+<p>{{ __('6.1 To the maximum extent permitted by law, Protesian shall not be liable for indirect, incidental, consequential or exemplary damages arising from the use of our game server hosting services.') }}</p>
+<h2>{{ __('7. Applicable law and jurisdiction') }}</h2>
+<p>{{ __('7.1 This Agreement shall be subject to and construed in accordance with the laws of the jurisdiction.') }}</p>
+<p>{{ __('7.2 Any disputes arising out of this Agreement shall be subject to the exclusive jurisdiction of the courts or the seat of arbitration.') }}</p>
+<p>{{ __('By using our game server hosting services, you acknowledge that you have read, understood and agree to be bound by the terms of this Agreement.') }}</p>
