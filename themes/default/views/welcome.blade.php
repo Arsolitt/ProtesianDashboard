@@ -91,9 +91,9 @@
 
             </section>
 
-            <section class="flex justify-center items-center page-slide swiper-slide">
+            <section class="flex flex-col justify-center page-slide swiper-slide">
 
-                <article class="">
+                <article class="mt-auto">
                     <div class="price-content flex flex-col items-center justify-center">
                         <h3 class="text-xl font-bold lg:text-3xl" style="text-transform: uppercase">{{ __('Tariff line') }}</h3>
                         <div class="prices-swiper swiper">
@@ -108,6 +108,15 @@
                         </div>
                     </div>
                 </article>
+                <footer
+                    class="mt-auto flex flex-col items-center justify-center">
+                    <div>
+                        <a href="{{ url('/') }}">{{ env('APP_NAME', 'Laravel') }}</a> &copy; 2021-{{ date('Y') }} {{ __('All rights reserved') }}.
+                    </div>
+                    <div>
+                        <x-information />
+                    </div>
+                </footer>
             </section>
 
         </div>

@@ -3,7 +3,7 @@
 
 <div class="prices-wrapper swiper-wrapper">
     @if($products != null)
-        @foreach($products as $product)
+    @foreach($products as $product)
     <div class="price-slide swiper-slide">
         <div class="price-card">
             <span class="card-header card-summ">{{ $product["name"] }}<br>BUILD</span>

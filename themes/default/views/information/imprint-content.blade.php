@@ -1,8 +1,11 @@
-<h1>Контакты хостинга игровых серверов Protesian</h1>
-<p>Email: arsolitt@gmail.com<br>Telegram: @Arsolitt<br>Discord: Arsolitt</p>
-<p>Пожалуйста, обратитесь к вышеуказанным контактным данным для любых запросов, предложений, жалоб или вопросов, касающихся нашего хостинга игровых серверов.</p>
-<h2>Отказ от ответственности</h2>
-<h3>Ответственность за содержание</h3>
-<p>Содержание наших страниц создавалось с особой тщательностью. Однако мы не можем гарантировать точность, полноту и актуальность содержания. В соответствии с законодательными положениями мы несем ответственность за собственное содержание этих веб-страниц. В связи с этим просим учесть, что мы не обязаны отслеживать передаваемую или сохраняемую информацию третьих лиц, а также расследовать обстоятельства, указывающие на противоправную деятельность. При этом наши обязательства по удалению или блокированию использования информации остаются неизменными.</p>
-<h3>Ответственность за ссылки</h3>
-<p>Наши предложения содержат ссылки на внешние сайты третьих лиц. Мы не имеем никакого влияния на содержание этих сайтов и поэтому не несем никакой ответственности за их постороннее содержание. Ответственность за содержание страниц, на которые ведут ссылки, всегда несет соответствующий поставщик или оператор страниц. При размещении ссылок на страницы, на которые даны ссылки, была проведена проверка на предмет возможных нарушений законодательства. Незаконное содержание на момент размещения ссылок не было обнаружено. Однако постоянный контроль содержания страниц, на которые ведут ссылки, нецелесообразен без конкретных доказательств нарушения закона. Если нам станет известно о каких-либо нарушениях, мы незамедлительно удалим такие ссылки.</p>
+<h1>{{ __('ProtesiaN Hosting imprint') }}</h1>
+<br>
+{{ __('Rezraf Ltd., Company No. 14971994') }}
+<br>
+{{ __('124 City Road, London, EC1V 2NX, United Kingdom') }}
+
+<h2>{{ __('Disclaimer') }}</h2>
+<h3>{{ __('Responsibility for content') }}</h3>
+<p>{{ __('The content of our pages has been created with the utmost care. However, we cannot guarantee the accuracy, completeness and topicality of the content. In accordance with statutory provisions, we are responsible for our own content on these web pages. In this regard, please note that we are under no obligation to monitor the transmitted or stored information of third parties or to investigate circumstances indicating illegal activity. However, our obligation to remove or block the use of information remains unaffected.') }}</p>
+<h3>{{ __('Responsibility for references') }}</h3>
+<p>{{ __('Our offers contain links to external websites of third parties. We have no influence on the content of these websites and therefore accept no liability for their extraneous content. The content of the linked pages is always the responsibility of the respective provider or operator of the pages. The linked pages have been checked for possible violations of law at the time of linking. No illegal content was found at the time of linking. However, ongoing monitoring of the content of linked pages is not practical without concrete evidence of a violation of the law. If we become aware of any violations, we will remove such links immediately.') }}</p>
