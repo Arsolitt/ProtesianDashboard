@@ -7,7 +7,7 @@ const pricesSwiper = new Swiper('.prices-swiper',{
     // slidesPerView: 3,
     // spaceBetween: 0,
     centeredSlides: true,
-    initialSlide: 1,
+    initialSlide: 2,
     // effect: 'cards',
     // cardsEffect: {
     //     slideShadows: false,

@@ -126,7 +126,7 @@
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src={{ asset('themes/ProtesiaN/particles.js') }}></script>
 <script src={{ asset('themes/ProtesiaN/swiper-bundle.min.js') }}></script>
-<script src={{ asset('themes/ProtesiaN/main.js') }}></script>
+<script src={{ asset('themes/ProtesiaN/main.js') }}?v8></script>
 </body>
 
 </html>

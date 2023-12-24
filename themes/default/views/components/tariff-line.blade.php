@@ -4,12 +4,26 @@
 <div class="prices-wrapper swiper-wrapper">
     <div class="price-slide swiper-slide">
         <div class="price-card">
-            <span class="card-header card-summ">SOFTWARE<br>BUILD</span>
+            <span class="card-header card-summ">SOFTWARE 1<br>BUILD</span>
+            <div class="card-spec">
+                <div class="spec-header">CPU</div>
+                <div class="spec-count" style="font-size: 20px">2 vCore</div>
+                <div class="spec-header">RAM</div>
+                <div class="spec-count" style="font-size: 20px">2 Gb</div>
+                <div class="spec-header">SSD</div>
+                <div class="spec-count" style="font-size: 20px">20 Gb</div>
+            </div>
+            <div class="card-summ"><span>{{ 50 / $multiplier }}</span> <span class="spec-header">{{ __('EUR') }}</span></div>
+        </div>
+    </div>
+    <div class="price-slide swiper-slide">
+        <div class="price-card">
+            <span class="card-header card-summ">SOFTWARE 2<br>BUILD</span>
             <div class="card-spec">
                 <div class="spec-header">CPU</div>
                 <div class="spec-count" style="font-size: 20px">4 vCore</div>
                 <div class="spec-header">RAM</div>
-                <div class="spec-count" style="font-size: 20px">8 Gb</div>
+                <div class="spec-count" style="font-size: 20px">4 Gb</div>
                 <div class="spec-header">SSD</div>
                 <div class="spec-count" style="font-size: 20px">40 Gb</div>
             </div>
