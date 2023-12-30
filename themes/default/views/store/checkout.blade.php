@@ -5,7 +5,12 @@
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             {{ __('Product Checkout') }}
         </h2>
-        <form x-data="{ payment_method: '', clicked: false }" x-ref="form" action="{{ route('payment.pay') }}" method="POST">
+        <form
+            x-data="{ payment_method: '{{ isset($paymentGateways[0]) ? $paymentGateways[0]->name : '' }}', clicked: false }"
+            x-ref="form"
+            action="{{ route('payment.pay') }}"
+            method="POST"
+        >
             @csrf
             @method('post')
 

@@ -77,6 +77,6 @@ class UserPayment
         activity()
             ->performedOn($user)
             ->causedBy($user)
-            ->log('пополнение баланса ' . $shopProduct->quantity . ' ' . $shopProduct->currency_code);
+            ->log('пополнил ' . $shopProduct->quantity . ' ' . $shopProduct->currency_code);
     }
 }
