@@ -1,0 +1,105 @@
+version: "3.8"
+
+networks:
+  dashboard:
+volumes:
+  mysql:
+    driver: local
+  redis:
+    driver: local
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+    image: protesian_nginx
+    container_name: protesian_nginx
+    restart: unless-stopped
+    ports:
+      - "${NGINX_HOST_PORT}:80"
+    volumes:
+      - "./laravel:/var/www/laravel"
+    depends_on:
+      - php
+      - mysql
+      - redis
+    networks:
+      - dashboard
+  php:
+    build:
+      context: .
+      dockerfile: php/Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    image: protesian_php
+    container_name: protesian_php
+    volumes:
+      - "./laravel:/var/www/laravel"
+    networks:
+      - dashboard
+  redis:
+    image: redis:7.2.3-alpine3.19
+    container_name: protesian_redis
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    networks:
+      - dashboard
+    volumes:
+      - "./redis/data:/data"
+  mysql:
+    image: mariadb:11.2.2-jammy
+    container_name: protesian_mysql
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/init:/docker-entrypoint-initdb.d"
+    networks:
+      - dashboard
+
+  composer:
+    build:
+      context: .
+      dockerfile: composer/Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+    stdin_open: true
+    tty: true
+    image: protesian_composer
+    container_name: protesian_composer
+    volumes:
+      - "./laravel:/home/app"
+    networks:
+      - dashboard
+  node:
+    build:
+      context: .
+      dockerfile: node/Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+    image: protesian_node
+    container_name: protesian_node
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./laravel:/home/app"
+    networks:
+      - dashboard

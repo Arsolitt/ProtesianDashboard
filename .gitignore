@@ -1,4 +1,5 @@
 laravel/.env
+.env
 laravel/storage/logs/
 laravel/storage/files/
 laravel/vendor/
@@ -7,3 +8,5 @@ laravel/public/install/logs/
 laravel/public/storage
 laravel/node_modules
 .idea
+mysql/data
+redis/data
