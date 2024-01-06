@@ -6,8 +6,11 @@ ARG GID
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y \
     libicu-dev \
-    libzip-dev
-RUN docker-php-ext-install intl pdo_mysql pdo mysqli zip
+    libzip-dev \
+    libpng-dev \
+    git
+
+RUN docker-php-ext-install intl pdo_mysql pdo mysqli zip gd bcmath
 
 COPY ./php/www.conf /usr/local/etc/php-fpm.d/
 

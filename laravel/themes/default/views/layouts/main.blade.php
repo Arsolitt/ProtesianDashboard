@@ -123,7 +123,7 @@ if (!empty($_COOKIE['theme'])) {
     </div>
     @include('models.redeem_voucher_modal')
     {{-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.24/datatables.min.js"></script> --}}
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11.4.8"></script>
 
     <script>
         $(document).ready(function() {

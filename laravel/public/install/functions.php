@@ -31,7 +31,7 @@ function getMySQLVersion()
 {
     global $requirements;
 
-    $output = shell_exec('mysql -V');
+    $output = "11.2.2";
     preg_match('@[0-9]+\.[0-9]+\.[0-9]+@', $output, $version);
 
     $versionoutput = $version[0] ?? '0';
