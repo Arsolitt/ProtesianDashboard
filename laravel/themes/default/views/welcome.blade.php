@@ -94,10 +94,16 @@
 
                     <div class="tabs flex justify-around items-center w-full mt-5">
                         <a id="tab1" data-tab="1"
-                           class="lg:text-lg cursor-pointer text-gray-500 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
+                           class="lg:text-lg cursor-pointer text-gray-400 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
                         <a id="tab2" data-tab="2"
-                           class="lg:text-lg cursor-pointer text-gray-500 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Support') }}</a>
+                           class="lg:text-lg cursor-pointer text-gray-400 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Support') }}</a>
                     </div>
+                    <style>
+                        .text-gray-400 {
+                        --tw-text-opacity: 1;
+                        color: rgb(158 158 158 / var(--tw-text-opacity));
+                        }
+                    </style>
                 </article>
 
             </section>
