@@ -70,7 +70,7 @@
 
                 <article id="tabs" class="flex flex-col lg:h-full lg:w-6/12 items-center h-3/5 justify-center tabs-container" style="align-self: center">
 
-                    <div class="tab-wrapper" style="height: 250px; width: 600px">
+                    <div class="tab-wrapper" style="max-height: 250px; max-width: 600px; height: 100%; width: 100%">
                         <div id="tabcontent1" data-tab="1" class="tabcontent">
                             <h3 class="text-xl font-bold lg:text-3xl mt-3" style="text-transform: uppercase">{{ __('Advantages') }}</h3>
                             <p class="lg:text-2xl">
@@ -88,16 +88,15 @@
                                 ⚙️А в поддержке у нас сидят только умные и красивые.<br>
                                 ⚙️На любой вопрос ответят, даже сборку вам помогут собрать.<br>
                                 ⚙️И расскажут о древних шаманских техниках оптимизации серверов!<br>
-                                {{-- ⚙️И в дискорде отвечаем моментально! --}}
                             </p>
                         </div>
                     </div>
 
                     <div class="tabs flex justify-around items-center w-full mt-5">
                         <a id="tab1" data-tab="1"
-                           class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
+                           class="lg:text-lg cursor-pointer text-gray-500 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
                         <a id="tab2" data-tab="2"
-                           class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Support') }}</a>
+                           class="lg:text-lg cursor-pointer text-gray-500 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Support') }}</a>
                     </div>
                 </article>
 
