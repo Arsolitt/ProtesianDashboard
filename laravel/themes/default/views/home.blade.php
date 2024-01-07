@@ -97,7 +97,7 @@
         </div>
 
         @if (config('SETTINGS::SYSTEM:MOTD_ENABLED') == 'true')
-            <x-card title="{{ config('app.name', 'ControlPanel') }} - MOTD">
+            <x-card title="">
                 <div class="unreset text-gray-700 dark:text-gray-200">
 
                     {!! config('SETTINGS::SYSTEM:MOTD_MESSAGE', '') !!}
