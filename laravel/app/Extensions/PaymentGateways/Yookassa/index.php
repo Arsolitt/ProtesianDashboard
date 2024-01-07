@@ -95,7 +95,7 @@ function YookassaNotification(Request $request)
     }
     try {
         $data = json_decode($request->getContent(), true);
-        Log::info($request->getContent(), true);
+        Log::info($request->getContent());
         $notification = ($data['event'] === NotificationEventType::PAYMENT_SUCCEEDED)
             ? new NotificationSucceeded($data)
             : new NotificationCanceled($data);
