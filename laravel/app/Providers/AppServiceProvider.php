@@ -132,19 +132,19 @@ class AppServiceProvider extends ServiceProvider
                 Artisan::call('cache:clear');
             }
 
-            try {
-                $stringfromfile = file(base_path() . '/.git/HEAD');
+            // try {
+            //     $stringfromfile = file(base_path() . '/.git/HEAD');
 
-                $firstLine = $stringfromfile[0]; //get the string from the array
+            //     $firstLine = $stringfromfile[0]; //get the string from the array
 
-                $explodedstring = explode('/', $firstLine, 3); //seperate out by the "/" in the string
+            //     $explodedstring = explode('/', $firstLine, 3); //seperate out by the "/" in the string
 
-                $branchname = $explodedstring[2]; //get the one that is always the branch name
-            } catch (Exception $e) {
-                $branchname = 'unknown';
-                Log::notice($e);
-            }
-            config(['BRANCHNAME' => $branchname]);
+            //     $branchname = $explodedstring[2]; //get the one that is always the branch name
+            // } catch (Exception $e) {
+            //     $branchname = 'unknown';
+            //     Log::notice($e);
+            // }
+            config(['BRANCHNAME' => 'main']);
 
             // Set Discord-API Config
             config(['services.discord.client_id' => config('SETTINGS::DISCORD:CLIENT_ID')]);
