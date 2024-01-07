@@ -39,7 +39,7 @@ class StoreController extends Controller
 
             $payment = new \stdClass();
             $payment->name = ExtensionHelper::getExtensionConfig($extensionName, 'name');
-            $payment->image = asset('images/Extensions/PaymentGateways/' . strtolower($extensionName) . '_logo.png');
+            $payment->image = asset('images/Extensions/PaymentGateways/' . strtolower($extensionName) . '_logo.svg');
             $paymentGateways[] = $payment;
         }
 

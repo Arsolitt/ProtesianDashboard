@@ -2,6 +2,7 @@ laravel/.env
 .env
 laravel/storage/logs/
 laravel/storage/files/
+laravel/storage/storage/
 laravel/vendor/
 laravel/install.lock
 laravel/public/install/logs/
