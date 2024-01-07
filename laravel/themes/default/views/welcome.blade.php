@@ -85,15 +85,15 @@
                         <div id="tabcontent2" data-tab="2" class="tabcontent">
                             <h3 class="text-xl font-bold lg:text-3xl mt-3" style="text-transform: uppercase">{{ __('Support') }}</h3>
                             <p class="lg:text-2xl">
-                                ⚙️А в поддержке сидят только умные и красивые.<br>
+                                ⚙️А в поддержке у нас сидят только умные и красивые.<br>
                                 ⚙️На любой вопрос ответят, даже сборку вам помогут собрать.<br>
-                                ⚙️Расскажем о древних шаманских техниках оптимизации серверов!<br>
-                                ⚙️И в дискорде отвечаем моментально!
+                                ⚙️И расскажут о древних шаманских техниках оптимизации серверов!<br>
+                                {{-- ⚙️И в дискорде отвечаем моментально! --}}
                             </p>
                         </div>
                     </div>
 
-                    <div class="tabs flex justify-around items-center w-full">
+                    <div class="tabs flex justify-around items-center w-full mt-5">
                         <a id="tab1" data-tab="1"
                            class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
                         <a id="tab2" data-tab="2"
