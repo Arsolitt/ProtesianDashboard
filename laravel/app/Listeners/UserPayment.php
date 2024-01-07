@@ -77,6 +77,6 @@ class UserPayment
         activity()
             ->performedOn($user)
             ->causedBy($user)
-            ->log('пополнил ' . $payment->price . ' ' . $payment->total_price);
+            ->log('пополнил ' . $payment->total_price . ' ' . $payment->currency_code);
     }
 }
