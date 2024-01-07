@@ -4,6 +4,7 @@
         "dev": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "docker_dev": "npm ci && npm run watch",
         "hot": "mix watch --hot",
         "build": "mix --production"
     },

@@ -18,3 +18,6 @@ shell_php:
 
 shell_mysql:
 	docker exec -it protesian_mysql /usr/bin/bash
+
+shell_node:
+	docker exec -it protesian_node /usr/bin/bash

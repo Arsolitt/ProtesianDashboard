@@ -68,20 +68,32 @@
                     <x-nodes-monitoring width="w-10/12" :nodes=$nodes></x-nodes-monitoring>
                 </article>
 
-                <article id="tabs" class="flex flex-col lg:h-full lg:w-6/12 items-center h-3/5 justify-center tabs-container">
+                <article id="tabs" class="flex flex-col lg:h-full lg:w-6/12 items-center h-3/5 justify-center tabs-container" style="align-self: center">
 
-                    <div class="tab-wrapper">
+                    <div class="tab-wrapper" style="height: 250px; width: 600px">
                         <div id="tabcontent1" data-tab="1" class="tabcontent">
-                            <h3 class="text-xl font-bold lg:text-3xl" style="text-transform: uppercase">{{ __('Advantages') }}</h3>
-                            <p class="lg:text-2xl">{{ __('One of the key features of ProtesiaN hosting is unlimited CPU. This means that users are not limited in the use of CPU resources and can run and maintain their game servers as efficiently as possible') }}.</p>
+                            <h3 class="text-xl font-bold lg:text-3xl mt-3" style="text-transform: uppercase">{{ __('Advantages') }}</h3>
+                            <p class="lg:text-2xl">
+                                📌Да, хостинг.<br>
+                                📌Да, не лучший.<br>
+                                📌Да, не самый дешёвый.<br>
+                                📌Да, у нас нет свапа.<br>
+                                📌Да, у нас нет оверсела.<br>
+                                📌Да, мы не ограничиваем процессор на узлах.
+                            </p>
                         </div>
                         <div id="tabcontent2" data-tab="2" class="tabcontent">
-                            <h3 class="text-xl font-bold lg:text-3xl" style="text-transform: uppercase">{{ __('Support') }}</h3>
-                            <p class="lg:text-2xl">{{ __('ProtesiaN technical support team is always ready to help users in case of any problems. Experienced specialists promptly respond to inquiries on any technical problems, as well as provide advice to optimize the servers, which allows users to fully focus on the gameplay process') }}.</p>
+                            <h3 class="text-xl font-bold lg:text-3xl mt-3" style="text-transform: uppercase">{{ __('Support') }}</h3>
+                            <p class="lg:text-2xl">
+                                ⚙️А в поддержке сидят только умные и красивые.<br>
+                                ⚙️На любой вопрос ответят, даже сборку вам помогут собрать.<br>
+                                ⚙️Расскажем о древних шаманских техниках оптимизации серверов!<br>
+                                ⚙️И в дискорде отвечаем моментально!
+                            </p>
                         </div>
                     </div>
 
-                    <div class="tabs flex justify-around mt-3 items-center w-full">
+                    <div class="tabs flex justify-around items-center w-full">
                         <a id="tab1" data-tab="1"
                            class="lg:text-lg cursor-pointer text-gray-700 font-extrabold text-sm tab select-none" style="text-transform: uppercase">{{ __('Advantages') }}</a>
                         <a id="tab2" data-tab="2"
