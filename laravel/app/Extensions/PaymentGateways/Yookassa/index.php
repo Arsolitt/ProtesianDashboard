@@ -35,7 +35,7 @@ function YookassaPay(Request $request)
                     'return_url' => route('payment.YookassaSuccess', $payment->id),
                 ),
                 'capture' => true,
-                'description' => 'Пополнение баланса Veroid',
+                'description' => 'Пополнение баланса ProtesiaN',
                 "metadata" => array(
                     'user_id' => $payment->user_id,
                     'internal_payment_id' => $payment->id,
@@ -47,7 +47,7 @@ function YookassaPay(Request $request)
                     ),
                     "items" => array(
                         array(
-                            "description" => "Пополнение баланса Veroid",
+                            "description" => "Пополнение баланса ProtesiaN",
                             "quantity" => "1.00",
                             "amount" => array(
                                 "value" => $payment->price,
@@ -156,8 +156,8 @@ function YookassaFailed(Request $request)
 function getYookassaClient()
 {
     $client = new Client();
-    $shopID = '263883';
-    $secretKey = 'test_BioCumMlA9y79ehaxxab1XN-HimHHokKtA-GZbeSGr4';
+    $shopID = config('SETTINGS::PAYMENTS:YOOKASSA:SHOP_ID');
+    $secretKey = config('SETTINGS::PAYMENTS:YOOKASSA:SECRET_KEY');
     $client->setAuth($shopID, $secretKey);
     return $client;
 }
