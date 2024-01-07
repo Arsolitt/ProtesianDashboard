@@ -18,6 +18,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\ExtensionHelper;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 
 
 class PaymentController extends Controller
@@ -32,97 +34,80 @@ class PaymentController extends Controller
         ]);
     }
 
-    /**
-     * @param  Request  $request
-     * @param  ShopProduct  $shopProduct
-     * @return Application|Factory|View
-     */
-    public function checkOut(ShopProduct $shopProduct)
+    public function checkOut(Request $request)
     {
-        $discount = PartnerDiscount::getDiscount();
-        $price = $shopProduct->price - ($shopProduct->price * $discount / 100);
-
-        $paymentGateways = [];
-        if ($price > 0) {
-            $extensions = ExtensionHelper::getAllExtensionsByNamespace('PaymentGateways');
-
-            // build a paymentgateways array that contains the routes for the payment gateways and the image path for the payment gateway which lays in public/images/Extensions/PaymentGateways with the extensionname in lowercase
-            foreach ($extensions as $extension) {
-                $extensionName = basename($extension);
-                if (!ExtensionHelper::getExtensionConfig($extensionName, 'enabled')) continue; // skip if not enabled
-
-                $payment = new \stdClass();
-                $payment->name = ExtensionHelper::getExtensionConfig($extensionName, 'name');
-                $payment->image = asset('images/Extensions/PaymentGateways/' . strtolower($extensionName) . '_logo.svg');
-                $paymentGateways[] = $payment;
-            }
-        }
-
-
-
-
-
-
-        return view('store.checkout')->with([
-            'product' => $shopProduct,
-            'discountpercent' => $discount,
-            'discountvalue' => $discount * $shopProduct->price / 100,
-            'discountedprice' => $shopProduct->getPriceAfterDiscount(),
-            'taxvalue' => $shopProduct->getTaxValue(),
-            'taxpercent' => $shopProduct->getTaxPercent(),
-            'total' => $shopProduct->getTotalPrice(),
-            'paymentGateways'   => $paymentGateways,
-            'productIsFree' => $price <= 0,
+        $min = !config('SETTINGS::PAYMENTS:MINIMUM_AMOUNT') ? 1 : config('SETTINGS::PAYMENTS:MINIMUM_AMOUNT');
+        $max = !config('SETTINGS::PAYMENTS:MAXIMUM_AMOUNT') ? 999999 : config('SETTINGS::PAYMENTS:MAXIMUM_AMOUNT');
+        $request->validate([
+            'payment_amount' => "required|numeric|integer|min:$min|max:$max",
         ]);
+
+        $user = Auth::user();
+        $discount = PartnerDiscount::getDiscount();
+        $price = $request->payment_amount;
+        $price_after_discount = (float)$price - ($price * $discount / 100);
+        $tax_percent = config('SETTINGS::PAYMENTS:SALES_TAX') < 0 ? 0 : config('SETTINGS::PAYMENTS:SALES_TAX');
+        $tax_value = (float)$price_after_discount * $tax_percent / 100;
+        $total_price = (float)$price_after_discount + $tax_value;
+
+        $payment = Payment::create([
+            'user_id' => $user->id,
+            'payment_id' => null,
+            'payment_method' => $request->payment_method,
+            'type' => 'Credits',
+            'status' => 'open',
+            'amount' => $price,
+            'price' => $request->payment_amount - ($request->payment_amount * $discount / 100),
+            'tax_value' => $tax_value,
+            'tax_percent' => $tax_percent,
+            'total_price' => $total_price,
+            'currency_code' => 'RUB',
+            'shop_item_product_id' => '',
+        ]);
+        Redirect::route('payment.pay', $payment->id, 303)->send();
     }
 
-    /**
-     * @param  Request  $request
-     * @param  ShopProduct  $shopProduct
-     * @return RedirectResponse
-     */
-    public function handleFreeProduct(ShopProduct $shopProduct)
+    public function pay(string $payment_internal_id)
+    {
+        $payment = Payment::findOrFail($payment_internal_id);
+        $paymentGateway = $payment->payment_method;
+
+        // on free products, we don't need to use a payment gateway
+        if ($payment->total_price <= 0) {
+            return $this->handleFreeProduct($payment);
+        }
+
+        Redirect::route('payment.' . $paymentGateway . 'Pay', ['payment_internal_id' => $payment->id], 303)->send();
+    }
+
+    public function handleFreeProduct(Payment $payment)
     {
         /** @var User $user */
         $user = Auth::user();
 
-        //create a payment
-        $payment = Payment::create([
-            'user_id' => $user->id,
+        $payment->update([
             'payment_id' => uniqid(),
             'payment_method' => 'free',
-            'type' => $shopProduct->type,
             'status' => 'paid',
-            'amount' => $shopProduct->quantity,
-            'price' => $shopProduct->price - ($shopProduct->price * PartnerDiscount::getDiscount() / 100),
-            'tax_value' => $shopProduct->getTaxValue(),
-            'tax_percent' => $shopProduct->getTaxPercent(),
-            'total_price' => $shopProduct->getTotalPrice(),
-            'currency_code' => $shopProduct->currency_code,
-            'shop_item_product_id' => $shopProduct->id,
         ]);
 
+        $logInfo = array(
+            "NotificationSource" => "Payment Gateway",
+            "UserID" => $payment->user_id,
+            "PaymentMethod" => $payment->payment_method,
+            "PaymentID" => $payment->id,
+            "PaymentAmount" => $payment->total_price,
+            "PaymentStatus" => $payment->status,
+        );
+        Log::info(json_encode($logInfo));
+
         event(new UserUpdateCreditsEvent($user));
-        event(new PaymentEvent($user, $payment, $shopProduct));
+        event(new PaymentEvent($user, $payment));
 
         //not sending an invoice
 
         //redirect back to home
         return redirect()->route('home')->with('success', __('Your credit balance has been increased!'));
-    }
-
-    public function pay(Request $request)
-    {
-        $product = ShopProduct::find($request->product_id);
-        $paymentGateway = $request->payment_method;
-
-        // on free products, we don't need to use a payment gateway
-        $realPrice = $product->price - ($product->price * PartnerDiscount::getDiscount() / 100);
-        if ($realPrice <= 0) {
-            return $this->handleFreeProduct($product);
-        }
-
-        return redirect()->route('payment.' . $paymentGateway . 'Pay', ['shopProduct' => $product->id]);
     }
 
     /**
@@ -185,6 +170,9 @@ class PaymentController extends Controller
                         break;
                     case 'open':
                         $badgeColor = 'text-purple-700 bg-purple-100 dark:bg-purple-700 dark:text-purple-100';
+                        break;
+                    case 'pending':
+                        $badgeColor = 'text-amber-700 bg-amber-100 dark:bg-amber-700 dark:text-amber-100';
                         break;
                     default:
                         $badgeColor = 'text-indigo-700 bg-indigo-100 dark:bg-indigo-500/20 dark:text-indigo-500';

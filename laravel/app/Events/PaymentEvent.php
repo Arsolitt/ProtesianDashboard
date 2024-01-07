@@ -3,7 +3,6 @@
 namespace App\Events;
 
 use App\Models\Payment;
-use App\Models\ShopProduct;
 use App\Models\User;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -15,17 +14,15 @@ class PaymentEvent
 
     public User $user;
     public Payment $payment;
-    public ShopProduct $shopProduct;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(User $user, Payment $payment, ShopProduct $shopProduct)
+    public function __construct(User $user, Payment $payment)
     {
         $this->user = $user;
         $this->payment = $payment;
-        $this->shopProduct = $shopProduct;
     }
 }

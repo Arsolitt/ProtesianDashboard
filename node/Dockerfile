@@ -13,4 +13,4 @@ USER $UID
 WORKDIR /home/app
 COPY laravel/package*.json .
 
-CMD npm ci
+CMD npm ci && npm run build

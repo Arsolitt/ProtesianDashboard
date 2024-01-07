@@ -20,7 +20,7 @@ class UserPayment
     public function handle(PaymentEvent $event)
     {
         $user = $event->user;
-        $shopProduct = $event->shopProduct;
+        $payment = $event->payment;
 
         // only update user if payment is paid
         if ($event->payment->status != "paid") {
@@ -33,17 +33,17 @@ class UserPayment
         }
 
         //update User with bought item
-        if ($shopProduct->type == "Credits") {
-            $user->increment('credits', $shopProduct->quantity);
-        } elseif ($shopProduct->type == "Server slots") {
-            $user->increment('server_limit', $shopProduct->quantity);
+        if ($payment->type == "Credits") {
+            $user->increment('credits', $payment->amount);
+        } elseif ($payment->type == "Server slots") {
+            $user->increment('server_limit', $payment->amount);
         }
 
         //give referral commission always
-        if ((config("SETTINGS::REFERRAL:MODE") == "commission" || config("SETTINGS::REFERRAL:MODE") == "both") && $shopProduct->type == "Credits" && config("SETTINGS::REFERRAL::ALWAYS_GIVE_COMMISSION") == "true") {
+        if ((config("SETTINGS::REFERRAL:MODE") == "commission" || config("SETTINGS::REFERRAL:MODE") == "both") && $payment->type == "Credits" && config("SETTINGS::REFERRAL::ALWAYS_GIVE_COMMISSION") == "true") {
             if ($ref_user = DB::table("user_referrals")->where('registered_user_id', '=', $user->id)->first()) {
                 $ref_user = User::findOrFail($ref_user->referral_id);
-                $increment = number_format($shopProduct->quantity * (PartnerDiscount::getCommission($ref_user->id)) / 100, 0, "", "");
+                $increment = intval($payment->amount * (PartnerDiscount::getCommission($ref_user->id)) / 100);
                 $ref_user->increment('credits', $increment);
 
                 //LOGS REFERRALS IN THE ACTIVITY LOG
@@ -58,10 +58,10 @@ class UserPayment
             $user->update(['role' => 'client']);
 
             //give referral commission only on first purchase
-            if ((config("SETTINGS::REFERRAL:MODE") == "commission" || config("SETTINGS::REFERRAL:MODE") == "both") && $shopProduct->type == "Credits" && config("SETTINGS::REFERRAL::ALWAYS_GIVE_COMMISSION") == "false") {
+            if ((config("SETTINGS::REFERRAL:MODE") == "commission" || config("SETTINGS::REFERRAL:MODE") == "both") && $payment->type == "Credits" && config("SETTINGS::REFERRAL::ALWAYS_GIVE_COMMISSION") == "false") {
                 if ($ref_user = DB::table("user_referrals")->where('registered_user_id', '=', $user->id)->first()) {
                     $ref_user = User::findOrFail($ref_user->referral_id);
-                    $increment = number_format($shopProduct->quantity * (PartnerDiscount::getCommission($ref_user->id)) / 100, 0, "", "");
+                    $increment = intval($payment->amount * (PartnerDiscount::getCommission($ref_user->id)) / 100);
                     $ref_user->increment('credits', $increment);
 
                     //LOGS REFERRALS IN THE ACTIVITY LOG
@@ -77,6 +77,6 @@ class UserPayment
         activity()
             ->performedOn($user)
             ->causedBy($user)
-            ->log('пополнил ' . $shopProduct->quantity . ' ' . $shopProduct->currency_code);
+            ->log('пополнил ' . $payment->price . ' ' . $payment->total_price);
     }
 }

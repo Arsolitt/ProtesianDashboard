@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ShopProduct;
+use App\Helpers\ExtensionHelper;
 use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
@@ -29,9 +29,23 @@ class StoreController extends Controller
             return redirect()->route('profile.index')->with('error', __('You are required to link your discord account before you can purchase Credits'));
         }
 
+        $paymentGateways = [];
+        $extensions = ExtensionHelper::getAllExtensionsByNamespace('PaymentGateways');
+
+        // build a paymentgateways array that contains the routes for the payment gateways and the image path for the payment gateway which lays in public/images/Extensions/PaymentGateways with the extensionname in lowercase
+        foreach ($extensions as $extension) {
+            $extensionName = basename($extension);
+            if (!ExtensionHelper::getExtensionConfig($extensionName, 'enabled')) continue; // skip if not enabled
+
+            $payment = new \stdClass();
+            $payment->name = ExtensionHelper::getExtensionConfig($extensionName, 'name');
+            $payment->image = asset('images/Extensions/PaymentGateways/' . strtolower($extensionName) . '_logo.png');
+            $paymentGateways[] = $payment;
+        }
+
         return view('store.index')->with([
-            'products' => ShopProduct::where('disabled', '=', false)->orderBy('type', 'asc')->orderBy('price', 'asc')->get(),
             'isPaymentSetup' => $isPaymentSetup,
+            'paymentGateways' => $paymentGateways,
         ]);
     }
 }

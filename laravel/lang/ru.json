@@ -267,7 +267,7 @@
     "Deletion has been canceled.": "Удаление было отменено.",
     "Date": "Дата",
     "Subtotal": "Подытог",
-    "Amount Due": "Платёж от",
+    "Amount Due": "Сумма к оплате",
     "Tax": "Комиссия",
     "Submit Payment": "Отправить платёж",
     "Purchase": "Приобрести",
@@ -452,5 +452,6 @@
     "By using our game server hosting services, you acknowledge that you have read, understood and agree to be bound by the terms of this Agreement.": "Используя наши услуги хостинга игровых серверов, вы признаете, что ознакомились, поняли и согласились быть связанными условиями настоящего Соглашения.",
     "Сontrol panel \"Pterodactyl\" to manage your servers. Use the same login credentials": "Панель Pterodactyl для управления вашими серверами. Используйте те же самые данные для входа",
     "Our server in Discord, that's where all the latest news is": "Сервер в Дискорде, все актуальные новости именно там",
-    "Control panel": "Панель управления"
+    "Control panel": "Панель управления",
+    "Whoops! Something went wrong.": "Что-то пошло не так!"
 }

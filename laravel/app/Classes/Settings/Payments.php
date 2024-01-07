@@ -27,6 +27,8 @@ class Payments
             'paypalych-shop-id' => 'nullable|string',
             'paypalych-secret-key' => 'nullable|string',
             'paypalych-enabled' => 'nullable|boolean',
+            'minimum-amount' => 'numeric|min:1|max:999999',
+            'maximum-amount' => 'numeric|min:1|max:999999',
             'sales-tax' => 'nullable|numeric',
         ]);
         if ($validator->fails()) {
@@ -45,6 +47,8 @@ class Payments
             'SETTINGS::PAYMENTS:YOOKASSA:SECRET_KEY' => 'yookassa-secret-key',
             'SETTINGS::PAYMENTS:PAYPALYCH:SHOP_ID' => 'paypalych-shop-id',
             'SETTINGS::PAYMENTS:PAYPALYCH:SECRET_KEY' => 'paypalych-secret-key',
+            'SETTINGS::PAYMENTS:MINIMUM_AMOUNT' => 'minimum-amount',
+            'SETTINGS::PAYMENTS:MAXIMUM_AMOUNT' => 'maximum-amount',
             'SETTINGS::PAYMENTS:SALES_TAX' => 'sales-tax',
         ];
 

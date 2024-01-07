@@ -56,11 +56,11 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::resource('products', ProductController::class);
 
     //store
-    Route::get('store/datatable', [ShopProductController::class, 'datatable'])->name('store.datatable');
-    Route::patch('store/disable/{shopProduct}', [ShopProductController::class, 'disable'])->name('store.disable');
-    Route::resource('store', ShopProductController::class)->parameters([
-        'store' => 'shopProduct',
-    ]);
+    // Route::get('store/datatable', [ShopProductController::class, 'datatable'])->name('store.datatable');
+    // Route::patch('store/disable/{shopProduct}', [ShopProductController::class, 'disable'])->name('store.disable');
+    // Route::resource('store', ShopProductController::class)->parameters([
+    //     'store' => 'shopProduct',
+    // ]);
 
     //payments
     Route::get('payments/datatable', [PaymentController::class, 'datatable'])->name('payments.datatable');

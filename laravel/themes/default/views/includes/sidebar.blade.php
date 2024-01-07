@@ -258,11 +258,11 @@
                             {{ __('Products') }}
                         </a>
                     </li>
-                    <li
+                    {{-- <li
                         class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 @if (Request::routeIs('admin.store.*')) text-gray-800 dark:text-gray-100 @endif">
                         <a class="w-full inline-block"
                             href="{{ route('admin.store.index') }}">{{ __('Store') }}</a>
-                    </li>
+                    </li> --}}
                     <li
                         class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 @if (Request::routeIs('admin.vouchers.*')) text-gray-800 dark:text-gray-100 @endif">
                         <a class="w-full inline-block"

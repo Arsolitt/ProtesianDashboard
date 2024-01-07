@@ -2,71 +2,43 @@
 
 use App\Events\PaymentEvent;
 use App\Events\UserUpdateCreditsEvent;
-use App\Models\PartnerDiscount;
 use App\Models\Payment;
-use App\Models\ShopProduct;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 use App\Notifications\ConfirmPaymentNotification;
 use YooKassa\Client;
 use YooKassa\Model\Notification\NotificationCanceled;
 use YooKassa\Model\Notification\NotificationSucceeded;
-use YooKassa\Model\NotificationEventType;
-
-
+use YooKassa\Model\Notification\NotificationEventType;
 
 
 function YookassaPay(Request $request)
 {
-
-    $user = Auth::user();
-    $client = getYookassaClient();
-    $shopProduct = ShopProduct::findOrFail($request->shopProduct);
-    $discount = PartnerDiscount::getDiscount();
-
-    if ($shopProduct->currency_code != 'RUB'){
-        $shopProduct->price = $shopProduct->price * 100;
-        $shopProduct->currency_code = 'RUB';
+    $payment = Payment::findOrFail($request->payment_internal_id);
+    if ($payment->status === 'paid' || $payment->status === 'pending') {
+        Redirect::route('home')->with('success', 'Платёж уже в обработке!')->send();
     }
-
-    // create a new payment
-    $payment = Payment::create([
-        'user_id' => $user->id,
-        'payment_id' => null,
-        'payment_method' => 'YooKassa',
-        'type' => $shopProduct->type,
-        'status' => 'open',
-        'amount' => $shopProduct->quantity,
-        'price' => $shopProduct->price - ($shopProduct->price * $discount / 100),
-        'tax_value' => $shopProduct->getTaxValue(),
-        'tax_percent' => $shopProduct->getTaxPercent(),
-        'total_price' => $shopProduct->getTotalPrice(),
-        'currency_code' => $shopProduct->currency_code,
-        'shop_item_product_id' => $shopProduct->id,
-    ]);
-
-
+    $user = User::findOrFail($payment->user_id);
+    $client = getYookassaClient();
 
     try {
         $response = $client->createPayment(
             array(
                 'amount' => array(
-                    'value' => $shopProduct->getTotalPrice(),
-                    'currency' => $shopProduct->currency_code,
+                    'value' => $payment->total_price,
+                    'currency' => $payment->currency_code,
                 ),
                 'confirmation' => array(
                     'type' => 'redirect',
-                    'return_url' => route('store.index'),
+                    'return_url' => route('payment.YookassaSuccess', $payment->id),
                 ),
                 'capture' => true,
-                'description' => 'Пополнение баланса ProtesiaN Host',
+                'description' => 'Пополнение баланса Veroid',
                 "metadata" => array(
                     'user_id' => $payment->user_id,
-                    'payment_id' => $payment->id,
-                    'shop_product_id' => $payment->shop_item_product_id,
+                    'internal_payment_id' => $payment->id,
                 ),
                 "receipt" => array(
                     "customer" => array(
@@ -75,7 +47,7 @@ function YookassaPay(Request $request)
                     ),
                     "items" => array(
                         array(
-                            "description" => "Пополнение баланса ProtesiaN Host",
+                            "description" => "Пополнение баланса Veroid",
                             "quantity" => "1.00",
                             "amount" => array(
                                 "value" => $payment->price,
@@ -88,8 +60,12 @@ function YookassaPay(Request $request)
                     )
                 )
             ),
-            uniqid('protesian_', true)
+            uniqid('veroid_', true)
         );
+        $payment->update([
+            'payment_id' => $response->getId(),
+            'status' => 'pending',
+        ]);
         Redirect::to($response->getConfirmation()->getConfirmationUrl())->send();
     } catch (\Exception $ex) {
         Log::error('Yookassa Payment: ' . $ex->getMessage());
@@ -101,7 +77,6 @@ function YookassaPay(Request $request)
 
 function YookassaNotification(Request $request)
 {
-    Log::info('YooKassa notification');
     $IPWhitelist = array(
         "185.71.76.0/27",
         "185.71.77.0/27",
@@ -114,79 +89,75 @@ function YookassaNotification(Request $request)
         "127.0.0.1",
         "77.75.153.78",
     );
-    if(!in_array($request->header('CF-Connecting-IP'), $IPWhitelist)) {
+    if (!in_array($request->header('CF-Connecting-IP'), $IPWhitelist)) {
         Log::error('IP ' . $request->header('CF-Connecting-IP') . ' not in whitelist');
         return response('IP is not in whitelist', 403);
     }
-    // if(!in_array($request->ip(), $IPWhitelist)) {
-    //     Log::error('IP ' . $request->ip() . ' not in whitelist');
-    //     return response('IP is not in whitelist', 403);
-    // }
-
-
     try {
-        $source = file_get_contents('php://input');
-        $requestBody = json_decode($source, true);
-
-        $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED)
-            ? new NotificationSucceeded($requestBody)
-            : new NotificationCanceled($requestBody);
+        $data = json_decode($request->getContent(), true);
+        $notification = ($data['event'] === NotificationEventType::PAYMENT_SUCCEEDED)
+            ? new NotificationSucceeded($data)
+            : new NotificationCanceled($data);
 
         $client = getYookassaClient();
         $YooPayment = $client->getPaymentInfo($notification->getObject()->id);
         $metadata = $YooPayment->getMetadata()->toArray();
 
-        $user = Auth::user();
         $user = User::findOrFail($metadata['user_id']);
-        $payment = Payment::findOrFail($metadata['payment_id']);
-        $shopProduct = ShopProduct::findOrFail($metadata['shop_product_id']);
-        Log::info('User ID ' . $metadata['user_id']);
-        Log::info('Payment ID ' . $metadata['payment_id']);
-        Log::info('Payment amount ' . $YooPayment->amount->value . ' ' . $YooPayment->amount->currency);
-        Log::info('Payment status ' . $YooPayment->status);
+        $payment = Payment::findOrFail($metadata['internal_payment_id']);
 
-        if ($YooPayment->status === 'succeeded' && Payment::where('payment_id', $metadata['payment_id'])->count() == 0) {
+        $logInfo = array(
+            "NotificationSource" => "Payment Gateway",
+            "UserID" => $payment->user_id,
+            "PaymentMethod" => $payment->payment_method,
+            "PaymentID" => $payment->id,
+            "PaymentAmount" => $payment->total_price,
+            "PaymentStatus" => $YooPayment->status === 'succeeded' ? 'paid' : 'cancelled',
+        );
+        Log::info(json_encode($logInfo));
+
+        if ($YooPayment->status === 'succeeded') {
             //update payment
             $payment->update([
                 'status' => 'paid',
-                'payment_id' => $notification->getObject()->id,
             ]);
 
             $user->notify(new ConfirmPaymentNotification($payment));
-
             event(new UserUpdateCreditsEvent($user));
-            event(new PaymentEvent($user, $payment, $shopProduct));
+            event(new PaymentEvent($user, $payment));
 
-            return response('Successfully', 200);
-
-        }elseif($YooPayment->status === 'canceled') {
-                $payment->update([
-                    'status' => 'cancelled',
-                    'payment_id' => $notification->getObject()->id,
-                ]);
-                return response('Successfully', 200);
         } else {
-            return response('Internal Error', 500);
+            $payment->update([
+                'status' => 'cancelled',
+            ]);
         }
-    }catch (\Exception $e) {
+        return response('Successfully', 200);
+    } catch (\Exception $e) {
         Log::error($e);
     }
 }
+
+function YookassaSuccess()
+{
+    Redirect::route('home')->with('success', 'Платёж обрабатывается')->send();
+}
+
+function YookassaFailed(Request $request)
+{
+    $payment = Payment::find($request->payment_internal_id);
+    if ($payment->status === 'open' || $payment->status === 'pending') {
+        $payment->update([
+            'status' => 'cancelled'
+        ]);
+    }
+    Redirect::route('home')->with('error', 'Платёж не удался')->send();
+}
+
 function getYookassaClient()
 {
     $client = new Client();
-    $shopID = config("SETTINGS::PAYMENTS:YOOKASSA:SHOP_ID");
-    $secretKey = config("SETTINGS::PAYMENTS:YOOKASSA:SECRET_KEY");
+    $shopID = '263883';
+    $secretKey = 'test_BioCumMlA9y79ehaxxab1XN-HimHHokKtA-GZbeSGr4';
     $client->setAuth($shopID, $secretKey);
     return $client;
-}
-
-function getYookassaShopId()
-{
-    return config("SETTINGS::PAYMENTS:YOOKASSA:SHOP_ID");
-}
-
-function getYookassaSecretKey()
-{
-    return config("SETTINGS::PAYMENTS:YOOKASSA:SECRET_KEY");
 }

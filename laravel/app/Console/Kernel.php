@@ -17,8 +17,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('credits:charge')->hourly();
-        $schedule->command('cp:versioncheck:get')->daily();
-        $schedule->command('payments:open:clear')->daily();
+        $schedule->command('payments:pending:clear')->hourly();
+        $schedule->command('payments:open:clear')->hourly();
 
         //log cronjob activity
         $schedule->call(function () {

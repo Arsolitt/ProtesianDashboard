@@ -58,10 +58,18 @@
             <x-card title="Other" class="p-0 shadow-none" style="padding: 0 !important;">
                 <x-label title="Tax Value in %">
                     <x-input x-todo="sales-tax" id="sales-tax" name="sales-tax" type="number" step=".01"
-                        value="{{ config('SETTINGS::PAYMENTS:SALES_TAX') }}" />
+                             value="{{ config('SETTINGS::PAYMENTS:SALES_TAX') }}" />
                     @slot('text')
                         Tax Value that will be added to the total price of the order. <br>Example: 19 results in (19%)
                     @endslot
+                </x-label>
+                <x-label title="Minimum payment amount">
+                    <x-input x-todo="minimum-amount" id="minimum-amount" name="minimum-amount" type="number" step="1"
+                             value="{{ config('SETTINGS::PAYMENTS:MINIMUM_AMOUNT') }}" />
+                </x-label>
+                <x-label title="Maximum payment amount">
+                    <x-input x-todo="maximum-amount" id="maximum-amount" name="maximum-amount" type="number" step="1"
+                             value="{{ config('SETTINGS::PAYMENTS:MAXIMUM_AMOUNT') }}" />
                 </x-label>
             </x-card>
 
