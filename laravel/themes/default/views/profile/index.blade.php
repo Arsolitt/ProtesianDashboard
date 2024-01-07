@@ -102,7 +102,7 @@
                                         @if (
                                             (config('SETTINGS::REFERRAL::ALLOWED') == 'client' && $user->role != 'member') ||
                                                 config('SETTINGS::REFERRAL::ALLOWED') == 'everyone')
-                                            <strong class="">Referral URL:</strong> &nbsp;
+                                            <strong class="">{{__('Referral URL')}}:</strong> &nbsp;
                                             {{ route('register') }}?ref={{ $user->referral_code }}
                                         @else
                                             <span
