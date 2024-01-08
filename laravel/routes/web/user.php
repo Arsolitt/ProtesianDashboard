@@ -6,12 +6,6 @@ use App\Http\Controllers\ServerController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-
-    return back()->with('success', 'Verification link sent!');
-})->middleware(['auth', 'throttle:3,1'])->name('verification.send');
-
 Route::get('notifications/readAll', [NotificationController::class, 'readAll'])->name('notifications.readAll');
 Route::resource('notifications', NotificationController::class);
 Route::resource('servers', ServerController::class);
