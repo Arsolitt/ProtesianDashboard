@@ -653,5 +653,14 @@
     "ru": "Russian",
     "sv": "Swedish",
     "sk": "Slovakish",
-    "hu": "Hungarian"
+    "hu": "Hungarian",
+    "Да, хостинг.": "Yeah, hosting.",
+    "Да, не лучший.": "Yeah, it's not the best.",
+    "Да, не самый дешёвый.": "Yeah, it's not the cheapest.",
+    "Да, у нас нет свапа.":  "Yeah, we don't have a swap.",
+    "Да, у нас нет оверсела.": "Yeah, we don't have an overdrive.",
+    "Да, мы не ограничиваем процессор на узлах.":  "Yes, we don't limit the CPU on nodes.",
+    "А в поддержке у нас сидят только умные и красивые.": "And we only have the smartest people in support.",
+    "На любой вопрос ответят, даже сборку вам помогут собрать.":"They'll answer any question, they'll even help you build server pack.",
+    "И расскажут о древних шаманских техниках оптимизации серверов!": "And they'll tell you about ancient shamanic techniques of server optimization!"
 }
