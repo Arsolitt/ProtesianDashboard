@@ -14,7 +14,7 @@
 <h2>{{ __('3. Payment and reimbursement of funds') }}</h2>
 <p>{{ __('3.1 Prices for our game server hosting services are available on our website / Discord server and are subject to change without notice.') }}</p>
 <p>{{ __('3.2 You agree to pay all fees associated with your account on time. If you fail to pay, your account may be suspended or blocked.') }}</p>
-<p>{{ __('3.3 We will provide a refund and reserve the right to withhold a penalty of 25% of the top-up amount, unless there is a confirmed technical failure on our part which prevents you from accessing our services, such cases will be dealt with on an individual basis.') }}</p>
+<p>{{ __('3.3 We provide refunds and reserve the right to withhold a penalty of 25% of the unused top-up amount, unless there are confirmed technical failures on our part which prevent you from accessing our services, such cases will be dealt with on an individual basis.') }}</p>
 <h2>{{ __('4. Termination') }}</h2>
 <p>{{ __('4.1 Either party may terminate this Agreement at any time by providing written notice to the other party.') }}</p>
 <p>{{ __('4.2 In the event of termination, you will no longer have access to our game server hosting services and any balance in your account will be canceled.') }}</p>
