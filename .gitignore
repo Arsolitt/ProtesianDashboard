@@ -3,11 +3,12 @@ laravel/.env
 laravel/storage/logs/
 laravel/storage/files/
 laravel/storage/storage/
+laravel/storage/export/
 laravel/vendor/
 laravel/install.lock
 laravel/public/install/logs/
 laravel/public/storage
 laravel/node_modules
 .idea
-mysql/data
-redis/data
+mysql/
+redis/

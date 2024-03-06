@@ -1,11 +1,13 @@
 ################ Docker commands ################
 
-# создание образа с нуля
-build:
-	docker-compose build --no-cache
 # ребилд без глобальных изменений
-rebuild:
+build:
 	docker-compose build
+
+# создание образа с нуля
+rebuild:
+	docker-compose build --no-cache
+
 # создать контейнер
 up:
 	docker-compose up -d

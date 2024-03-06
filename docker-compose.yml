@@ -70,6 +70,8 @@ services:
     volumes:
       - "./mysql/data:/var/lib/mysql"
       - "./mysql/init:/docker-entrypoint-initdb.d"
+    ports:
+      - "${DB_PORT}:3306"
     networks:
       - dashboard
 
